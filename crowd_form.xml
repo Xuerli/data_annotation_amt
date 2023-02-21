@@ -100,59 +100,28 @@
           text-align: left;
           padding: 3%;
         }
-      /* Tooltip container */
-      .tooltip {
-        position: relative;
-        display: inline-block;
-        width: 700pt;
-        text-align: center;
-        margin-top: 5px;
-      }
-
-      /* Tooltip text */
-      .tooltip .tooltiptext {
-        visibility: hidden;
-        width: 50%;
-        background-color: #555;
-        color: #fff;
-        text-align: left;
-        padding: 5px 0;
-        border-radius: 6px;
-
-        /* Position the tooltip text */
-        position: absolute;
-        z-index: 1;
-        bottom: 125%;
-        left: 50%;
-        margin-left: -120px;
-
-        /* Fade in tooltip */
-        opacity: 0;
-        transition: opacity 0.3s;
-
-      }
-
-      /* Tooltip arrow */
-      .tooltip .tooltiptext::after {
-        content: "";
-        position: absolute;
-        top: 100%;
-        left: 50%;
-        margin-left: -5px;
-        border-width: 5px;
-        border-style: solid;
-        border-color: #555 transparent transparent transparent;
-          }
-
-          /* Show the tooltip text when you mouse over the tooltip container */
-          .tooltip:hover .tooltiptext {
-            opacity: 1;
-            visibility: visible;
-          }
-
-        .show {
-            visibility: visible;
+        .claim-container{
+          margin-left: auto;
+          margin-right: auto;
+          margin-bottom: 10pt
+          background: rgba(245, 245, 245);
+          border-radius: 25px;
+          padding: 3%;
+          max-width: 900px;
         }
+    claim {
+            justify-self: center;
+            grid-column: 1 / -1;
+            outline: none;
+            border: 0;
+            border-radius: 10px;
+            height: 40px;
+            width: 90%;
+            background-color: var(--main-color);
+            color: white;
+            font-size: 1em;
+        }
+
         </style>
   </head>
 <!-- For the full list of available Crowd HTML Elements and their input/output documentation,
@@ -170,6 +139,7 @@
   </full-instructions>
   <crowd-tabs>
     <crowd-tab header="Overview and Consent">
+        <div class = "claim-container">
          <h2>Overview</h2>
          <p>In this job, you will answer questions about given claims.
          Although these claims are about climate change,
@@ -265,13 +235,14 @@ To request this document in an alternative format, such as large print or on col
 General information.
 For general information about how we use your data, go to: edin.ac/privacy-research </p>
 <div class="checkbox-container" style="margin-left: 45%">
-<input type="checkbox" style="margin-left: 12%; margin-top: 12%; margin-bottom:5px;"  name="agree" id="agree" onclick="myFunction()" required="true">I Agree</input>
+<input type="checkbox" style="margin-left: 12%; margin-top: 12%; margin-bottom:5px;"  name="agree" id="agree" onclick="getMyToolTipFunction()" required="true">&#032; I Agree</input>
 </div>
-
+</div>
 
     </crowd-tab>
 
     <crowd-tab header="Instructions">
+      <div class = "claim-container">
       <h2>What are conditional claims?</h2>
       <p>
         A conditional claim consists of a condition and a conclusion. It often takes the form of 'If P, then Q'.  GIVE FAMILIER EXAMPLE.
@@ -316,38 +287,38 @@ For general information about how we use your data, go to: edin.ac/privacy-resea
         <!--            media="(orientation: portrait)">-->
             <img src="https://drive.google.com/uc?export=view&id=1ZUHRFyca8ulG_XMGZTGOywN5EcTsfMwQ" width="300" height="180">
         <!--</picture>-->
-
+            </img>
+      </div>
     </crowd-tab>
 
-    <crowd-tab header="Data Annotation">
-        <h3>Please read the given claims below, where the Claim 2 and Claim 3 are the condition and the conclusion of Claim 3's, respectively.</h3>
+    <crowd-tab header="Data Annotation (HIT Task Entry)">
+         <div class="claim-container">
+                <h3>Please read the given claims below, where the Claim 2 and Claim 3 are the condition and the conclusion of Claim 3's, respectively.</h3>
+             <p><b>Claim 1:</b>  &emsp; ${ant}, &#032;  ${con}</p>
+             <p><b> Claim 2:</b>  &emsp; ${claimAnt}</p>
+             <p><b> Claim 2:</b>  &emsp; ${claimCon} </p>
+         </div>
       <div class="grid-container">
           <!-- <div class="wrapper"> -->
-              <label id="name-label" for="name">Claim 1:</label>
-              <input name = 'cct' placeholder=${ant} />
-              <label> Claim 2:</label>
-               <input name = 'antt' style="color:green;" placeholder =${claimAnt} />
-              <label > Claim 3:</label>
-               <input name = 'cont' style="color:blue;" placeholder =${claimCon} />
 
               <!-- Option from a Dropdown -->
              <p>Q1. Which of the following describe Claim1 the best?</p>
-            <select name="Q1" id="dropdown1", required>
+            <select name="Q1" id="dropdown1" onChange= "invisiableQ5Q51()" required>
             <!--<option value="" selected>Q1. Which of the following describe Claim1 the best?</option>-->
             <option value="">Please choose from the options below. </option>
             <option value="0">It is a conditional claim </option>
             <option value="1">It is not a conditional claim. </option>
           </select>
           <!-- Option from a Dropdown -->
-          <p>Q2. Which do you agree about the speaker of Claim 3?</p>
-            <select name="Q2" id="dropdown2", required>
+          <p>Q2. Which do you agree about the speaker's belief?</p>
+            <select name="Q2" id="dropdown2" required>
             <!--<option value="" selected>Q1. Which of the following describe Claim1 the best?</option>-->
             <option value="">Please choose from the options below. </option>
             <option value="1">Claim 3 implies the speaker thinks Claim2 is not true.</option>
             <option value="2">Claim 3 does not imply the speaker thinks Claim2 is not true. </option>
           </select>
           <p> Q3. Which of the following describe Claim2 the best? </p>
-              <select name="Q3" id="dropdown3", required>
+              <select name="Q3" id="dropdown3" required>
             <!--<option value="" selected>Q3. Which of the following describe Claim2 the best?</option>-->
             <option value="">Please choose from the options below. </option>
             <option value="0">It is verifiable and it is true. </option>
@@ -356,7 +327,7 @@ For general information about how we use your data, go to: edin.ac/privacy-resea
             <option value="3">It is verifiable but I do not know if it is true or false. </option>
           </select>
           <p>Q3.1. Please choose the level of confidence of your last answer about Claim2.</p>
-              <select name="Q31" id="dropdown31", required>
+              <select name="Q31" id="dropdown31" required>
             <!--<option value="" selected>Q3.1. Please choose the level of confidence of your answer to Q3.</option>-->
             <option value="">Please choose from the options below. </option>
             <option value="0">Very High. </option>
@@ -367,7 +338,7 @@ For general information about how we use your data, go to: edin.ac/privacy-resea
           </select>
               <p>Q4. Which of the following describe Claim 3 the best?</p>
               <!-- Option from a Dropdown -->
-              <select name="Q4" id="dropdown4", required>
+              <select name="Q4" id="dropdown4" required>
             <!--<option value="" selected>Q4. Which of the following describe Claim 3 the best?</option>-->
             <option value="">Please choose from the options below. </option>
             <option value="0">It is verifiable and it is true. </option>
@@ -376,7 +347,7 @@ For general information about how we use your data, go to: edin.ac/privacy-resea
             <option value="3">It is verifiable but I do not know if it is true or false. </option>
           </select>
               <p>Q4.1. Please choose the level of confidence of your last answer about Claim 3.</p>
-              <select name="Q41" id="dropdown41", required>
+              <select name="Q41" id="dropdown41" required>
             <!--<option value="" selected>Q4.1 Please choose the level of confidence of your answer to Q4.</option>-->
             <option value="">Please choose from the options below. </option>
             <option value="0">Very High. </option>
@@ -385,9 +356,9 @@ For general information about how we use your data, go to: edin.ac/privacy-resea
             <option value="3">Low. </option>
             <option value="4">Very Low. </option>
           </select>
-              <p>Q5. If Claim 2 was true, would Claim 3 also become true as a result?</p>
+              <p id="p5">Q5. If Claim 2 was true, would Claim 3 also become true as a result?</p>
               <!-- Option from a Dropdown -->
-              <select name="Q5" id="dropdown5", required>
+              <select name="Q5" id="dropdown5" required>
             <!--<option value="" selected>Q5. If Claim 2 was true, would Claim 3 also become true as a result?</option>-->
             <option value="">Please choose from the options below. </option>
             <option value="0">It is not verifiable. </option>
@@ -395,8 +366,8 @@ For general information about how we use your data, go to: edin.ac/privacy-resea
             <option value="2">It is verifiable and it is false. </option>
             <option value="3">It is verifiable but I do not know if it is true or false. </option>
           </select>
-              <p>Q5.1. Please choose the level of confidence of your answer to Q5.</p>
-              <select name="Q51" id="dropdown51", required>
+              <p id="p51"> Q5.1. Please choose the level of confidence of your answer to Q5.</p>
+              <select name="Q51" id="dropdown51" required>
             <!--<option value="" selected>>Select an option below.</option>-->
             <option value="">Please choose from the options below. </option>
             <option value="0">Very High. </option>
@@ -407,12 +378,7 @@ For general information about how we use your data, go to: edin.ac/privacy-resea
           </select>
         </div>
 
-        <div class="tooltip">
-        <button type="submit" id="submitButton"  class="shadow" value="Submit" onclick="showAlert()"  style="margin-left: 5%"> Submit</button>
-        <span class="tooltiptext" id="hint" > <p> &emsp; To submit, please agree our consent by checking 'I Agree' </p>
-            <p>&emsp; at bottom of the page 'Overview and Consent'.</p></span>
-        </div>
-
+        <button type="submit" id="submitButton"  class="shadow" value="Submit" onclick="showAlert()"  style="margin-left: 45%; margin-top: 10pt"> Submit</button>
 <script>
  function showAlert() {
    // Get the checkbox
@@ -420,24 +386,52 @@ For general information about how we use your data, go to: edin.ac/privacy-resea
      if (checkBox.checked == false){
      var myText = "Sorry, your submission is failed because you have not agreed on our consent. Please try again after clicking 'I Agree' at the bottom of the page 'Overview and Consent'.";
     alert (myText);
- var tooltip = document.getElementById("hint");
- tooltip.visibility = 'visible'
    }
   }
 
-  function myFunction() {
-  // Get the checkbox
-  var checkBox = document.getElementById("agree");
-  // Get the output text
-  var text = document.getElementById("text");
 
-  // If the checkbox is checked, display the output text
-  if (checkBox.checked == false){
-    text.style.display = "block";
-  } else {
-    text.style.display = "none";
-  }
+/*const elementsToDisable = document.querySelectorAll("select")
+//elementsToDisable.forEach(element => {
+    element.setAttribute("disabled", true);
+  });
+*/
+
+
+   function disableQ5Q51 () {
+     var q5 =document.getElementById("dropdown5")
+     var q51 =document.getElementById("dropdown51")
+     option = "<option> Please skip this question. </option>"
+    if (document.getElementById("dropdown1").value === "1") {
+        q5.disabled = true;
+        q51.disabled = true;
+        q5.innerHTML = option;
+        q51.innerHTML = option;
+      }
+    else{
+        q5.disabled = false;
+        q51.disabled = false;
+    }
 }
+
+    function invisiableQ5Q51 () {
+     var q5 =document.getElementById("dropdown5")
+     var q51 =document.getElementById("dropdown51")
+     var p5 =document.getElementById("p5")
+     var p51 =document.getElementById("p51")
+    if (document.getElementById("dropdown1").value === "1") {
+        q5.hidden = true;
+        q51.hidden = true;
+        p5.hidden = true;
+        p51.hidden = true;
+      }
+    else{
+        q5.hidden = false;
+        q51.hidden = false;
+        p5.hidden = false;
+        p51.hidden = false;
+    }
+}
+
 </script>
     </crowd-tab>
   </crowd-tabs>
