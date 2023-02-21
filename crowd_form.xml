@@ -14,8 +14,12 @@
         h1#title, p#description {
         	text-align: center;
         }
-        table, th, td {
+        table.table1, table.table1 th, table.table1 td {
           border:1px solid black;
+        }
+         table.table2 th, table.table2 td {
+            border-spacing: 5px 1rem;
+            border-bottom:1px ridge black;
         }
      crowd-form {
         	margin-left: auto;
@@ -151,7 +155,7 @@
       <p style ="color:blue;">  Your work will only be submitted if you agree with the consent, by clicking the checkbox at the bottom of this page. </p>
 
  <h2>   Participant Information Sheet </h2>
-<table style="width:100%">
+<table class="table1">
   <tr>
     <th>Project title</th>
     <td>Causal Knowledge Graphs for Counterfactual Claims Reasoning in Climate Change</td>
@@ -293,10 +297,23 @@ For general information about how we use your data, go to: edin.ac/privacy-resea
 
     <crowd-tab header="Data Annotation (HIT Task Entry)">
          <div class="claim-container">
-                <h3>Please read the given claims below, where the Claim 2 and Claim 3 are the condition and the conclusion of Claim 3's, respectively.</h3>
-             <p><b>Claim 1:</b>  &emsp; ${ant}, &#032;  ${con}</p>
-             <p><b> Claim 2:</b>  &emsp; ${claimAnt}</p>
-             <p><b> Claim 2:</b>  &emsp; ${claimCon} </p>
+             <h3>Please read the given claims below, where the Claim 2 and Claim 3 are the condition and the conclusion of Claim 3's, respectively.</h3>
+             <table class="table2">
+                    <col style="width:10%; margin-left = 5pt">
+	                <col style="width:80%; margin-left = 15pt">
+                      <tr>
+                        <th>Claim 1</th>
+                        <td>${ant}, &#032;  ${con}</td>
+                      </tr>
+                      <tr>
+                        <th >Claim 2</th>
+                        <td>${claimAnt}</td>
+                      </tr>
+                      <tr>
+                          <th>Claim 3</th>
+                          <td>${claimCon}</td>
+                      </tr>
+             </table>
          </div>
       <div class="grid-container">
           <!-- <div class="wrapper"> -->
