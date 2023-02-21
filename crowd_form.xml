@@ -1,0 +1,446 @@
+<!-- You must include this JavaScript file -->
+<html>
+
+<head>
+<style>
+    :root {
+        	--main-color: rgb(187, 184, 117);
+        }
+
+        body {
+        	background: var(--main-color);
+        }
+
+        h1#title, p#description {
+        	text-align: center;
+        }
+        table, th, td {
+          border:1px solid black;
+        }
+     crowd-form {
+        	margin-left: auto;
+        	margin-right: auto;
+        	background: rgba(245, 245, 245);
+        	border-radius: 25px;
+        	padding: 3%;
+        	max-width: 80%;
+        	display: grid;
+        	<!-- grid-template-columns: 1fr 2fr; -->
+        	grid-gap: 20px 10px;
+        	align-items: start;
+        }
+
+
+    input, select {
+        	padding: 8px;
+        	border-radius: 5px;
+        	border-style: inset;
+        	border-width: 1px;
+        	outline-style: none;
+        }
+        h2 {
+        	letter-spacing: 2px;
+        }
+
+        h2, p, table, th, tb {
+        	text-align: left;
+        }
+
+      crowd-input {
+        	padding: 8px;
+        	border-radius: 5px;
+        	border-style: inset;
+        	border-width: 1px;
+        	outline-style: none;
+        }
+       .checkbox-container, button {
+            justify-self: center;
+            grid-column: 1 / -1;
+            outline: none;
+            border: 0;
+            border-radius: 10px;
+            height: 40px;
+            width: 100px;
+            background-color: var(--main-color);
+            color: white;
+            font-size: 1em;
+        }
+      .shadow {
+          -moz-box-shadow:    2px 2px 3px 3px #ccc;
+          -webkit-box-shadow: 2px 2px 3px 3px #ccc;
+          box-shadow:         2px 2px 3px 3px #ccc;
+        }
+
+        crowd-input:focus,
+        select:focus {
+        	box-shadow: 0 0 3pt 2pt var(--main-color);
+        }
+
+        crowd-button:active {
+        	transform: translateY(2px) translateX(2px);
+        	  -moz-box-shadow:    0px 0px 1px 1px #ccc;
+        	  -webkit-box-shadow: 0px 0px 1px 1px #ccc;
+        	  box-shadow:         0px 0px 1px 1px #ccc;
+        }
+      .grid-container {
+          margin-left: auto;
+          margin-right: auto;
+          background: rgba(245, 245, 245);
+          border-radius: 25px;
+          padding: 3%;
+          max-width: 900px;
+          display: grid;
+          grid-template-columns: 50% 50%;
+          grid-gap: 20px 10px;
+          align-items: baseline;
+        }
+
+      .grid-container > div {
+          background-color: rgba(245, 245, 245);
+          text-align: left;
+          padding: 3%;
+        }
+      /* Tooltip container */
+      .tooltip {
+        position: relative;
+        display: inline-block;
+        width: 700pt;
+        text-align: center;
+        margin-top: 5px;
+      }
+
+      /* Tooltip text */
+      .tooltip .tooltiptext {
+        visibility: hidden;
+        width: 50%;
+        background-color: #555;
+        color: #fff;
+        text-align: left;
+        padding: 5px 0;
+        border-radius: 6px;
+
+        /* Position the tooltip text */
+        position: absolute;
+        z-index: 1;
+        bottom: 125%;
+        left: 50%;
+        margin-left: -120px;
+
+        /* Fade in tooltip */
+        opacity: 0;
+        transition: opacity 0.3s;
+
+      }
+
+      /* Tooltip arrow */
+      .tooltip .tooltiptext::after {
+        content: "";
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        margin-left: -5px;
+        border-width: 5px;
+        border-style: solid;
+        border-color: #555 transparent transparent transparent;
+          }
+
+          /* Show the tooltip text when you mouse over the tooltip container */
+          .tooltip:hover .tooltiptext {
+            opacity: 1;
+            visibility: visible;
+          }
+
+        .show {
+            visibility: visible;
+        }
+        </style>
+  </head>
+<!-- For the full list of available Crowd HTML Elements and their input/output documentation,
+      please refer to https://docs.aws.amazon.com/sagemaker/latest/dg/sms-ui-template-reference.html -->
+<script src="https://assets.crowd.aws/crowd-html-elements.js"></script>
+<body>
+<!-- You must include crowd-form so that your task submits answers to MTurk -->
+<crowd-form>
+  <short-instructions>
+    Your short instructions here.
+  </short-instructions>
+
+  <full-instructions>
+    Your full instructions here.
+  </full-instructions>
+  <crowd-tabs>
+    <crowd-tab header="Overview and Consent">
+         <h2>Overview</h2>
+         <p>In this job, you will answer questions about given claims.
+         Although these claims are about climate change,
+         our study does not test your personal opinions about climate change but looks for objective answers to analyse these claims.
+         Thus, please answer to your best knowledge. Please read the instructions first.
+         You will be paid a reward of $4.50  ($4.40 reward + $0.10 HIT compensation) for every time you successfully complete the HIT.
+         You must complete the annotation task (a single HIT) in one session.
+         For information about our project and your privacy, please read the consent below. </p>
+      <p style ="color:blue;">  Your work will only be submitted if you agree with the consent, by clicking the checkbox at the bottom of this page. </p>
+
+ <h2>   Participant Information Sheet </h2>
+<table style="width:100%">
+  <tr>
+    <th>Project title</th>
+    <td>Causal Knowledge Graphs for Counterfactual Claims Reasoning in Climate Change</td>
+  </tr>
+  <tr>
+    <th>Principal investigator</th>
+    <td>Björn Ross, Vaishak Belle</td>
+  </tr>
+  <tr>
+    <th>Researcher collecting data</th>
+    <td>Xue Li</td>
+  </tr>
+  <tr>
+    <th>Funder</th>
+    <td>UKRI</td>
+  </tr>
+</table>
+
+<p>This study was certified according to the Informatics Research Ethics Process,
+RT number 217233. Please take time to read the following information carefully. </p>
+
+ <h3>Who are the researchers? </h3>
+<p>Björn Ross, Lecturer in the ILCC/ELIAI institutes, the University of Edinburgh; </p>
+<p>Vaishak Belle, Reader in the AIAI/ELIAI institutes, the University of Edinburgh; </p>
+<p>Xue Li, Postdoc in the ILCC/AIAI/ELIAI institutes, the University of Edinburgh. </p>
+
+ <h3>What is the purpose of the study? </h3>
+<p>We are working on developing a system to automatically detect misinformation from counterfactual claims in the domain of climate change.
+In this study, human participants will be needed to annotate selected Reddit claims with their truth values, to generate training data for the misinformation detection system.
+This annotation will be done via public platforms, i.e., Amazon Mechanical Turk, which protects participants' personal information.
+During the annotation, participants will give truth values using a web App that we wrote, which does not collect any personal information.</p>
+
+ <h3>Why have I been asked to take part? </h3>
+<p>You have been asked to take part because you choose to annoate our data via Amazon Mechanical Turk.</p>
+
+ <h3>Do I have to take part? </h3>
+<p>No – participation in this study is entirely up to you. You can stop and at any time, without giving a reason.
+In our study, no personal data will be asked or touched in any way.
+We will only use the truth values that you labelled for the purpose of this study.
+Your rights will not be affected. If you wish to withdraw, contact the PI.
+We will keep copies of your original consent, and of your withdrawal request.</p>
+
+<h3>What will happen if I decide to take part? </h3>
+<p>That means you have read this consent and are happy with it. Then you will be given the data as pairs of an antecedent and a consequence via this web App, of which you will assign the truth values and choose whether an antecedent entails its consequence.  You can stop at any time and the labels you’ve given will be recorded and saved by the web App, which are the only data that we will collect.
+Compensation.
+You will be paid for your participation in this study via Amazon Mechanical Turk. </p>
+
+<h3>Are there any risks associated with taking part?</h3>
+<p>There are no significant risks associated with participation.</p>
+
+<h3>Are there any benefits associated with taking part? </h3>
+<p>Yes, you will be paid for your participation.</p>
+
+<h3>What will happen to the results of this study? </h3>
+<p>As there will be no personal information involved in the data annotation,
+the results of this study may be summarised in published articles, reports and presentations. </p>
+
+<h3>Data protection and confidentiality.</h3>
+<p>Your data will be processed in accordance with Data Protection Law.
+There will be no personal information about you in this study.
+All electronic data will be stored on a password-protected encrypted computer,
+on the School of Informatics’ secure file servers,
+or on the University’s secure encrypted cloud storage services (DataShare, ownCloud, or Sharepoint) and all paper records will be stored in a locked filing cabinet in the PI’s office.
+Your consent information will be kept separately from your responses in order to minimise risk. </p>
+
+<h3>What are my data protection rights?</h3>
+<p>The University of Edinburgh is a Data Controller for the information you provide. You have the right to access information held about you.
+Your right of access can be exercised in accordance Data Protection Law.
+You also have other rights including rights of correction, erasure and objection.
+For more details, including the right to lodge a complaint with the Information Commissioner’s Office, please visit www.ico.org.uk.
+Questions, comments and requests about your personal data can also be sent to the University Data Protection Officer at dpo@ed.ac.uk. </p>
+
+<h3>Who can I contact?</h3>
+<p>If you have any further questions about the study, please contact the lead researcher, Xue Li, whose email address is xue.shirley.li@ed.ac.uk.
+If you wish to make a complaint about the study, please contact
+inf-ethics@inf.ed.ac.uk. When you contact us, please provide the study title and detail the nature of your complaint.
+Updated information.
+If the research project changes in any way, an updated Participant Information Sheet will be made available on http://web.inf.ed.ac.uk/infweb/research/study-updates.
+Alternative formats.
+To request this document in an alternative format, such as large print or on coloured paper, please contact Xue Li, whose email address is xue.shirley.li@ed.ac.uk.
+General information.
+For general information about how we use your data, go to: edin.ac/privacy-research </p>
+<div class="checkbox-container" style="margin-left: 45%">
+<input type="checkbox" style="margin-left: 12%; margin-top: 12%; margin-bottom:5px;"  name="agree" id="agree" onclick="myFunction()" required="true">I Agree</input>
+</div>
+
+
+    </crowd-tab>
+
+    <crowd-tab header="Instructions">
+      <h2>What are conditional claims?</h2>
+      <p>
+        A conditional claim consists of a condition and a conclusion. It often takes the form of 'If P, then Q'.  GIVE FAMILIER EXAMPLE.
+        P is the condition, and Q is the conclusion.
+  The condition is a set of circumstances that, if true, result in the conclusion.
+  The example below is a conditional.
+  <ul>
+      <li>if Natalia had left at 10 a.m. yesterday, she would have arrived on time. </li>
+      <li>If it rains tomorrow, then I am going to wear my boots. </li>
+      <li>Unless I get an offer tomorrow, I will take a vacation as a break.</li>
+  </ul>
+      </p>
+      <h2> Speaker's belief</h2>
+        <p>The speaker of a conditional claim may indicate that they believe that the condition is not satisfied in reality i.e.
+        it is not true. For instance, in the first example above, the speaker indicates that Natalia did not leave at 10 am -
+        they believe that the condition is not true.
+        <p>However, this is not the case for every conditional claim.</p>
+        In the claim: 'If Natalia departed at 10 a.m. yesterday, she will attend the meeting this afternoon',
+        the speaker believes the condition might be true. It is implied that they believe it is possible that Natalia
+        departed at 10 a.m. yesterday.</p>
+        <p>The same applies to the conclusion. The speaker may believe the conclusion is not true,
+          or they may believe that the conclusion might be true. </p>
+
+      <h2>Is a claim verifiable?</h2>
+        <ul>
+          <li>Verifiable claims describe statements that can be proven true or false using facts, e.g.,
+          the following claim is verifiable and it is true: New York is the capital city of the US. </li>
+          <li>Non-verifiable claims are neither true nor false. They express a belief, attitude, value, judgment, or feeling,
+            e.g., dogs are the best mammals in existence or World War II was a terrible war. According to Mometrix,
+            "the claim—“World War II was a terrible war”—strikes many of us as factual. However, this is an opinion...
+            It is very rare for a claim with a value word like “terrible” to be factual." </li>
+        </ul>
+      <h2>Is it true? </h2>
+      A verifiable claim can be true or false. As everyone has a limit to their knowledge, it's possible that we know a claim is verifiable,
+      e.g., a capital city of a country, but we do not know the answer.
+      Thus, there will be an option of 'I don't know' to choose in this annotation.
+      <h2> Does a conclusion follow its condition? </h2>
+        <p>A conclusion Q follows its condition P, if P causes Q. Thus, when P happens, Q will happen as a result.</p>
+
+        <!--<picture>-->
+        <!--    <source srcset="/media/cc0-images/surfer-240-200.jpg"-->
+        <!--            media="(orientation: portrait)">-->
+            <img src="https://drive.google.com/uc?export=view&id=1ZUHRFyca8ulG_XMGZTGOywN5EcTsfMwQ" width="300" height="180">
+        <!--</picture>-->
+
+    </crowd-tab>
+
+    <crowd-tab header="Data Annotation">
+        <h3>Please read the given claims below, where the Claim 2 and Claim 3 are the condition and the conclusion of Claim 3's, respectively.</h3>
+      <div class="grid-container">
+          <!-- <div class="wrapper"> -->
+              <label id="name-label" for="name">Claim 1:</label>
+              <input name = 'cct' placeholder=${ant} />
+              <label> Claim 2:</label>
+               <input name = 'antt' style="color:green;" placeholder =${claimAnt} />
+              <label > Claim 3:</label>
+               <input name = 'cont' style="color:blue;" placeholder =${claimCon} />
+
+              <!-- Option from a Dropdown -->
+             <p>Q1. Which of the following describe Claim1 the best?</p>
+            <select name="Q1" id="dropdown1", required>
+            <!--<option value="" selected>Q1. Which of the following describe Claim1 the best?</option>-->
+            <option value="">Please choose from the options below. </option>
+            <option value="0">It is a conditional claim </option>
+            <option value="1">It is not a conditional claim. </option>
+          </select>
+          <!-- Option from a Dropdown -->
+          <p>Q2. Which do you agree about the speaker of Claim 3?</p>
+            <select name="Q2" id="dropdown2", required>
+            <!--<option value="" selected>Q1. Which of the following describe Claim1 the best?</option>-->
+            <option value="">Please choose from the options below. </option>
+            <option value="1">Claim 3 implies the speaker thinks Claim2 is not true.</option>
+            <option value="2">Claim 3 does not imply the speaker thinks Claim2 is not true. </option>
+          </select>
+          <p> Q3. Which of the following describe Claim2 the best? </p>
+              <select name="Q3" id="dropdown3", required>
+            <!--<option value="" selected>Q3. Which of the following describe Claim2 the best?</option>-->
+            <option value="">Please choose from the options below. </option>
+            <option value="0">It is verifiable and it is true. </option>
+            <option value="1">It is verifiable and it is false. </option>
+            <option value="2">It is not verifiable. </option>
+            <option value="3">It is verifiable but I do not know if it is true or false. </option>
+          </select>
+          <p>Q3.1. Please choose the level of confidence of your last answer about Claim2.</p>
+              <select name="Q31" id="dropdown31", required>
+            <!--<option value="" selected>Q3.1. Please choose the level of confidence of your answer to Q3.</option>-->
+            <option value="">Please choose from the options below. </option>
+            <option value="0">Very High. </option>
+            <option value="1">High. </option>
+            <option value="2">Medium. </option>
+            <option value="3">Low. </option>
+            <option value="4">Very Low. </option>
+          </select>
+              <p>Q4. Which of the following describe Claim 3 the best?</p>
+              <!-- Option from a Dropdown -->
+              <select name="Q4" id="dropdown4", required>
+            <!--<option value="" selected>Q4. Which of the following describe Claim 3 the best?</option>-->
+            <option value="">Please choose from the options below. </option>
+            <option value="0">It is verifiable and it is true. </option>
+            <option value="1">It is verifiable and it is false. </option>
+            <option value="2">It is not verifiable. </option>
+            <option value="3">It is verifiable but I do not know if it is true or false. </option>
+          </select>
+              <p>Q4.1. Please choose the level of confidence of your last answer about Claim 3.</p>
+              <select name="Q41" id="dropdown41", required>
+            <!--<option value="" selected>Q4.1 Please choose the level of confidence of your answer to Q4.</option>-->
+            <option value="">Please choose from the options below. </option>
+            <option value="0">Very High. </option>
+            <option value="1">High. </option>
+            <option value="2">Medium. </option>
+            <option value="3">Low. </option>
+            <option value="4">Very Low. </option>
+          </select>
+              <p>Q5. If Claim 2 was true, would Claim 3 also become true as a result?</p>
+              <!-- Option from a Dropdown -->
+              <select name="Q5" id="dropdown5", required>
+            <!--<option value="" selected>Q5. If Claim 2 was true, would Claim 3 also become true as a result?</option>-->
+            <option value="">Please choose from the options below. </option>
+            <option value="0">It is not verifiable. </option>
+            <option value="1">It is verifiable and it is true. </option>
+            <option value="2">It is verifiable and it is false. </option>
+            <option value="3">It is verifiable but I do not know if it is true or false. </option>
+          </select>
+              <p>Q5.1. Please choose the level of confidence of your answer to Q5.</p>
+              <select name="Q51" id="dropdown51", required>
+            <!--<option value="" selected>>Select an option below.</option>-->
+            <option value="">Please choose from the options below. </option>
+            <option value="0">Very High. </option>
+            <option value="1">High. </option>
+            <option value="2">Medium. </option>
+            <option value="3">Low. </option>
+            <option value="4">Very Low. </option>
+          </select>
+        </div>
+
+        <div class="tooltip">
+        <button type="submit" id="submitButton"  class="shadow" value="Submit" onclick="showAlert()"  style="margin-left: 5%"> Submit</button>
+        <span class="tooltiptext" id="hint" > <p> &emsp; To submit, please agree our consent by checking 'I Agree' </p>
+            <p>&emsp; at bottom of the page 'Overview and Consent'.</p></span>
+        </div>
+
+<script>
+ function showAlert() {
+   // Get the checkbox
+  var checkBox = document.getElementById("agree");
+     if (checkBox.checked == false){
+     var myText = "Sorry, your submission is failed because you have not agreed on our consent. Please try again after clicking 'I Agree' at the bottom of the page 'Overview and Consent'.";
+    alert (myText);
+ var tooltip = document.getElementById("hint");
+ tooltip.visibility = 'visible'
+   }
+  }
+
+  function myFunction() {
+  // Get the checkbox
+  var checkBox = document.getElementById("agree");
+  // Get the output text
+  var text = document.getElementById("text");
+
+  // If the checkbox is checked, display the output text
+  if (checkBox.checked == false){
+    text.style.display = "block";
+  } else {
+    text.style.display = "none";
+  }
+}
+</script>
+    </crowd-tab>
+  </crowd-tabs>
+  </crowd-form>
+
+</body>
