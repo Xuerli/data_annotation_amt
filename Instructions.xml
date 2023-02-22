@@ -1,0 +1,75 @@
+<crowd-tab header="2. Instructions">
+      <div class = "claim-container">
+      <h2>What are conditional claims?</h2>
+      <p>
+        A conditional claim consists of a condition and a conclusion. It often takes the form of 'If P, then Q'.  GIVE FAMILIER EXAMPLE.
+        P is the condition, and Q is the conclusion.
+  The condition is a set of circumstances that, if true, result in the conclusion.
+  The example below is a conditional.
+  <ul>
+      <li>if Natalia had left at 10 a.m. yesterday, she would have arrived on time. </li>
+      <li>If it rains tomorrow, then I am going to wear my boots. </li>
+      <li>Unless I get an offer tomorrow, I will take a vacation as a break.</li>
+  </ul>
+      </p>
+      <h2> Speaker's belief</h2>
+        <p>The speaker of a conditional claim may indicate that they believe that the condition is not satisfied in reality i.e.
+        it is not true. For instance, in the first example above, the speaker indicates that Natalia did not leave at 10 am -
+        they believe that the condition is not true.
+        <p>However, this is not the case for every conditional claim.</p>
+        In the claim: 'If Natalia departed at 10 a.m. yesterday, she will attend the meeting this afternoon',
+        the speaker believes the condition might be true. It is implied that they believe it is possible that Natalia
+        departed at 10 a.m. yesterday.</p>
+        <p>The same applies to the conclusion. The speaker may believe the conclusion is not true,
+          or they may believe that the conclusion might be true. </p>
+
+      <h2>Is a claim verifiable?</h2>
+        <ul>
+          <li>Verifiable claims describe statements that can be proven true or false using facts, e.g.,
+          the following claim is verifiable and it is true: New York is the capital city of the US. </li>
+          <li>Non-verifiable claims are neither true nor false. They express a belief, attitude, value, judgment, or feeling,
+            e.g., dogs are the best mammals in existence or World War II was a terrible war. According to Mometrix,
+            "the claim—“World War II was a terrible war”—strikes many of us as factual. However, this is an opinion...
+            It is very rare for a claim with a value word like “terrible” to be factual." </li>
+        </ul>
+      <h2>Is it true? </h2>
+      A verifiable claim can be true or false. As everyone has a limit to their knowledge, it's possible that we know a claim is verifiable,
+      e.g., a capital city of a country, but we do not know the answer.
+      Thus, there will be an option of 'I don't know' to choose in this annotation.
+      <h2> Does a conclusion follow its condition? </h2>
+        <p>A conclusion Q follows its condition P, if P causes Q. Thus, when P happens, Q will happen as a result.</p>
+
+        <!--<picture>-->
+        <!--    <source srcset="/media/cc0-images/surfer-240-200.jpg"-->
+        <!--            media="(orientation: portrait)">-->
+            <img src="https://drive.google.com/uc?export=view&id=1ZUHRFyca8ulG_XMGZTGOywN5EcTsfMwQ" width="300" height="180">
+        <!--</picture>-->
+            </img>
+          <h2>Examples</h2>>
+          <p>Some examples are given below, with the corresponding question number and explanations attached in brackets. </p>
+      <p><b>A complete conditional Claim (Q1).</b></p>
+      <p> If we take actions, climate change would be slower than it could be.  </p>
+      <p><b>A Non complete conditional Claims (Q1).</b></p>
+      <p>Climate is changing. (It is not a conditional claim)</p>
+      <p>If we take actions. (It is a conditional claim but it is incomplete. In this case, it lacks of consequent.)</p>
+      <p><b>The claim which implies the speaker thinks Claim2 is not true (Q2).</b></p>
+
+      <p><b>The claim which does not imply the speaker thinks Claim2 is not true (Q2). </b></p>
+      <p><b>A verifiable claim (Q3).</b></p>
+      <p>Today's sea level is higher than it in 1880.</p>
+
+      <p><b>A non-verifiable claim (Q3).</b></p>
+      <p>UK is an environment friendly country.</p>
+
+      <p><b> A verifiable claim that is true (Q3.2).</b></p>
+      <p>The Earth's temperature has increased in the last century.</p>
+
+      <p><b>A verifiable claim that is false (Q3.2).</b></p>
+      <p>Greenhouse gases are not responsible for warming the planet.</p>
+
+      <p><b>A verifiable claim that I do not know whether it is true or false(Q3.2). </b></p>
+    <p>The number of treess cutting all over the world in this second is more than 10.</p>
+
+      <p><b>If Claim 2 was true, would Claim 3 also become true as a result?(Q5).</b></p>
+      </div>
+    </crowd-tab>
