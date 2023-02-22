@@ -377,19 +377,16 @@ For general information about how we use your data, go to: edin.ac/privacy-resea
       <p><b>If Claim 2 was true, would Claim 3 also become true as a result?(Q5).</b></p>
       </div>
     </crowd-tab>
-
- <crowd-tab header="3. Tutorial">
-       <crowd-tab header="3. Tutorial">
+<crowd-tab header="3. Tutorial">
       <div class="grid-container">
         <div class="title_container">
           <!-- <div class="wrapper"> -->
           <p><b>Claim 1:</b> ,If glaciers were not melting, COVID-19 would not exist. </p> </div>
-        <p id="demo"></p>
               <!-- Option from a Dropdown -->
              <div class="popup"> Q1. Which of the following describe Claim1 the best?
-              <span class="popuptext" id="pp10">Correct</span>
-              <span class="popuptext" id="pp11">No, this is a conditional claim</span></div>
-            <select name="QT1" id="dropdownT1" onChange= "tutorial(id)" required>
+              <span class="popuptext" id="pp11">Correct</span>
+              <span class="popuptext" id="pp12">No, this is a conditional claim</span></div>
+            <select name="QT1" id="dropdownT1" onChange= "tutorial1()" required>
             <!--<option value="" selected>Q1. Which of the following describe Claim1 the best?</option>-->
             <option value="">Please choose from the options below. </option>
             <option value="0">It is a conditional claim </option>
@@ -399,18 +396,18 @@ For general information about how we use your data, go to: edin.ac/privacy-resea
       <div class="grid-container">
           <div class="title_container"><p><b>Claim 2:</b> Glaciers are not melting.</p></div>
           <div class="popup" > Q2.1 Which do you agree about the speaker's belief?
-              <span class="popuptext" id="pp210">Correct. The speaker thinks that glaciers <b>are</b> melting.</span>
-              <span class="popuptext" id="pp211">Your answer is incorrect. The speaker thinks Claim 2 is not true, i.e., they believe glaciers are melting</span></div>
-            <select name="QT21" id="dropdownT21" onChange= "tutorial(id)"  required>
+              <span class="popuptext" id="pp211">Correct. The speaker thinks that glaciers <b>are</b> melting.</span>
+              <span class="popuptext" id="pp212">Your answer is incorrect. The speaker thinks Claim 2 is not true, i.e., they believe glaciers are melting</span></div>
+            <select name="QT21" id="dropdownT21" onChange= "tutorial21()"  required>
             <option value="">Please choose from the options below. </option>
             <option value="0">Claim 1 implies its speaker thinks Claim2 is not true.</option>
             <option value="1">Claim 1 does not imply its speaker thinks Claim2 is not true. </option>
           </select>
           <div class="popup" > Q2.2 Is Claim 2 verifiable?
-              <span class="popuptext" id="pp220">Well done, that is the correct answer.</span>
-              <span class="popuptext" id="pp221">Claim 2 is verifiable as human can measure the size of glaciers.</span>
-              <span class="popuptext" id="pp222">If you are really not sure whether it is verifiable, then you are right on choosing this option.</span></div>
-              <select name="QT22" id="dropdownT22" onChange= "tutorial(id)" required>
+              <span class="popuptext" id="pp221">Well done, that is the correct answer.</span>
+              <span class="popuptext" id="pp222">Claim 2 is verifiable as human can measure the size of glaciers.</span>
+              <span class="popuptext" id="pp223">If you are really not sure whether it is verifiable, then you are right on choosing this option.</span></div>
+              <select name="QT22" id="dropdownT22" onChange= "tutorial22()" required>
             <option value="">Please choose from the options below. </option>
             <option value="0">Yes, it is. </option>
             <option value="1">No, it is not. </option>
@@ -418,7 +415,7 @@ For general information about how we use your data, go to: edin.ac/privacy-resea
           </select>
           <div class="popup" >Q2.3 Please choose the level of confidence of your last answer of Q3.
               <span class="popuptext" id="pp23">You could consider how much you know about the topic and how likely your answer is correct.</span></div>
-              <select name="QT23" id="dropdownT23" onChange= "tutorial_a(id)"  required>
+              <select name="QT23" id="dropdownT23" onChange= "tutorial23()"  required>
             <option value="">Please choose from the options below. </option>
             <option value="0">Very High. </option>
             <option value="1">High. </option>
@@ -427,10 +424,10 @@ For general information about how we use your data, go to: edin.ac/privacy-resea
             <option value="4">Very Low. </option>
           </select>
           <div class="popup" id="p24"> Q2.4 Is Claim 2 true?
-              <span class="popuptext" id="pp240">Well done, that is the correct answer.</span>
-              <span class="popuptext" id="pp241">Your answer is incorrect. Claim 2 is true: glaciers are melting.</span>
-              <span class="popuptext" id="pp242">If you are really not sure whether Claim 2 is true, then you are right on choosing this option.</span></div>
-          <select name="QT24" id="dropdownT24" onChange= "tutorial(id)" required>
+              <span class="popuptext" id="pp241">Well done, that is the correct answer.</span>
+              <span class="popuptext" id="pp242">Your answer is incorrect. Claim 2 is true: glaciers are melting.</span>
+              <span class="popuptext" id="pp243">If you are really not sure whether Claim 2 is true, then you are right on choosing this option.</span></div>
+          <select name="QT24" id="dropdownT24" onChange= "tutorial24()" required>
             <option value="">Please choose from the options below. </option>
             <option value="0">Yes, it is. </option>
             <option value="1">No, it is not. </option>
@@ -449,10 +446,10 @@ For general information about how we use your data, go to: edin.ac/privacy-resea
       <div class="grid-container">
           <div class="title_container"><p><b>Claim 3:</b> COVID-19 does not exist.</p></div>
           <div class="popup" >Q3.1. Is Claim 3 verifiable?
-               <span class="popuptext" id="pp310">Well done, that is the correct answer.</span>
-              <span class="popuptext" id="pp311">Your answer is incorrect. Whether COVID-19 exsists is a fact rather than opinions. Thus, Claim 3 is verifiable</span>
-              <span class="popuptext" id="pp312">If you are really not sure whether Claim 3 is verifiable, then you are right on choosing this option.</span></div>
-          <select name="Q31" id="dropdownT31" onChange= "tutorial(id)"  required>
+               <span class="popuptext" id="pp311">Well done, that is the correct answer.</span>
+              <span class="popuptext" id="pp312">Your answer is incorrect. Whether COVID-19 exsists is a fact rather than opinions. Thus, Claim 3 is verifiable</span>
+              <span class="popuptext" id="pp313">If you are really not sure whether Claim 3 is verifiable, then you are right on choosing this option.</span></div>
+          <select name="Q31" id="dropdownT31" onChange= "tutorial31()"  required>
             <option value="">Please choose from the options below. </option>
             <option value="0">Yes, it is. </option>
             <option value="1">No, it is not. </option>
@@ -468,10 +465,10 @@ For general information about how we use your data, go to: edin.ac/privacy-resea
             <option value="4">Very Low. </option>
           </select>
            <div class="popup" id="p33"> Q3.3 Is Claim 3 true?
-               <span class="popuptext" id="pp330">Your answer is incorrect. COVID-19 exsists.</span>
-              <span class="popuptext" id="pp331">Well done, that is the correct answer because COVID-19 does exsist.</span>
-              <span class="popuptext" id="pp332">If you are really not sure whether Claim 3 is true, then you are right on choosing this option.</span></div>
-              <select name="Q33" id="dropdownT33" onChange= "tutorial(id)"  required>
+               <span class="popuptext" id="pp331">Your answer is incorrect. COVID-19 exsists.</span>
+              <span class="popuptext" id="pp332">Well done, that is the correct answer because COVID-19 does exsist.</span>
+              <span class="popuptext" id="pp333">If you are really not sure whether Claim 3 is true, then you are right on choosing this option.</span></div>
+              <select name="Q33" id="dropdownT33" onChange= "tutorial33()"  required>
             <option value="">Please choose from the options below. </option>
             <option value="0">Yes, it is. </option>
             <option value="1">No, it is not. </option>
