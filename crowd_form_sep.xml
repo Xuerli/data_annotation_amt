@@ -717,18 +717,12 @@ function invisible (id, id1, id2) {
      var q2 =document.getElementById("dropdown".concat(id2));
      var p1 =document.getElementById("qt".concat(id1));
      var p2 =document.getElementById("qt".concat(id2));
+     const a_ids = [q1, q2, p1, p2]
     if (document.getElementById(id).value === "1") {
-        p1.hidden = true;
-        p2.hidden = true;
-        q1.hidden = true;
-        q2.hidden = true;
-
+        a_ids.forEach(element => {element.hidden = true});
       }
     else{
-        q1.hidden = false;
-        q2.hidden = false;
-        p1.hidden = false;
-        p2.hidden = false;
+        a_ids.forEach(element => {element.hidden = false});
     }
 }
 
