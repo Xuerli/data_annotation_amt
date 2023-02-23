@@ -75,7 +75,7 @@
           box-shadow:         2px 2px 3px 3px #ccc;
         }
 
-      .grid-container {
+      .grid-container{
           margin-top: 5pt;
           margin-left: auto;
           margin-right: auto;
@@ -88,8 +88,21 @@
           grid-gap: 20px 10px;
           align-items: baseline;
         }
+    .tutorial_container{
+          margin-top: 5pt;
+          margin-left: auto;
+          margin-right: auto;
+          background: rgba(245, 245, 245);
+          border-radius: 25px;
+          padding: 3%;
+          max-width: 900px;
+          display: grid;
+          grid-template-columns: 30% 30% 40%;
+          grid-gap: 20px 10px 10px;
+          align-items: baseline;
+        }
 
-      .grid-container > div {
+      .grid-container, .tutorial_container > div {
           background-color: rgba(245, 245, 245);
           text-align: left;
           padding: 3%;
@@ -99,6 +112,12 @@
       grid-row: 1;
       grid-column: 1 / 3;
         color:blue;
+    }
+    .title_t_container {
+      align-self: center;
+      grid-row: 1;
+      grid-column: 1 / 4;
+      color:blue;
     }
     claim {
             justify-self: center;
@@ -113,6 +132,51 @@
             font-size: 1em;
         }
 
+   /* Popup container - can be anything you want */
+        .popup {
+          position: relative;
+          display: inline-block;
+          cursor: pointer;
+          bottom: -12pt;
+          -webkit-user-select: none;
+          -moz-user-select: none;
+          -ms-user-select: none;
+          user-select: none;
+        }
+
+        /* The actual popup */
+        .popup .popuptext {
+          visibility: hidden;
+          width: 90%;
+          background-color: #555;
+          color: #fff;
+          text-align: center;
+          border-radius: 6px;
+          padding: 8px 0;
+          position: absolute;
+          z-index: 1;
+          bottom: 25%;
+          margin-left: 5%;
+        }
+
+        /* Popup arrow */
+        .popup .popuptext::after {
+          content: "";
+          position: absolute;
+          bottom: 25%;
+          left: -10px;
+          transform: rotate(90deg);
+          border-width: 5px;
+          border-style: solid;
+          border-color: #555 transparent transparent transparent;
+        }
+
+        /* Toggle this class - hide and show the popup */
+        .popup .show {
+            visibility: visible;
+          -webkit-animation: fadeIn 1s;
+          animation: fadeIn 1s;
+        }
         </style>
   </head>
 <!-- For the full list of available Crowd HTML Elements and their input/output documentation,
@@ -122,82 +186,11 @@
 <!-- You must include crowd-form so that your task submits answers to MTurk -->
 <crowd-form>
   <short-instructions>
-      <h3>Some examples are given below, with the corresponding question number and explanations attached in brackets. </h3>
-      <p><b>A complete conditional Claim (Q1).</b></p>
-      <p> If we take actions, climate change would be slower than it could be.  </p>
-      <p><b>A Non complete conditional Claims (Q1).</b></p>
-      <p>Climate is changing. (It is not a conditional claim)</p>
-      <p>If we take actions. (It is a conditional claim but it is incomplete. In this case, it lacks of consequent.)</p>
-      <p><b>The claim which implies the speaker thinks Claim2 is not true (Q2).</b></p>
-      </b></p>
-      <p><b>The claim which does not imply the speaker thinks Claim2 is not true (Q2). </b></p>
-      <p><b>A verifiable claim (Q3).</b></p>
-      <p>Today's sea level is higher than it in 1880.</p>
-
-      <p><b>A non-verifiable claim (Q3).</b></p>
-      <p>UK is an environment friendly country.</p>
-
-      <p><b> A verifiable claim that is true (Q3.2).</b></p>
-      <p>The Earth's temperature has increased in the last century.</p>
-
-      <p><b>A verifiable claim that is false (Q3.2).</b></p>
-      <p>Greenhouse gases are not responsible for warming the planet.</p>
-
-      <p><b>A verifiable claim that I do not know whether it is true or false(Q3.2). </b></p>
-    <p>The number of treess cutting all over the world in this second is more than 10.</p>
-
-      <p><b>If Claim 2 was true, would Claim 3 also become true as a result?(Q5).</b></p>
+      <p>Please read each tab in order.</p>
+      <p>You can submit your answer only if you have agreed on our consent in the first tab, have read the instruction in the second tab and complete the tutorial in the third tab. These will help you to be prepared for the HIT task, which is on the fourth tab.</p>
+      <p>Switching tabs do not loss your answers.</p>
   </short-instructions>
 
-  <full-instructions>
-    Your full instructions is as below, which is also available in the middle web tab.
-      <h2>What are conditional claims?</h2>
-      <p>
-        A conditional claim consists of a condition and a conclusion. It often takes the form of 'If P, then Q'.  GIVE FAMILIER EXAMPLE.
-        P is the condition, and Q is the conclusion.
-  The condition is a set of circumstances that, if true, result in the conclusion.
-  The example below is a conditional.
-  <ul>
-      <li>if Natalia had left at 10 a.m. yesterday, she would have arrived on time. </li>
-      <li>If it rains tomorrow, then I am going to wear my boots. </li>
-      <li>Unless I get an offer tomorrow, I will take a vacation as a break.</li>
-  </ul>
-      </p>
-      <h2> Speaker's belief</h2>
-        <p>The speaker of a conditional claim may indicate that they believe that the condition is not satisfied in reality i.e.
-        it is not true. For instance, in the first example above, the speaker indicates that Natalia did not leave at 10 am -
-        they believe that the condition is not true.
-        <p>However, this is not the case for every conditional claim.</p>
-        In the claim: 'If Natalia departed at 10 a.m. yesterday, she will attend the meeting this afternoon',
-        the speaker believes the condition might be true. It is implied that they believe it is possible that Natalia
-        departed at 10 a.m. yesterday.</p>
-        <p>The same applies to the conclusion. The speaker may believe the conclusion is not true,
-          or they may believe that the conclusion might be true. </p>
-
-      <h2>Is a claim verifiable?</h2>
-        <ul>
-          <li>Verifiable claims describe statements that can be proven true or false using facts, e.g.,
-          the following claim is verifiable and it is true: New York is the capital city of the US. </li>
-          <li>Non-verifiable claims are neither true nor false. They express a belief, attitude, value, judgment, or feeling,
-            e.g., dogs are the best mammals in existence or World War II was a terrible war. According to Mometrix,
-            "the claim—“World War II was a terrible war”—strikes many of us as factual. However, this is an opinion...
-            It is very rare for a claim with a value word like “terrible” to be factual." </li>
-        </ul>
-      <h2>Is it true? </h2>
-      A verifiable claim can be true or false. As everyone has a limit to their knowledge, it's possible that we know a claim is verifiable,
-      e.g., a capital city of a country, but we do not know the answer.
-      Thus, there will be an option of 'I don't know' to choose in this annotation.
-      <h2> Does a conclusion follow its condition? </h2>
-        <p>A conclusion Q follows its condition P, if P causes Q. Thus, when P happens, Q will happen as a result.</p>
-
-        <!--<picture>-->
-        <!--    <source srcset="/media/cc0-images/surfer-240-200.jpg"-->
-        <!--            media="(orientation: portrait)">-->
-            <img src="https://drive.google.com/uc?export=view&id=1ZUHRFyca8ulG_XMGZTGOywN5EcTsfMwQ" width="300" height="180">
-        <!--</picture>-->
-            </img>
-
-  </full-instructions>
   <crowd-tabs>
     <crowd-tab header="1. Overview and Consent">
         <div class = "claim-container">
@@ -296,14 +289,15 @@ To request this document in an alternative format, such as large print or on col
 General information.
 For general information about how we use your data, go to: edin.ac/privacy-research </p>
 <div class="checkbox-container" style="margin-left: 45%">
-<input type="checkbox" style="margin-left: 12%; margin-top: 12%; margin-bottom:5px;"  name="agree" id="agree" onclick="getMyToolTipFunction()" required="true">&#032; I Agree</input>
+<input type="checkbox" style="margin-left: 12%; margin-top: 12%; margin-bottom:5px;"  name="agree" id="agree" onclick="getMyToolTipFunction()" required="true">  I Agree</input>
 </div>
 </div>
 
     </crowd-tab>
 
-    <crowd-tab header="2. Full Instructions">
+    <crowd-tab header="2. Instructions">
       <div class = "claim-container">
+      Your full instructions is as below, which is also available in the middle web tab.
       <h2>What are conditional claims?</h2>
       <p>
         A conditional claim consists of a condition and a conclusion. It often takes the form of 'If P, then Q'.  GIVE FAMILIER EXAMPLE.
@@ -317,12 +311,14 @@ For general information about how we use your data, go to: edin.ac/privacy-resea
   </ul>
       </p>
       <h2> Speaker's belief</h2>
-        <p>The speaker of a conditional claim may indicate that they believe that the condition is not satisfied in reality i.e.
+        <p>In some conditional claims, the speaker indicates whether or not they think the condition is true.
+            The speaker of a conditional claim may indicate that they believe that the condition is not satisfied in reality i.e.
         it is not true. For instance, in the first example above, the speaker indicates that Natalia did not leave at 10 am -
         they believe that the condition is not true.
         <p>However, this is not the case for every conditional claim.</p>
-        In the claim: 'If Natalia departed at 10 a.m. yesterday, she will attend the meeting this afternoon',
-        the speaker believes the condition might be true. It is implied that they believe it is possible that Natalia
+        In the claim: 'If Natalia leaves early tomorrow, she will be on time.',
+        the speaker does not say anything about whether or not the condition is likely to be true (that is, whether
+            Natalia will leave early). It is implied that they believe it is possible that Natalia
         departed at 10 a.m. yesterday.</p>
         <p>The same applies to the conclusion. The speaker may believe the conclusion is not true,
           or they may believe that the conclusion might be true. </p>
@@ -330,18 +326,54 @@ For general information about how we use your data, go to: edin.ac/privacy-resea
       <h2>Is a claim verifiable?</h2>
         <ul>
           <li>Verifiable claims describe statements that can be proven true or false using facts, e.g.,
-          the following claim is verifiable and it is true: New York is the capital city of the US. </li>
+          the following claim is verifiable and it is true: "Washington, DC, is the capital of the US." The follwing claim
+              is verifiable and false: "New York City is the capital of the US."</li>
           <li>Non-verifiable claims are neither true nor false. They express a belief, attitude, value, judgment, or feeling,
-            e.g., dogs are the best mammals in existence or World War II was a terrible war. According to Mometrix,
-            "the claim—“World War II was a terrible war”—strikes many of us as factual. However, this is an opinion...
-            It is very rare for a claim with a value word like “terrible” to be factual." </li>
+            e.g., "dogs are the best animals in the world" or "chocolate is my favourite flavour of ice cream".</li>
+            <li>Sometimes the line between verifiable claims and non-verifiable claims can be a hard to draw. For
+                the purpose of this annotation task, please consider all claims to be non-verifiable that express beliefs,
+                attitudes or value judgments - even if most people would agree with the claim. For example, "World War II was a
+                terrible war." This claim strikes many of us as factual, but it is considered a non-verifiable claim here
+                because of the word "terrible" which expresses a value. In contrast, "many people died in World War II"
+            is verifiable.</li>
         </ul>
       <h2>Is it true? </h2>
       A verifiable claim can be true or false. As everyone has a limit to their knowledge, it's possible that we know a claim is verifiable,
-      e.g., a capital city of a country, but we do not know the answer.
-      Thus, there will be an option of 'I don't know' to choose in this annotation.
-      <h2> Does a conclusion follow its condition? </h2>
+      e.g., a capital city of a country, but we do not know the answer. If you do not know the answer, please choose 'I don't know.'
+
+      <h2> Does the conclusion follow the condition? </h2>
         <p>A conclusion Q follows its condition P, if P causes Q. Thus, when P happens, Q will happen as a result.</p>
+
+      <p>In some conditional claims, the conclusion follow the condition.</p>
+       <ul>
+          <li>If Elon Musk buys Twitter, he will own one of the biggest social media sites in the world.</li>
+       </ul>
+
+      <p>In the above examples, the condition happens to be true. However, it is also possible for the conclusion to follow the condition
+      in cases where the condition is false or we don't know if the condition is true.</p>
+
+      <ul>
+          <li>If Barack Obama lived in the 19th century, he would have never been elected President of the US.</li>
+          <li>If Bill Gates had bought Twitter, he would be owning one of the bigges social media sites in the world.</li>
+      </ul>
+
+      Sometimes we don't know if the conclusion follows the condition, but we can make a guess. The following claims are probably true,
+      although we don't know anything about Natalia and her mum:
+
+      <ul>
+      <li>If Natalia cleans up her room, her mum will be happy.</li>
+      </ul>
+
+      The following claims are probably not true:
+      <ul>
+      <li>If we stop climate change, the price of ice cream will drop.</li>
+      </ul>
+
+      And sometimes we know for sure that the conclusion does not follow the condition. This is the case, for example, when the condition and the conclusion have nothing to do with one another, but also .
+       <ul>
+          <li>If Elon Musk buys Twitter, then the COVID-19 pandemic will be over.</li>
+           <li>If the sea levels rise by 1 mm, life on this planet as we know it will be over.</li>
+        </ul>
 
         <!--<picture>-->
         <!--    <source srcset="/media/cc0-images/surfer-240-200.jpg"-->
@@ -357,7 +389,7 @@ For general information about how we use your data, go to: edin.ac/privacy-resea
       <p>Climate is changing. (It is not a conditional claim)</p>
       <p>If we take actions. (It is a conditional claim but it is incomplete. In this case, it lacks of consequent.)</p>
       <p><b>The claim which implies the speaker thinks Claim2 is not true (Q2).</b></p>
-      </b></p>
+
       <p><b>The claim which does not imply the speaker thinks Claim2 is not true (Q2). </b></p>
       <p><b>A verifiable claim (Q3).</b></p>
       <p>Today's sea level is higher than it in 1880.</p>
@@ -376,46 +408,52 @@ For general information about how we use your data, go to: edin.ac/privacy-resea
 
       <p><b>If Claim 2 was true, would Claim 3 also become true as a result?(Q5).</b></p>
       </div>
+       <div class="checkbox-container" style="margin-left: 45%">
+<input type="checkbox" style="margin-left: 12%; margin-top: 12%; margin-bottom:5px;"  name="agree" id="agree" onclick="getMyToolTipFunction()" required="true">  Finished</input>
+</div>
     </crowd-tab>
-<crowd-tab header="3. Tutorial">
-      <div class="grid-container">
-        <div class="title_container">
+
+ <crowd-tab header="3. Tutorial">
+      <div class="tutorial_container">
+        <div class="title_t_container">
           <!-- <div class="wrapper"> -->
-          <p><b>Claim 1:</b> ,If glaciers were not melting, COVID-19 would not exist. </p> </div>
-              <!-- Option from a Dropdown -->
-             <div class="popup"> Q1. Which of the following describe Claim1 the best?
-              <span class="popuptext" id="pp11">Correct</span>
-              <span class="popuptext" id="pp12">No, this is a conditional claim</span></div>
-            <select name="QT1" id="dropdownT1" onChange= "tutorial1()" required>
+          <p style="color=black"> Correct answers will be shown after you select an answer, together with explanations on the right side.</p>
+          <p><b>Claim 1:</b> If glaciers were not melting, COVID-19 would not exist. </p> </div>
+          <p>Q1. Which of the following describe Claim1 the best?</p>
+            <select name="QT1" id="dropdownT1" onChange= "tutorial_b(id,0)" required>
             <!--<option value="" selected>Q1. Which of the following describe Claim1 the best?</option>-->
             <option value="">Please choose from the options below. </option>
             <option value="0">It is a conditional claim </option>
             <option value="1">It is not a conditional claim. </option>
           </select>
+          <div class="popup">
+              <span class="popuptext" id="pp10">Correct. Claim 1 is a conditional claim.</span>
+              <span class="popuptext" id="pp11">Claim 1 is a conditional claim where the condition is that 'If glaciers were not melting' and the conclusion is that 'COVID-19 would not exist'. </span></div>
       </div>
-      <div class="grid-container">
-          <div class="title_container"><p><b>Claim 2:</b> Glaciers are not melting.</p></div>
-          <div class="popup" > Q2.1 Which do you agree about the speaker's belief?
-              <span class="popuptext" id="pp211">Correct. The speaker thinks that glaciers <b>are</b> melting.</span>
-              <span class="popuptext" id="pp212">Your answer is incorrect. The speaker thinks Claim 2 is not true, i.e., they believe glaciers are melting</span></div>
-            <select name="QT21" id="dropdownT21" onChange= "tutorial21()"  required>
+      <div class="tutorial_container">
+          <div class="title_t_container"><p><b>Claim 2:</b> Glaciers are not melting.</p></div>
+          <p>Q2.1 Which do you agree about the speaker's belief?</p>
+            <select name="QT21" id="dropdownT21" onChange= "tutorial_b(id, 0)"  required>
             <option value="">Please choose from the options below. </option>
             <option value="0">Claim 1 implies its speaker thinks Claim2 is not true.</option>
             <option value="1">Claim 1 does not imply its speaker thinks Claim2 is not true. </option>
           </select>
-          <div class="popup" > Q2.2 Is Claim 2 verifiable?
-              <span class="popuptext" id="pp221">Well done, that is the correct answer.</span>
-              <span class="popuptext" id="pp222">Claim 2 is verifiable as human can measure the size of glaciers.</span>
-              <span class="popuptext" id="pp223">If you are really not sure whether it is verifiable, then you are right on choosing this option.</span></div>
-              <select name="QT22" id="dropdownT22" onChange= "tutorial22()" required>
+           <div class="popup" >
+              <span class="popuptext" id="pp210">Correct. The speaker thinks that glaciers <b>are</b> melting.</span>
+              <span class="popuptext" id="pp211">Your answer is incorrect. The speaker thinks Claim 2 is not true, i.e., they believe glaciers are melting</span></div>
+          <p>Q2.2 Is Claim 2 verifiable?</p>
+              <select name="QT22" id="dropdownT22" onChange= "tutorial_b(id, 0)" required>
             <option value="">Please choose from the options below. </option>
             <option value="0">Yes, it is. </option>
             <option value="1">No, it is not. </option>
             <option value="2">I am not sure. </option>
           </select>
-          <div class="popup" >Q2.3 Please choose the level of confidence of your last answer of Q3.
-              <span class="popuptext" id="pp23">You could consider how much you know about the topic and how likely your answer is correct.</span></div>
-              <select name="QT23" id="dropdownT23" onChange= "tutorial23()"  required>
+          <div class="popup" >
+              <span class="popuptext" id="pp220">Well done, Claim 2 is verifiable.</span>
+              <span class="popuptext" id="pp221">Claim 2 is verifiable as human can measure the size of glaciers.</span>
+              <span class="popuptext" id="pp222">If you are really not sure whether it is verifiable, then you are right on choosing this option.</span></div>
+          <p>Q2.3 How sure are you on the answer of Q3.</p>
+              <select name="QT23" id="dropdownT23" onChange= "tutorial_a(id)"  required>
             <option value="">Please choose from the options below. </option>
             <option value="0">Very High. </option>
             <option value="1">High. </option>
@@ -423,16 +461,19 @@ For general information about how we use your data, go to: edin.ac/privacy-resea
             <option value="3">Low. </option>
             <option value="4">Very Low. </option>
           </select>
-          <div class="popup" id="p24"> Q2.4 Is Claim 2 true?
-              <span class="popuptext" id="pp241">Well done, that is the correct answer.</span>
-              <span class="popuptext" id="pp242">Your answer is incorrect. Claim 2 is true: glaciers are melting.</span>
-              <span class="popuptext" id="pp243">If you are really not sure whether Claim 2 is true, then you are right on choosing this option.</span></div>
-          <select name="QT24" id="dropdownT24" onChange= "tutorial24()" required>
+          <div class="popup" >
+              <span class="popuptext" id="pp23">Please consider how likely your answer is correct.</span></div>
+          <p>Q2.4 Is Claim 2 true?</p>
+          <select name="QT24" id="dropdownT24" onChange= "tutorial_b(id, 1)" required>
             <option value="">Please choose from the options below. </option>
             <option value="0">Yes, it is. </option>
             <option value="1">No, it is not. </option>
             <option value="2">Alhtough it is verifiable, I do not know if it is true or false. </option>
           </select>
+          <div class="popup" id="p24">
+              <span class="popuptext" id="pp240">Your answer is incorrect. Claim 2 is false: glaciers are melting.</span>
+              <span class="popuptext" id="pp241">Well done, that is the correct answer.</span>
+              <span class="popuptext" id="pp242">If you are really not sure whether Claim 2 is true, then you are right on choosing this option.</span></div>
         <p id = "p25">Q2.5. Please choose the level of confidence of your answer to Q3.2.</p>
           <select name="QT25" id="dropdownT25" required>
             <option value="">Please choose from the options below. </option>
@@ -442,19 +483,22 @@ For general information about how we use your data, go to: edin.ac/privacy-resea
             <option value="3">Low. </option>
             <option value="4">Very Low. </option>
           </select>
+          <div class="popup" >
+              <span class="popuptext" id="pp23">Same to Q2.3.</span></div>
       </div>
-      <div class="grid-container">
-          <div class="title_container"><p><b>Claim 3:</b> COVID-19 does not exist.</p></div>
-          <div class="popup" >Q3.1. Is Claim 3 verifiable?
-               <span class="popuptext" id="pp311">Well done, that is the correct answer.</span>
-              <span class="popuptext" id="pp312">Your answer is incorrect. Whether COVID-19 exsists is a fact rather than opinions. Thus, Claim 3 is verifiable</span>
-              <span class="popuptext" id="pp313">If you are really not sure whether Claim 3 is verifiable, then you are right on choosing this option.</span></div>
-          <select name="Q31" id="dropdownT31" onChange= "tutorial31()"  required>
+      <div class="tutorial_container">
+          <div class="title_t_container"><p><b>Claim 3:</b> COVID-19 does not exist.</p></div>
+          <p>Q3.1. Is Claim 3 verifiable?</p>
+          <select name="Q31" id="dropdownT31" onChange= "tutorial_b(id, 0)"  required>
             <option value="">Please choose from the options below. </option>
             <option value="0">Yes, it is. </option>
             <option value="1">No, it is not. </option>
             <option value="2">I am not sure. </option>
           </select>
+          <div class="popup" >
+               <span class="popuptext" id="pp310">Well done, that is the correct answer.</span>
+              <span class="popuptext" id="pp311">Your answer is incorrect. Whether COVID-19 exsists is a fact rather than opinions. Thus, Claim 3 is verifiable</span>
+              <span class="popuptext" id="pp312">If you are really not sure whether Claim 3 is verifiable, then you are right on choosing this option.</span></div>
         <p>Q3.2. Please choose the level of confidence of your last answer of Q4.</p>
         <select name="Q32" id="dropdownT32" required>
             <option value="">Please choose from the options below. </option>
@@ -464,16 +508,19 @@ For general information about how we use your data, go to: edin.ac/privacy-resea
             <option value="3">Low. </option>
             <option value="4">Very Low. </option>
           </select>
-           <div class="popup" id="p33"> Q3.3 Is Claim 3 true?
-               <span class="popuptext" id="pp331">Your answer is incorrect. COVID-19 exsists.</span>
-              <span class="popuptext" id="pp332">Well done, that is the correct answer because COVID-19 does exsist.</span>
-              <span class="popuptext" id="pp333">If you are really not sure whether Claim 3 is true, then you are right on choosing this option.</span></div>
-              <select name="Q33" id="dropdownT33" onChange= "tutorial33()"  required>
+          &nbsp;
+          <p>Q3.3 Is Claim 3 true?</p>
+
+              <select name="Q33" id="dropdownT33" onChange= "tutorial_b(id, 1)"  required>
             <option value="">Please choose from the options below. </option>
             <option value="0">Yes, it is. </option>
             <option value="1">No, it is not. </option>
             <option value="2">Alhtough it is verifiable, I do not know if it is true or false. </option>
           </select>
+          <div class="popup" id="p33">
+               <span class="popuptext" id="pp330">Your answer is incorrect. COVID-19 exsists.</span>
+              <span class="popuptext" id="pp331">Well done, that is the correct answer because COVID-19 does exsist.</span>
+              <span class="popuptext" id="pp332">If you are really not sure whether Claim 3 is true, then you are right on choosing this option.</span></div>
         <p id = "p34">Q3.4 Please choose the level of confidence of your answer of Q4.2.</p>
               <select name="Q34" id="dropdownT34" required>
             <!--<option value="" selected>Q3.1. Please choose the level of confidence of your answer to Q3.</option>-->
@@ -484,12 +531,11 @@ For general information about how we use your data, go to: edin.ac/privacy-resea
             <option value="3">Low. </option>
             <option value="4">Very Low. </option>
           </select>
+          &nbsp;
            </div>
-      <div class="grid-container">
-              <div class="popup" id="p41">Q4.1 If Claim 2 was true, would Claim 3 also become true as a result?
-                  <span class="popuptext" id="pp4">This is a hard question. However, if there is no evidence that COVID-19 is caused by glaciers' melting to the best of your knowledge, then you should choose the option of 'Not at all'. </div>
-              <!-- Option from a Dropdown -->
-              <select name="Q41" id="dropdown41" onChange= "tutorial41()"  required>
+      <div class="tutorial_container">
+          <p>Q4.1 If Claim 2 was true, would Claim 3 also become true as a result?</p>
+              <select name="Q41" id="dropdownT41" onChange= "tutorial_a(id)"  required>
             <!--<option value="" selected>Q5. If Claim 2 was true, would Claim 3 also become true as a result?</option>-->
             <option value="">Please choose from the options below. </option>
             <option value="0">Absolutely (if the Claim2 happened, then the conclusion would happen for sure)). </option>
@@ -498,7 +544,10 @@ For general information about how we use your data, go to: edin.ac/privacy-resea
             <option value="3">Less likely (if Claim2 happened, it would minorly increase the chance of Claim3 becoming a fact). </option>
              <option value="4">Not at all (they are irrelevant.)</option>
           </select>
-              <p id="p42"> Q4.2. Please choose the level of confidence of your answer to Q5.</p>
+          <div class="popup">
+                  <span class="popuptext"  id="pp41">This is a hard question. However, if there is no evidence that COVID-19 is caused by glaciers' melting to the best of your knowledge,
+                  then you should choose the option of 'Not at all'.</span> </div>
+        <p id="p42"> Q4.2. Please choose the level of confidence of your answer to Q5.</p>
               <select name="Q42" id="dropdown42" required>
             <!--<option value="" selected>>Select an option below.</option>-->
             <option value="">Please choose from the options below. </option>
@@ -508,121 +557,16 @@ For general information about how we use your data, go to: edin.ac/privacy-resea
             <option value="3">Low. </option>
             <option value="4">Very Low. </option>
           </select>
+          &nbsp;
         </div>
-        <button  id="next"  class="shadow" value="next"  style="margin-left: 45%; margin-top: 10pt"> Finished Tutorial</button>
+        <button  id="tutorial"  class="shadow" value="next"  style="margin-left: 45%; margin-top: 10pt"> Finished Tutorial</button>
         </crowd-tab>
-<script>
 
-function tutorial1 () {
-        var question = document.getElementById("dropdownT1")
-        if (question.value === "0")
-            {
-          var popup = document.getElementById("pp11");
-          popup.classList.toggle("show");
-        } else if (question.value === "1"){
-           var popup = document.getElementById("pp12");
-          popup.classList.toggle("show");
-          document.getElementById("dropdownT1").value ="0"
-        }
-}
-
-function tutorial21 () {
-        var question = document.getElementById("dropdownT21")
-        if (question.value === "0")
-            {
-          var popup = document.getElementById("pp211");
-          popup.classList.toggle("show");
-        } else if (question.value === "1"){
-           var popup = document.getElementById("pp212");
-          popup.classList.toggle("show");
-          document.getElementById("dropdownT21").value ="0"
-        }
-            else if (question.value === "2"){
-           var popup = document.getElementById("pp213");
-          popup.classList.toggle("show");
-        }
-}
-
-function tutorial22 () {
-        var question = document.getElementById("dropdownT22")
-        if (question.value === "0")
-            {
-          var popup = document.getElementById("pp221");
-          popup.classList.toggle("show");
-        } else if (question.value === "1"){
-           var popup = document.getElementById("pp222");
-          popup.classList.toggle("show");
-            document.getElementById("dropdownT1").value ="0"
-        } else if (question.value === "2"){
-           var popup = document.getElementById("pp223");
-          popup.classList.toggle("show");
-        }
-}
-
-function tutorial23 () {
-          var popup = document.getElementById("pp23");
-          popup.classList.toggle("show");
-}
-
-function tutorial24 () {
-            var question = document.getElementById("dropdownT24")
-            if (question.value === "0"){
-              var popup = document.getElementById("pp241");
-                document.getElementById("dropdownT1").value ="1"
-              popup.classList.toggle("show");
-            } else if (question.value === "1"){
-               var popup = document.getElementById("pp242");
-              popup.classList.toggle("show");
-            } else if (question.value === "2"){
-               var popup = document.getElementById("pp243");
-              popup.classList.toggle("show");
-            }
-}
-
-function tutorial31 () {
-          var question = document.getElementById("dropdownT31")
-            if (question.value === "0"){
-              var popup = document.getElementById("pp311");
-              popup.classList.toggle("show");
-            } else if (question.value === "1"){
-               var popup = document.getElementById("pp312");
-              popup.classList.toggle("show");
-              document.getElementById("dropdownT1").value ="0"
-            } else if (question.value === "2"){
-               var popup = document.getElementById("pp313");
-              popup.classList.toggle("show");
-            }
-}
-
-function tutorial33 () {
-            var question = document.getElementById("dropdownT33")
-            if (question.value === "0"){
-              var popup = document.getElementById("pp331");
-              popup.classList.toggle("show");
-                document.getElementById("dropdownT1").value ="1"
-            } else if (question.value === "1"){
-               var popup = document.getElementById("pp332");
-              popup.classList.toggle("show");
-            } else if (question.value === "2"){
-                var popup = document.getElementById("pp333");
-              popup.classList.toggle("show");
-            }
-}
-
-function tutorial41 () {
-          var popup = document.getElementById("pp4");
-          popup.classList.toggle("show");
-}
-
-
-
-
-</script>
     <crowd-tab header="4. Data Annotation (HIT Task Entry)">
       <div class="grid-container">
         <div class="title_container">
           <!-- <div class="wrapper"> -->
-          <p><b>Claim 1:</b> ${ant}, &#032;  ${con}</p> </div>
+          <p><b>Claim 1:</b> ${ant},    ${con}</p> </div>
               <!-- Option from a Dropdown -->
              <p>Q1. Which of the following describe Claim1 the best?</p>
             <select name="Q1" id="dropdown1" onChange= "invisiableQ5Q51()" required>
@@ -741,6 +685,23 @@ function tutorial41 () {
   </crowd-form>
 
 <script>
+
+
+function tutorial_b (ques_id, ans_correct) {
+        const ques_num = ques_id.split('dropdownT')[1];
+        var question = document.getElementById(ques_id);
+        var pop_id = "pp".concat(ques_num).concat('0');
+        document.getElementById(pop_id).classList.toggle("show");
+        question.value = ans_correct;
+        question.disabled = true;
+}
+
+function tutorial_a (ques_id,ans) {
+        const ques_num = ques_id.split('dropdownT')[1];
+        var pop_id = "pp".concat(ques_num);
+        document.getElementById(pop_id).classList.toggle("show");
+}
+
  function showAlert() {
    // Get the checkbox
   var checkBox = document.getElementById("agree");
@@ -833,3 +794,4 @@ function invisiableQ42 () {
 </script>
 
 </body>
+</html>>
