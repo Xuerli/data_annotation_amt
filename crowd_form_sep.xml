@@ -181,7 +181,7 @@
   </head>
 <!-- For the full list of available Crowd HTML Elements and their input/output documentation,
       please refer to https://docs.aws.amazon.com/sagemaker/latest/dg/sms-ui-template-reference.html -->
-<script src="https://assets.crowd.aws/crowd-html-elements.js"></script>
+{#<script src="https://assets.crowd.aws/crowd-html-elements.js"></script>#}
 <body>
 <!-- You must include crowd-form so that your task submits answers to MTurk -->
 <crowd-form>
@@ -548,7 +548,7 @@ For general information about how we use your data, go to: edin.ac/privacy-resea
                   <span class="popuptext"  id="pp41">This is a hard question. However, if there is no evidence that COVID-19 is caused by glaciers' melting to the best of your knowledge,
                   then you should choose the option of 'Not at all'.</span> </div>
         <p id="p42"> Q4.2. Please choose the level of confidence of your answer to Q5.</p>
-              <select name="Q42" id="dropdown42" required>
+              <select name="Q42" id="dropdownT42" required>
             <!--<option value="" selected>>Select an option below.</option>-->
             <option value="">Please choose from the options below. </option>
             <option value="0">Very High. </option>
@@ -569,7 +569,7 @@ For general information about how we use your data, go to: edin.ac/privacy-resea
           <p><b>Claim 1:</b> ${ant},    ${con}</p> </div>
               <!-- Option from a Dropdown -->
              <p>Q1. Which of the following describe Claim1 the best?</p>
-            <select name="Q1" id="dropdown1" onChange= "invisiableQ5Q51()" required>
+            <select name="Q1" id="dropdown1" onChange= "invisible(id, 41, 42)" required>
             <!--<option value="" selected>Q1. Which of the following describe Claim1 the best?</option>-->
             <option value="">Please choose from the options below. </option>
             <option value="0">It is a conditional claim </option>
@@ -587,7 +587,7 @@ For general information about how we use your data, go to: edin.ac/privacy-resea
             <option value="2">Claim 1 does not imply its speaker thinks Claim2 is not true. </option>
           </select>
           <p> Q2.2 Is Claim 2 verifiable? </p>
-              <select name="Q22" id="dropdown22" onChange= "invisiableQ32()" required>
+              <select name="Q22" id="dropdown22" onChange= "invisible(id, 24, 25)" required>
             <!--<option value="" selected>Q3. Which of the following describe Claim2 the best?</option>-->
             <option value="">Please choose from the options below. </option>
             <option value="0">Yes, it is. </option>
@@ -603,14 +603,14 @@ For general information about how we use your data, go to: edin.ac/privacy-resea
             <option value="3">Low. </option>
             <option value="4">Very Low. </option>
           </select>
-          <p id="p24"> Q2.4 Is Claim 2 true? </p>
+          <p id="qt24"> Q2.4 Is Claim 2 true? </p>
           <select name="Q24" id="dropdown24" required>
             <option value="">Please choose from the options below. </option>
             <option value="0">Yes, it is. </option>
             <option value="1">No, it is not. </option>
             <option value="3">Alhtough it is verifiable, I do not know if it is true or false. </option>
           </select>
-        <p id = "p25">Q2.5. Please choose the level of confidence of your answer to Q3.2.</p>
+        <p id = "qt25">Q2.5. Please choose the level of confidence of your answer to Q3.2.</p>
           <select name="Q25" id="dropdown25" required>
             <option value="">Please choose from the options below. </option>
             <option value="0">Very High. </option>
@@ -623,7 +623,7 @@ For general information about how we use your data, go to: edin.ac/privacy-resea
       <div class="grid-container">
           <div class="title_container"><p><b>Claim 3:</b> COVID-19 does not exist.</p></div>
           <p>Q3.1. Is Claim 3 verifiable? </p>
-          <select name="Q31" id="dropdown31" onChange= "invisiableQ42()"  required>
+          <select name="Q31" id="dropdown31" onChange= "invisible(id, 33, 34)"  required>
             <option value="">Please choose from the options below. </option>
             <option value="0">Yes, it is. </option>
             <option value="1">No, it is not. </option>
@@ -638,14 +638,14 @@ For general information about how we use your data, go to: edin.ac/privacy-resea
             <option value="3">Low. </option>
             <option value="4">Very Low. </option>
           </select>
-          <p id="p33"> Q3.3 Is Claim 3 true? </p>
+          <p id="qt33"> Q3.3 Is Claim 3 true? </p>
               <select name="Q33" id="dropdown33" required>
             <option value="">Please choose from the options below. </option>
             <option value="0">Yes, it is. </option>
             <option value="1">No, it is not. </option>
             <option value="3">Alhtough it is verifiable, I do not know if it is true or false. </option>
           </select>
-        <p id = "p34">Q3.4 Please choose the level of confidence of your answer of Q4.2.</p>
+        <p id = "qt34">Q3.4 Please choose the level of confidence of your answer of Q4.2.</p>
               <select name="Q34" id="dropdown34" required>
             <!--<option value="" selected>Q3.1. Please choose the level of confidence of your answer to Q3.</option>-->
             <option value="">Please choose from the options below. </option>
@@ -657,7 +657,7 @@ For general information about how we use your data, go to: edin.ac/privacy-resea
           </select>
            </div>
       <div class="grid-container">
-              <p id="p41">Q4.1 If Claim 2 was true, would Claim 3 also become true as a result?</p>
+              <p id="qt41">Q4.1 If Claim 2 was true, would Claim 3 also become true as a result?</p>
               <!-- Option from a Dropdown -->
               <select name="Q41" id="dropdown41" required>
             <!--<option value="" selected>Q5. If Claim 2 was true, would Claim 3 also become true as a result?</option>-->
@@ -668,7 +668,7 @@ For general information about how we use your data, go to: edin.ac/privacy-resea
             <option value="3">Less likely (if Claim2 happened, it would minorly increase the chance of Claim3 becoming a fact). </option>
              <option value="4">Not at all (they are irrelevant.)</option>
           </select>
-              <p id="p42"> Q4.2. Please choose the level of confidence of your answer to Q5.</p>
+              <p id="qt42"> Q4.2. Please choose the level of confidence of your answer to Q5.</p>
               <select name="Q42" id="dropdown42" required>
             <!--<option value="" selected>>Select an option below.</option>-->
             <option value="">Please choose from the options below. </option>
@@ -712,85 +712,26 @@ function tutorial_a (ques_id,ans) {
   }
 
 
-/*const elementsToDisable = document.querySelectorAll("select")
-//elementsToDisable.forEach(element => {
-    element.setAttribute("disabled", true);
-  });
-*/
+function invisible (id, id1, id2) {
+     var q1 =document.getElementById("dropdown".concat(id1));
+     var q2 =document.getElementById("dropdown".concat(id2));
+     var p1 =document.getElementById("qt".concat(id1));
+     var p2 =document.getElementById("qt".concat(id2));
+    if (document.getElementById(id).value === "1") {
+        p1.hidden = true;
+        p2.hidden = true;
+        q1.hidden = true;
+        q2.hidden = true;
 
-
-   function disableQ5Q51 () {
-     var q5 =document.getElementById("dropdown5")
-     var q51 =document.getElementById("dropdown51")
-     option = "<option> Please skip this question. </option>"
-    if (document.getElementById("dropdown1").value === "1") {
-        q5.disabled = true;
-        q51.disabled = true;
-        q5.innerHTML = option;
-        q51.innerHTML = option;
       }
     else{
-        q5.disabled = false;
-        q51.disabled = false;
+        q1.hidden = false;
+        q2.hidden = false;
+        p1.hidden = false;
+        p2.hidden = false;
     }
 }
 
-    function invisiableQ5Q51 () {
-     var q5 =document.getElementById("dropdown5")
-     var q51 =document.getElementById("dropdown51")
-     var p5 =document.getElementById("p5")
-     var p51 =document.getElementById("p51")
-    if (document.getElementById("dropdown1").value === "1") {
-        q5.hidden = true;
-        q51.hidden = true;
-        p5.hidden = true;
-        p51.hidden = true;
-      }
-    else{
-        q5.hidden = false;
-        q51.hidden = false;
-        p5.hidden = false;
-        p51.hidden = false;
-    }
-}
-
-function invisiableQ32 () {
-     var q32 =document.getElementById("dropdown32")
-     var q33 =document.getElementById("dropdown33")
-     var p32 =document.getElementById("p32")
-     var p33 =document.getElementById("p33")
-    if (document.getElementById("dropdown3").value === "1") {
-        q32.hidden = true;
-        q33.hidden = true;
-        p32.hidden = true;
-        p33.hidden = true;
-      }
-    else{
-        q32.hidden = false;
-        q33.hidden = false;
-        p32.hidden = false;
-        p33.hidden = false;
-    }
-}
-
-function invisiableQ42 () {
-     var q42 =document.getElementById("dropdown42")
-     var q43 =document.getElementById("dropdown43")
-     var p42 =document.getElementById("p42")
-     var p43 =document.getElementById("p43")
-    if (document.getElementById("dropdown3").value === "1") {
-        q42.hidden = true;
-        q43.hidden = true;
-        p42.hidden = true;
-        p43.hidden = true;
-      }
-    else{
-        q42.hidden = false;
-        q43.hidden = false;
-        p42.hidden = false;
-        p43.hidden = false;
-    }
-}
 </script>
 
 </body>
