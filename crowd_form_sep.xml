@@ -181,7 +181,7 @@
   </head>
 <!-- For the full list of available Crowd HTML Elements and their input/output documentation,
       please refer to https://docs.aws.amazon.com/sagemaker/latest/dg/sms-ui-template-reference.html -->
-{#<script src="https://assets.crowd.aws/crowd-html-elements.js"></script>#}
+<script src="https://assets.crowd.aws/crowd-html-elements.js"></script>
 <body>
 <!-- You must include crowd-form so that your task submits answers to MTurk -->
 <crowd-form>
@@ -297,29 +297,23 @@ For general information about how we use your data, go to: edin.ac/privacy-resea
 
     <crowd-tab header="2. Instructions">
       <div class = "claim-container">
-      Your full instructions is as below, which is also available in the middle web tab.
       <h2>What are conditional claims?</h2>
       <p>
-        A conditional claim consists of a condition and a conclusion. It often takes the form of 'If P, then Q'.  GIVE FAMILIER EXAMPLE.
-        P is the condition, and Q is the conclusion.
+        A conditional claim consists of a condition and a conclusion. It often takes the form of '<span style = "color: blue">If P, </span> <span style="color: purple">then Q</span> ' with P as the condition, and Q as the conclusion. Some examples are given below, where condition is written in blue and conclusion in purple.
   The condition is a set of circumstances that, if true, result in the conclusion.
   The example below is a conditional.
   <ul>
-      <li>if Natalia had left at 10 a.m. yesterday, she would have arrived on time. </li>
-      <li>If it rains tomorrow, then I am going to wear my boots. </li>
-      <li>Unless I get an offer tomorrow, I will take a vacation as a break.</li>
+      <li><span style = "color: blue">If it rains,</span> <span style="color: purple">the ground will be wet. </span> </li>
+      <li><span style = "color: blue">Unless I get an offer tomorrow, </span> <span style="color: purple">I will take a vacation as a break.</span></li>
+      <li><span style = "color: blue">If there were no greenhouse gases in the atmosphere, </span> <span style="color: purple"> then the Earth's temperature would be much colder.</span> </li>
+
   </ul>
       </p>
       <h2> Speaker's belief</h2>
-        <p>In some conditional claims, the speaker indicates whether or not they think the condition is true.
-            The speaker of a conditional claim may indicate that they believe that the condition is not satisfied in reality i.e.
-        it is not true. For instance, in the first example above, the speaker indicates that Natalia did not leave at 10 am -
-        they believe that the condition is not true.
+          <p>In some conditional claims, the speaker indicates whether or not they think the condition is true, i.e. it is not satisfied in reality. For instance, in the last example above, of which the condition is 'there are <span style = "font-weight:bold">no</span> greenhouse gases in the atmosphere' but the speaker indicates that 'there are greenhouse gases in the atmosphere'.
         <p>However, this is not the case for every conditional claim.</p>
-        In the claim: 'If Natalia leaves early tomorrow, she will be on time.',
-        the speaker does not say anything about whether or not the condition is likely to be true (that is, whether
-            Natalia will leave early). It is implied that they believe it is possible that Natalia
-        departed at 10 a.m. yesterday.</p>
+        In the first claim above, the speaker does not say anything about whether or not the condition is likely to be true (that is, whether
+            it will rain). It is implied that they believe it is possible that .</p>
         <p>The same applies to the conclusion. The speaker may believe the conclusion is not true,
           or they may believe that the conclusion might be true. </p>
 
@@ -341,15 +335,24 @@ For general information about how we use your data, go to: edin.ac/privacy-resea
       A verifiable claim can be true or false. As everyone has a limit to their knowledge, it's possible that we know a claim is verifiable,
       e.g., a capital city of a country, but we do not know the answer. If you do not know the answer, please choose 'I don't know.'
 
-      <h2> Does the conclusion follow the condition? </h2>
-        <p>A conclusion Q follows its condition P, if P causes Q. Thus, when P happens, Q will happen as a result.</p>
+<p><img src="https://drive.google.com/uc?export=view&id=171KHKNnaIGNG9ECzCbpxiFBE9v6ZMdNT" width="300" height="180"> </img></p>
 
-      <p>In some conditional claims, the conclusion follow the condition.</p>
+      <h2> Does the conclusion follow the condition? </h2>
+        <p>A conclusion Q follows its condition P, if P causes Q. Thus, when P happens, Q will happen as a result. There are different levels of how much a conclusion follows/caused by a condition. We catagorise them into five catagories listed below. </p>
+          <ul>
+              <li> Absolutely (if the condition P happened, then the conclusion Q would happen for sure). </li>
+            <li>Probably (if P happened, it would dramatically increase the chance of Q becoming a fact). </li>
+            <li>Maybe (if P happened, it would mediumly increase the chance of Q becoming a fact). </li>
+            <li>Less likely (if P happened, it would minorly increase the chance of Q becoming a fact). </li>
+             <li>Not at all (P has nothing to do with the happenning of Q.)</li>
+          </ul>
+          <p>Please find examples that belong to different catagories below.</p>
+          <p><span style = "font-weight:bold">Absolutely.</span> In some conditional claims, the conclusion follow the condition.</p>
        <ul>
           <li>If Elon Musk buys Twitter, he will own one of the biggest social media sites in the world.</li>
        </ul>
 
-      <p>In the above examples, the condition happens to be true. However, it is also possible for the conclusion to follow the condition
+      <p>In the above example, the condition happens to be true. However, it is also possible for the conclusion to follow the condition
       in cases where the condition is false or we don't know if the condition is true.</p>
 
       <ul>
@@ -357,56 +360,23 @@ For general information about how we use your data, go to: edin.ac/privacy-resea
           <li>If Bill Gates had bought Twitter, he would be owning one of the bigges social media sites in the world.</li>
       </ul>
 
-      Sometimes we don't know if the conclusion follows the condition, but we can make a guess. The following claims are probably true,
+      <span style = "font-weight:bold">Probably or Maybe.</span> Sometimes we don't know if the conclusion follows the condition, but we can make a guess. The following claims are probably true,
       although we don't know anything about Natalia and her mum:
 
       <ul>
       <li>If Natalia cleans up her room, her mum will be happy.</li>
       </ul>
 
-      The following claims are probably not true:
+      <span style = "font-weight:bold">Less likely.</span> The following claims are probably not true:
       <ul>
       <li>If we stop climate change, the price of ice cream will drop.</li>
       </ul>
 
-      And sometimes we know for sure that the conclusion does not follow the condition. This is the case, for example, when the condition and the conclusion have nothing to do with one another, but also .
+       <span style = "font-weight:bold">Not at all.</span> Sometimes we know for sure that the conclusion does not follow the condition. This is the case, for example, when the condition and the conclusion have nothing to do with one another, but also .
        <ul>
           <li>If Elon Musk buys Twitter, then the COVID-19 pandemic will be over.</li>
            <li>If the sea levels rise by 1 mm, life on this planet as we know it will be over.</li>
         </ul>
-
-        <!--<picture>-->
-        <!--    <source srcset="/media/cc0-images/surfer-240-200.jpg"-->
-        <!--            media="(orientation: portrait)">-->
-            <img src="https://drive.google.com/uc?export=view&id=1ZUHRFyca8ulG_XMGZTGOywN5EcTsfMwQ" width="300" height="180">
-        <!--</picture>-->
-            </img>
-          <h2>Examples</h2>>
-          <p>Some examples are given below, with the corresponding question number and explanations attached in brackets. </p>
-      <p><b>A complete conditional Claim (Q1).</b></p>
-      <p> If we take actions, climate change would be slower than it could be.  </p>
-      <p><b>A Non complete conditional Claims (Q1).</b></p>
-      <p>Climate is changing. (It is not a conditional claim)</p>
-      <p>If we take actions. (It is a conditional claim but it is incomplete. In this case, it lacks of consequent.)</p>
-      <p><b>The claim which implies the speaker thinks Claim2 is not true (Q2).</b></p>
-
-      <p><b>The claim which does not imply the speaker thinks Claim2 is not true (Q2). </b></p>
-      <p><b>A verifiable claim (Q3).</b></p>
-      <p>Today's sea level is higher than it in 1880.</p>
-
-      <p><b>A non-verifiable claim (Q3).</b></p>
-      <p>UK is an environment friendly country.</p>
-
-      <p><b> A verifiable claim that is true (Q3.2).</b></p>
-      <p>The Earth's temperature has increased in the last century.</p>
-
-      <p><b>A verifiable claim that is false (Q3.2).</b></p>
-      <p>Greenhouse gases are not responsible for warming the planet.</p>
-
-      <p><b>A verifiable claim that I do not know whether it is true or false(Q3.2). </b></p>
-    <p>The number of treess cutting all over the world in this second is more than 10.</p>
-
-      <p><b>If Claim 2 was true, would Claim 3 also become true as a result?(Q5).</b></p>
       </div>
        <div class="checkbox-container" style="margin-left: 45%">
 <input type="checkbox" style="margin-left: 12%; margin-top: 12%; margin-bottom:5px;"  name="agree" id="agree" onclick="getMyToolTipFunction()" required="true">  Finished</input>
@@ -427,8 +397,8 @@ For general information about how we use your data, go to: edin.ac/privacy-resea
             <option value="1">It is not a conditional claim. </option>
           </select>
           <div class="popup">
-              <span class="popuptext" id="pp10">Correct. Claim 1 is a conditional claim.</span>
-              <span class="popuptext" id="pp11">Claim 1 is a conditional claim where the condition is that 'If glaciers were not melting' and the conclusion is that 'COVID-19 would not exist'. </span></div>
+              <span class="popuptext" id="pp10">Well done. Claim 1 is a conditional claim.</span>
+              <span class="popuptext" id="pp11">Your answer was incorrect. Claim 1 is a conditional claim where the condition is that 'If glaciers were not melting' and the conclusion is that 'COVID-19 would not exist'. </span></div>
       </div>
       <div class="tutorial_container">
           <div class="title_t_container"><p><b>Claim 2:</b> Glaciers are not melting.</p></div>
@@ -440,7 +410,7 @@ For general information about how we use your data, go to: edin.ac/privacy-resea
           </select>
            <div class="popup" >
               <span class="popuptext" id="pp210">Correct. The speaker thinks that glaciers <b>are</b> melting.</span>
-              <span class="popuptext" id="pp211">Your answer is incorrect. The speaker thinks Claim 2 is not true, i.e., they believe glaciers are melting</span></div>
+              <span class="popuptext" id="pp211">Your answer was incorrect. The speaker of Claim 1 thinks Claim 2 is not true, i.e., they believe glaciers are melting</span></div>
           <p>Q2.2 Is Claim 2 verifiable?</p>
               <select name="QT22" id="dropdownT22" onChange= "tutorial_b(id, 0)" required>
             <option value="">Please choose from the options below. </option>
@@ -450,7 +420,7 @@ For general information about how we use your data, go to: edin.ac/privacy-resea
           </select>
           <div class="popup" >
               <span class="popuptext" id="pp220">Well done, Claim 2 is verifiable.</span>
-              <span class="popuptext" id="pp221">Claim 2 is verifiable as human can measure the size of glaciers.</span>
+              <span class="popuptext" id="pp221">Your answer was incorrect. Claim 2 is verifiable as we can compare the size of glaciers.</span>
               <span class="popuptext" id="pp222">If you are really not sure whether it is verifiable, then you are right on choosing this option.</span></div>
           <p>Q2.3 How sure are you on the answer of Q3.</p>
               <select name="QT23" id="dropdownT23" onChange= "tutorial_a(id)"  required>
@@ -471,10 +441,10 @@ For general information about how we use your data, go to: edin.ac/privacy-resea
             <option value="2">Alhtough it is verifiable, I do not know if it is true or false. </option>
           </select>
           <div class="popup" id="p24">
-              <span class="popuptext" id="pp240">Your answer is incorrect. Claim 2 is false: glaciers are melting.</span>
+              <span class="popuptext" id="pp240">Your answer was incorrect. Claim 2 is false because glaciers are melting.</span>
               <span class="popuptext" id="pp241">Well done, that is the correct answer.</span>
               <span class="popuptext" id="pp242">If you are really not sure whether Claim 2 is true, then you are right on choosing this option.</span></div>
-        <p id = "p25">Q2.5. Please choose the level of confidence of your answer to Q3.2.</p>
+        <p id = "p25">Q2.5. How sure are you about your answer to Q3.2.</p>
           <select name="QT25" id="dropdownT25" required>
             <option value="">Please choose from the options below. </option>
             <option value="0">Very High. </option>
@@ -497,9 +467,9 @@ For general information about how we use your data, go to: edin.ac/privacy-resea
           </select>
           <div class="popup" >
                <span class="popuptext" id="pp310">Well done, that is the correct answer.</span>
-              <span class="popuptext" id="pp311">Your answer is incorrect. Whether COVID-19 exsists is a fact rather than opinions. Thus, Claim 3 is verifiable</span>
+              <span class="popuptext" id="pp311">Your answer was incorrect. Whether COVID-19 exsists is a fact rather than opinions. Thus, Claim 3 is verifiable</span>
               <span class="popuptext" id="pp312">If you are really not sure whether Claim 3 is verifiable, then you are right on choosing this option.</span></div>
-        <p>Q3.2. Please choose the level of confidence of your last answer of Q4.</p>
+        <p>Q3.2. How sure are you about your last answer of Q4.</p>
         <select name="Q32" id="dropdownT32" required>
             <option value="">Please choose from the options below. </option>
             <option value="0">Very High. </option>
@@ -518,12 +488,12 @@ For general information about how we use your data, go to: edin.ac/privacy-resea
             <option value="2">Alhtough it is verifiable, I do not know if it is true or false. </option>
           </select>
           <div class="popup" id="p33">
-               <span class="popuptext" id="pp330">Your answer is incorrect. COVID-19 exsists.</span>
+               <span class="popuptext" id="pp330">Your answer was incorrect. COVID-19 exsists.</span>
               <span class="popuptext" id="pp331">Well done, that is the correct answer because COVID-19 does exsist.</span>
               <span class="popuptext" id="pp332">If you are really not sure whether Claim 3 is true, then you are right on choosing this option.</span></div>
-        <p id = "p34">Q3.4 Please choose the level of confidence of your answer of Q4.2.</p>
+        <p id = "p34">Q3.4 How sure are you about your answer of Q4.2.</p>
               <select name="Q34" id="dropdownT34" required>
-            <!--<option value="" selected>Q3.1. Please choose the level of confidence of your answer to Q3.</option>-->
+            <!--<option value="" selected>Q3.1. How sure are you about your answer to Q3.</option>-->
             <option value="">Please choose from the options below. </option>
             <option value="0">Very High. </option>
             <option value="1">High. </option>
@@ -538,8 +508,8 @@ For general information about how we use your data, go to: edin.ac/privacy-resea
               <select name="Q41" id="dropdownT41" onChange= "tutorial_a(id)"  required>
             <!--<option value="" selected>Q5. If Claim 2 was true, would Claim 3 also become true as a result?</option>-->
             <option value="">Please choose from the options below. </option>
-            <option value="0">Absolutely (if the Claim2 happened, then the conclusion would happen for sure)). </option>
-            <option value="1">Probably (if Claim2 happened, it would dramatically increase the chance of Claim3 becoming a fact)". </option>
+            <option value="0">Absolutely (if the Claim2 happened, then the conclusion would happen for sure). </option>
+            <option value="1">Probably (if Claim2 happened, it would dramatically increase the chance of Claim3 becoming a fact). </option>
             <option value="2">Maybe (if Claim2 happened, it would mediumly increase the chance of Claim3 becoming a fact). </option>
             <option value="3">Less likely (if Claim2 happened, it would minorly increase the chance of Claim3 becoming a fact). </option>
              <option value="4">Not at all (they are irrelevant.)</option>
@@ -547,7 +517,7 @@ For general information about how we use your data, go to: edin.ac/privacy-resea
           <div class="popup">
                   <span class="popuptext"  id="pp41">This is a hard question. However, if there is no evidence that COVID-19 is caused by glaciers' melting to the best of your knowledge,
                   then you should choose the option of 'Not at all'.</span> </div>
-        <p id="p42"> Q4.2. Please choose the level of confidence of your answer to Q5.</p>
+        <p id="p42"> Q4.2. How sure are you about your answer to Q5.</p>
               <select name="Q42" id="dropdownT42" required>
             <!--<option value="" selected>>Select an option below.</option>-->
             <option value="">Please choose from the options below. </option>
@@ -594,7 +564,7 @@ For general information about how we use your data, go to: edin.ac/privacy-resea
             <option value="1">No, it is not. </option>
             <option value="3">I am not sure. </option>
           </select>
-           <p>Q2.3 Please choose the level of confidence of your last answer of Q3. </p>
+           <p>Q2.3 How sure are you about your last answer of Q3. </p>
               <select name="Q23" id="dropdown23" required>
             <option value="">Please choose from the options below. </option>
             <option value="0">Very High. </option>
@@ -610,7 +580,7 @@ For general information about how we use your data, go to: edin.ac/privacy-resea
             <option value="1">No, it is not. </option>
             <option value="3">Alhtough it is verifiable, I do not know if it is true or false. </option>
           </select>
-        <p id = "qt25">Q2.5. Please choose the level of confidence of your answer to Q3.2.</p>
+        <p id = "qt25">Q2.5. How sure are you about your answer to Q3.2.</p>
           <select name="Q25" id="dropdown25" required>
             <option value="">Please choose from the options below. </option>
             <option value="0">Very High. </option>
@@ -629,7 +599,7 @@ For general information about how we use your data, go to: edin.ac/privacy-resea
             <option value="1">No, it is not. </option>
             <option value="3">I am not sure. </option>
           </select>
-        <p>Q3.2. Please choose the level of confidence of your last answer of Q4.</p>
+        <p>Q3.2. How sure are you about your last answer of Q4.</p>
         <select name="Q32" id="dropdown32" required>
             <option value="">Please choose from the options below. </option>
             <option value="0">Very High. </option>
@@ -645,9 +615,9 @@ For general information about how we use your data, go to: edin.ac/privacy-resea
             <option value="1">No, it is not. </option>
             <option value="3">Alhtough it is verifiable, I do not know if it is true or false. </option>
           </select>
-        <p id = "qt34">Q3.4 Please choose the level of confidence of your answer of Q4.2.</p>
+        <p id = "qt34">Q3.4 How sure are you about your answer of Q4.2.</p>
               <select name="Q34" id="dropdown34" required>
-            <!--<option value="" selected>Q3.1. Please choose the level of confidence of your answer to Q3.</option>-->
+            <!--<option value="" selected>Q3.1. How sure are you about your answer to Q3.</option>-->
             <option value="">Please choose from the options below. </option>
             <option value="0">Very High. </option>
             <option value="1">High. </option>
@@ -662,13 +632,13 @@ For general information about how we use your data, go to: edin.ac/privacy-resea
               <select name="Q41" id="dropdown41" required>
             <!--<option value="" selected>Q5. If Claim 2 was true, would Claim 3 also become true as a result?</option>-->
             <option value="">Please choose from the options below. </option>
-            <option value="0">Absolutely (if the Claim2 happened, then the conclusion would happen for sure)). </option>
-            <option value="1">Probably (if Claim2 happened, it would dramatically increase the chance of Claim3 becoming a fact)". </option>
+            <option value="0">Absolutely (if the Claim2 happened, then the conclusion would happen for sure). </option>
+            <option value="1">Probably (if Claim2 happened, it would dramatically increase the chance of Claim3 becoming a fact). </option>
             <option value="2">Maybe (if Claim2 happened, it would mediumly increase the chance of Claim3 becoming a fact). </option>
             <option value="3">Less likely (if Claim2 happened, it would minorly increase the chance of Claim3 becoming a fact). </option>
              <option value="4">Not at all (they are irrelevant.)</option>
           </select>
-              <p id="qt42"> Q4.2. Please choose the level of confidence of your answer to Q5.</p>
+              <p id="qt42"> Q4.2. How sure are you about your answer to Q5.</p>
               <select name="Q42" id="dropdown42" required>
             <!--<option value="" selected>>Select an option below.</option>-->
             <option value="">Please choose from the options below. </option>
@@ -690,7 +660,7 @@ For general information about how we use your data, go to: edin.ac/privacy-resea
 function tutorial_b (ques_id, ans_correct) {
         const ques_num = ques_id.split('dropdownT')[1];
         var question = document.getElementById(ques_id);
-        var pop_id = "pp".concat(ques_num).concat('0');
+        var pop_id = "pp".concat(ques_num).concat(question.value);
         document.getElementById(pop_id).classList.toggle("show");
         question.value = ans_correct;
         question.disabled = true;
