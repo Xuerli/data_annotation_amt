@@ -289,7 +289,8 @@ To request this document in an alternative format, such as large print or on col
 General information.
 For general information about how we use your data, go to: edin.ac/privacy-research </p>
 <div class="checkbox-container" style="margin-left: 45%">
-<input type="checkbox" style="margin-left: 12%; margin-top: 12%; margin-bottom:5px;"  name="agree" id="consent"  onclick="consent_func()" required="true">  I Agree</input>
+<input type="checkbox" style="margin-left: 12%; margin-top: 12%; margin-bottom:5px;"  name="consent_ch" id="consent_ch"  onclick="link_checkbox(id, 'consent_ch_2')" required="true">  I Agree</input>
+</div>
 </div>
 </div>
 
@@ -378,8 +379,9 @@ For general information about how we use your data, go to: edin.ac/privacy-resea
            <li>If the sea levels rise by 1 mm, life on this planet as we know it will be over.</li>
         </ul>
       </div>
-       <div class="checkbox-container" style="margin-left: 45%">
-<input type="checkbox" style="margin-left: 12%; margin-top: 12%; margin-bottom:5px;"  name="agree" id="agree" onclick="getMyToolTipFunction()" required="true">  Finished</input>
+      <div class="checkbox-container" style="margin-left: 45%">
+            <input type="checkbox" style="margin-left: 12%; margin-top: 12%; margin-bottom:5px;"  name="instruction_ch" id="instruction_ch" onclick="link_checkbox(id, 'instruction_ch_2')" required="true">  Finished</input>
+</div>
 </div>
     </crowd-tab>
 
@@ -529,12 +531,19 @@ For general information about how we use your data, go to: edin.ac/privacy-resea
           </select>
           &nbsp;
         </div>
-        <button  id="tutorial"  class="shadow" value="next"  style="margin-left: 45%; margin-top: 10pt"> Finished Tutorial</button>
-        </crowd-tab>
+        <div class="checkbox-container" style="margin-left: 45%">
+            <input type="checkbox" style="margin-left: 12%; margin-top: 12%; margin-bottom:5px;"  name="tutorial_ch" id="tutorial_ch" onclick="link_checkbox(id, 'tutorial_ch_2')" required="true">  Finished Tutorial</input>
+        </div>
+    </crowd-tab>
 
     <crowd-tab header="4. Data Annotation (HIT Task Entry)">
+        <input type="checkbox"   name="check_all" id="check_all" onClick = "checkall(id)">  I've done all of the followings.</input>
+                <input type="checkbox"   name="consent_ch_2" id="consent_ch_2">  I've Agreed on the Consent.</input>
+                <input type="checkbox"   name="instruction_ch_2" id="instruction_ch_2">  I've Read the Instruction.</input>
+                <input type="checkbox"   name="tutorial_ch" id="tutorial_ch_2">   I've Done the Tutorial.</input>
       <div class="grid-container">
         <div class="title_container">
+
           <!-- <div class="wrapper"> -->
           <p><b>Claim 1:</b> ${ant},    ${con}</p> </div>
               <!-- Option from a Dropdown -->
@@ -660,6 +669,25 @@ var cons_check;
 function consent_func(){
   cons_check = document.getElementById('consent').checked;
     }
+
+function checkall(id){
+    var ch_all = document.getElementById(id );
+    const a_ids = ["consent_ch", "consent_ch_2", "instruction_ch", "instruction_ch_2", "tutorial_ch", "tutorial_ch_2"];
+    a_ids.forEach(element => {document.getElementById(element).checked = ch_all.checked});
+}
+function link_checkbox (id1, id2) {
+     var q1 =document.getElementById(id1);
+     var q2 =document.getElementById(id2);
+    if (q1.checked) {
+        q2.disabled = true;
+        q2.checked = true;
+    }
+    else
+      {
+        q2.disabled = false;
+        q2.checked = false;
+      }
+}
 
 function tutorial_b (ques_id, ans_correct) {
         const ques_num = ques_id.split('dropdownT')[1];
