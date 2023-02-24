@@ -289,7 +289,7 @@ To request this document in an alternative format, such as large print or on col
 General information.
 For general information about how we use your data, go to: edin.ac/privacy-research </p>
 <div class="checkbox-container" style="margin-left: 45%">
-<input type="checkbox" style="margin-left: 12%; margin-top: 12%; margin-bottom:5px;"  name="agree" id="agree" onclick="getMyToolTipFunction()" required="true">  I Agree</input>
+<input type="checkbox" style="margin-left: 12%; margin-top: 12%; margin-bottom:5px;"  name="agree" id="consent"  onclick="consent_func()" required="true">  I Agree</input>
 </div>
 </div>
 
@@ -346,7 +346,7 @@ For general information about how we use your data, go to: edin.ac/privacy-resea
             <li>Less likely (if P happened, it would minorly increase the chance of Q becoming a fact). </li>
              <li>Not at all (P has nothing to do with the happenning of Q.)</li>
           </ul>
-          <p>Please find examples that belong to different catagories below.</p>
+          <p>Please find examples of these catagories below.</p>
           <p><span style = "font-weight:bold">Absolutely.</span> In some conditional claims, the conclusion follow the condition.</p>
        <ul>
           <li>If Elon Musk buys Twitter, he will own one of the biggest social media sites in the world.</li>
@@ -655,7 +655,11 @@ For general information about how we use your data, go to: edin.ac/privacy-resea
   </crowd-form>
 
 <script>
-
+// Global variables to record whether the user has agreed on the consent
+var cons_check;
+function consent_func(){
+  cons_check = document.getElementById('consent').checked;
+    }
 
 function tutorial_b (ques_id, ans_correct) {
         const ques_num = ques_id.split('dropdownT')[1];
@@ -675,7 +679,7 @@ function tutorial_a (ques_id,ans) {
  function showAlert() {
    // Get the checkbox
   var checkBox = document.getElementById("agree");
-     if (checkBox.checked == false){
+     if (checkBox.checked == false && consent == false){
      var myText = "Sorry, your submission is failed because you have not agreed on our consent. Please try again after clicking 'I Agree' at the bottom of the page 'Overview and Consent'.";
     alert (myText);
    }
@@ -699,4 +703,4 @@ function invisible (id, id1, id2) {
 </script>
 
 </body>
-</html>>
+</html>
