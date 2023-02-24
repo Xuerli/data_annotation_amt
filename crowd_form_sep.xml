@@ -694,9 +694,11 @@ function invisible (id, id1, id2) {
      const a_ids = [q1, q2, p1, p2]
     if (document.getElementById(id).value === "1") {
         a_ids.forEach(element => {element.hidden = true});
+        a_ids.forEach(element => {element.required = false});
       }
     else{
         a_ids.forEach(element => {element.hidden = false});
+        a_ids.forEach(element => {element.required = true});
     }
 }
 
