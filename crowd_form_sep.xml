@@ -194,10 +194,10 @@
   <crowd-tabs>
      <crowd-tab header="Read Me">
          <h2>Welcome to our HIT tasks!</h2>
-         <p> If this is your first time working on our HIT task in this project, make sure that you will read the consent, instructions and take tutorial. Please make sure that you will click the checkbox at the bottom of each page, otherwise, your will not be able to submit your work.</p>
+         <p> If this is your first time working on our HIT task in this project, make sure that you read the consent, instructions and take tutorial. Please make sure that you click the checkbox at the bottom of each page, otherwise you will not be able to submit your work.</p>
 
-         <p>Alternatively, if you have done the above previously, then please click the checkbox below and you can directly go tpo the 'HIT Task Entry'.</p>
-         <input type="checkbox"   name="check_all" id="checkbox_all" onclick = "get_ready()"> I've done at least one HIT in this project. </input>
+         <p>Alternatively, <b>if you have done the above previously</b>, then please click the checkbox below and you can directly go to the '4. HIT Task Entry'.</p>
+         <input type="checkbox"   name="check_all" id="checkbox_all" onclick = "get_ready()"> I've done at least one HIT in this project previously. </input>
      </crowd-tab>
     <crowd-tab header="1. Consent">
         <div class = "claim-container">
