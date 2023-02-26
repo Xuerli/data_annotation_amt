@@ -430,7 +430,7 @@
                   <span class="popuptext" id="pp220">Well done, Claim 2 is verifiable.</span>
                   <span class="popuptext" id="pp221">Your answer was incorrect. Claim 2 is verifiable as we can compare the size of glaciers.</span>
                   <span class="popuptext" id="pp222">If you are really not sure whether it is verifiable, then you are right on choosing this option.</span></div>
-              <p>Q2.3 How sure are you on the answer of Q3.</p>
+              <p>Q2.3 How sure are you about your answer to the above question?</p>
                   <select name="QT23" id="dropdownT23" onChange= "tutorial_a(id)"  required>
                 <option value="">Please choose from the options below. </option>
                 <option value="0">Very High. </option>
@@ -452,7 +452,7 @@
                   <span class="popuptext" id="pp240">Your answer was incorrect. Claim 2 is false because glaciers are melting.</span>
                   <span class="popuptext" id="pp241">Well done, that is the correct answer.</span>
                   <span class="popuptext" id="pp242">If you are really not sure whether Claim 2 is true, then you are right on choosing this option.</span></div>
-            <p id = "p25">Q2.5. How sure are you about your answer to Q3.2.</p>
+            <p id = "p25">Q2.5. How sure are you about your answer to the above question?</p>
               <select name="QT25" id="dropdownT25" required>
                 <option value="">Please choose from the options below. </option>
                 <option value="0">Very High. </option>
@@ -467,7 +467,7 @@
           <div class="tutorial_container">
               <div class="title_t_container"><p><b>Claim 3:</b> COVID-19 does not exist.</p></div>
               <p>Q3.1. Is Claim 3 verifiable?</p>
-              <select name="Q31" id="dropdownT31" onChange= "tutorial_b(id, 0)"  required>
+              <select name="QT31" id="dropdownT31" onChange= "tutorial_b(id, 0)"  required>
                 <option value="">Please choose from the options below. </option>
                 <option value="0">Yes, it is. </option>
                 <option value="1">No, it is not. </option>
@@ -477,8 +477,8 @@
                    <span class="popuptext" id="pp310">Well done, that is the correct answer.</span>
                   <span class="popuptext" id="pp311">Your answer was incorrect. Whether COVID-19 exsists is a fact rather than opinions. Thus, Claim 3 is verifiable</span>
                   <span class="popuptext" id="pp312">If you are really not sure whether Claim 3 is verifiable, then you are right on choosing this option.</span></div>
-            <p>Q3.2. How sure are you about your last answer of Q4.</p>
-            <select name="Q32" id="dropdownT32" required>
+            <p>Q3.2. How sure are you about your answer to the above question?</p>
+            <select name="QT32" id="dropdownT32" required>
                 <option value="">Please choose from the options below. </option>
                 <option value="0">Very High. </option>
                 <option value="1">High. </option>
@@ -489,7 +489,7 @@
               &nbsp;
               <p>Q3.3 Is Claim 3 true?</p>
 
-                  <select name="Q33" id="dropdownT33" onChange= "tutorial_b(id, 1)"  required>
+                  <select name="QT33" id="dropdownT33" onChange= "tutorial_b(id, 1)"  required>
                 <option value="">Please choose from the options below. </option>
                 <option value="0">Yes, it is. </option>
                 <option value="1">No, it is not. </option>
@@ -499,9 +499,8 @@
                    <span class="popuptext" id="pp330">Your answer was incorrect. COVID-19 exsists.</span>
                   <span class="popuptext" id="pp331">Well done, that is the correct answer because COVID-19 does exsist.</span>
                   <span class="popuptext" id="pp332">If you are really not sure whether Claim 3 is true, then you are right on choosing this option.</span></div>
-            <p id = "p34">Q3.4 How sure are you about your answer of Q4.2.</p>
-                  <select name="Q34" id="dropdownT34" required>
-                <!--<option value="" selected>Q3.1. How sure are you about your answer to Q3.</option>-->
+            <p id = "p34">Q3.4 How sure are you about your answer to the above question?</p>
+                  <select name="QT34" id="dropdownT34" required>
                 <option value="">Please choose from the options below. </option>
                 <option value="0">Very High. </option>
                 <option value="1">High. </option>
@@ -513,7 +512,7 @@
                </div>
           <div class="tutorial_container">
               <p>Q4.1 If Claim 2 was true, would Claim 3 also become true as a result?</p>
-                  <select name="Q41" id="dropdownT41" onChange= "tutorial_a(id)"  required>
+                  <select name="QT41" id="dropdownT41" onChange= "tutorial_a(id)"  required>
                 <!--<option value="" selected>Q5. If Claim 2 was true, would Claim 3 also become true as a result?</option>-->
                 <option value="">Please choose from the options below. </option>
                 <option value="0">Absolutely (if the Claim2 happened, then the conclusion would happen for sure). </option>
@@ -525,8 +524,8 @@
               <div class="popup">
                       <span class="popuptext"  id="pp41">This is a hard question. However, if there is no evidence that COVID-19 is caused by glaciers' melting to the best of your knowledge,
                       then you should choose the option of 'Not at all'.</span> </div>
-            <p id="p42"> Q4.2. How sure are you about your answer to Q5.</p>
-                  <select name="Q42" id="dropdownT42" required>
+            <p id="p42"> Q4.2. How sure are you about your answer to the above question?</p>
+                  <select name="QT42" id="dropdownT42" required>
                 <!--<option value="" selected>>Select an option below.</option>-->
                 <option value="">Please choose from the options below. </option>
                 <option value="0">Very High. </option>
@@ -575,7 +574,7 @@
                 <option value="1">No, it is not. </option>
                 <option value="3">I am not sure. </option>
               </select>
-               <p>Q2.3 How sure are you about your last answer of Q3. </p>
+               <p>Q2.3 How sure are you about your answer to the above question? </p>
                   <select name="Q23_confidence_Q22" id="dropdown23" required>
                 <option value="">Please choose from the options below. </option>
                 <option value="0">Very High. </option>
@@ -591,7 +590,7 @@
                 <option value="1">No, it is not. </option>
                 <option value="3">Alhtough it is verifiable, I do not know if it is true or false. </option>
               </select>
-            <p id = "qt25">Q2.5. How sure are you about your answer to Q3.2.</p>
+            <p id = "qt25">Q2.5. How sure are you about your answer to the above question?</p>
               <select name="Q25_confidence_Q24" id="dropdown25" required>
                 <option value="">Please choose from the options below. </option>
                 <option value="0">Very High. </option>
@@ -610,7 +609,7 @@
                 <option value="1">No, it is not. </option>
                 <option value="3">I am not sure. </option>
               </select>
-            <p>Q3.2. How sure are you about your last answer of Q4.</p>
+            <p>Q3.2. How sure are you about your answer to the above question?</p>
             <select name="Q32_confidence_Q31" id="dropdown32" required>
                 <option value="">Please choose from the options below. </option>
                 <option value="0">Very High. </option>
@@ -626,9 +625,8 @@
                 <option value="1">No, it is not. </option>
                 <option value="3">Alhtough it is verifiable, I do not know if it is true or false. </option>
               </select>
-            <p id = "qt34">Q3.4 How sure are you about your answer of Q4.2.</p>
+            <p id = "qt34">Q3.4 How sure are you about your answer to the above question?</p>
                   <select name="Q34_confidence_Q33" id="dropdown34" required>
-                <!--<option value="" selected>Q3.1. How sure are you about your answer to Q3.</option>-->
                 <option value="">Please choose from the options below. </option>
                 <option value="0">Very High. </option>
                 <option value="1">High. </option>
@@ -649,7 +647,7 @@
                 <option value="3">Less likely (if Claim2 happened, it would minorly increase the chance of Claim3 becoming a fact). </option>
                  <option value="4">Not at all (they are irrelevant.)</option>
               </select>
-                  <p id="qt42"> Q4.2. How sure are you about your answer to Q5.</p>
+                  <p id="qt42"> Q4.2. How sure are you about your answer to the above question?</p>
                   <select name="Q42_confidence_ent" id="dropdown42" required>
                 <!--<option value="" selected>>Select an option below.</option>-->
                 <option value="">Please choose from the options below. </option>
@@ -669,7 +667,7 @@
     function get_ready(){
         const checkBox_ids = document.querySelectorAll('[id^="checkbox_"]');
         const all_in_tutorial = document.querySelectorAll('[id^="dropdownT"]');
-        checkBox_ids.forEach(element => {element.required = false});
+        checkBox_ids.forEach(element => {element.checked = true; element.disabled=true;});
         all_in_tutorial.forEach(element => {element.required = false});
     }
 
@@ -694,6 +692,8 @@
             check_tutorial.checked = false;
         }
     }
+
+
     function tutorial_b (ques_id, ans_correct) {
             const ques_num = ques_id.split('dropdownT')[1];
             var question = document.getElementById(ques_id);
