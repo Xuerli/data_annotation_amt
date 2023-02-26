@@ -64,7 +64,7 @@
             border: 0;
             border-radius: 10px;
             height: 40px;
-            width: 100px;
+            width: 120px;
             background-color: var(--main-color);
             color: white;
             font-size: 1em;
@@ -133,49 +133,28 @@
         }
 
    /* Popup container - can be anything you want */
-        .popup {
+        .tooltip {
           position: relative;
           display: inline-block;
-          cursor: pointer;
-          bottom: -12pt;
-          -webkit-user-select: none;
-          -moz-user-select: none;
-          -ms-user-select: none;
-          user-select: none;
+          border-bottom: 1px dotted black;
         }
 
-        /* The actual popup */
-        .popup .popuptext {
+        .tooltip .tooltiptext {
           visibility: hidden;
-          width: 90%;
-          background-color: #555;
+          width: 120px;
+          background-color: black;
           color: #fff;
           text-align: center;
           border-radius: 6px;
-          padding: 8px 0;
+          padding: 5px 0;
+
+          /* Position the tooltip */
           position: absolute;
           z-index: 1;
-          bottom: 25%;
-          margin-left: 5%;
         }
 
-        /* Popup arrow */
-        .popup .popuptext::after {
-          content: "";
-          position: absolute;
-          bottom: 25%;
-          left: -10px;
-          transform: rotate(90deg);
-          border-width: 5px;
-          border-style: solid;
-          border-color: #555 transparent transparent transparent;
-        }
-
-        /* Toggle this class - hide and show the popup */
-        .popup .show {
-            visibility: visible;
-          -webkit-animation: fadeIn 1s;
-          animation: fadeIn 1s;
+        .tooltip:hover .tooltiptext {
+          visibility: visible;
         }
         </style>
   </head>
@@ -185,30 +164,28 @@
 <body>
 <!-- You must include crowd-form so that your task submits answers to MTurk -->
 <crowd-form>
-  <short-instructions>
-      <p>Please read each tab in order.</p>
-      <p>You can submit your answer only if you have agreed on our consent in the first tab, have read the instruction in the second tab and complete the tutorial in the third tab. These will help you to be prepared for the HIT task, which is on the fourth tab.</p>
-      <p>Switching tabs do not loss your answers.</p>
-  </short-instructions>
 
   <crowd-tabs>
      <crowd-tab header="Read Me">
          <h2>Welcome to our HIT tasks!</h2>
-         <p> If this is your first time working on our HIT task in this project, make sure that you read the consent, instructions and take tutorial. Please make sure that you click the checkbox at the bottom of each page, otherwise you will not be able to submit your work.</p>
 
-         <p>Alternatively, <b>if you have done the above previously</b>, then please click the checkbox below and you can directly go to the '4. HIT Task Entry'.</p>
-         <input type="checkbox"   name="check_all" id="checkbox_all" onclick = "get_ready()"> I've done at least one HIT in this project previously. </input>
-     </crowd-tab>
-    <crowd-tab header="1. Consent">
-        <div class = "claim-container">
-         <h2>Overview</h2>
          <p>In this job, you will answer questions about given claims.
          Although these claims are about climate change,
          our study does not test your personal opinions about climate change but looks for objective answers to analyse these claims.
          Thus, please answer to your best knowledge. Please read the instructions first.
-         You will be paid a reward of $4.50  ($4.40 reward + $0.10 HIT compensation) for every time you successfully complete the HIT.
-         You must complete the annotation task (a single HIT) in one session.
-         For information about our project and your privacy, please read the consent below. </p>
+         You will be paid a reward of $4.50  ($4.40 reward + $0.10 HIT compensation) for every time you successfully complete a HIT.
+
+         <li>You will not loose your answers if you switch tabs, so feel free to go back instructions or tutorial when needed.</li>
+        <h2>Which applies to you?</h2>
+         <li> If this is your first time working on our HIT task in this project, please read the rest tabs in order. You can submit your answer only if you have agreed on our consent, read the instruction and take the tutorial. Please make sure that you click the checkbox at the bottom of each page, otherwise you will not be able to submit your work.</li>
+
+         <li>Alternatively, <b>if you have done the above previously</b>, then please click the checkbox below and you can directly go to the tab '4. HIT Task Entry'.</li>
+         <div class="checkbox-container" style="margin-left: 45%;">
+                 <input type="checkbox" name="check_all" id="checkbox_all" onclick = "get_ready()"> I've done it previously. </input>
+         </div>
+     </crowd-tab>
+    <crowd-tab header="1. Consent">
+        <div class = "claim-container">
 
  <h2>   Participant Information Sheet </h2>
 <table class="table1">
@@ -294,7 +271,7 @@ Alternative formats.
 To request this document in an alternative format, such as large print or on coloured paper, please contact Xue Li, whose email address is xue.shirley.li@ed.ac.uk.
 General information.
 For general information about how we use your data, go to: edin.ac/privacy-research </p>
-<div class="checkbox-container" style="margin-left: 45%">
+<div class="checkbox-container" style="margin-left: 45%; ">
 <input type="checkbox" style="margin-left: 12%; margin-top: 12%; margin-bottom:5px;"  name="checkbox_ch" id="checkbox_ch"  required="true">  I Agree</input>
 </div>
 </div>
@@ -384,8 +361,8 @@ For general information about how we use your data, go to: edin.ac/privacy-resea
            <li>If the sea levels rise by 1 mm, life on this planet as we know it will be over.</li>
         </ul>
       </div>
-      <div class="checkbox-container" style="margin-left: 45%">
-            <input type="checkbox" style="margin-left: 12%; margin-top: 12%; margin-bottom:5px;"  name="checkbox_ins" id="checkbox_ins" required="true">  Finished</input>
+      <div class="checkbox-container" style="margin-left: 45%; ">
+            <input type="checkbox" style="margin-left: 12%; margin-top: 12%; margin-bottom:5px;"  name="checkbox_ins" id="checkbox_ins" required="true">Complete</input>
 </div>
 </div>
     </crowd-tab>
@@ -536,8 +513,8 @@ For general information about how we use your data, go to: edin.ac/privacy-resea
           </select>
           &nbsp;
         </div>
-        <div class="checkbox-container" style="margin-left: 45%">
-            <input type="checkbox" style="margin-left: 12%; margin-top: 12%; margin-bottom:5px;"  name="checkbox_tut" id="checkbox_tut"  required="true">  Finished Tutorial</input>
+        <div class="checkbox-container" style="margin-left: 45%;">
+            <input type="checkbox" style="margin-left: 12%; margin-top: 12%; margin-bottom:5px;"  name="checkbox_tut" id="checkbox_tut"  required="true">Complete</input>
         </div>
     </crowd-tab>
 
@@ -600,7 +577,7 @@ For general information about how we use your data, go to: edin.ac/privacy-resea
           </select>
       </div>
       <div class="grid-container">
-          <div class="title_container"><p><b>Claim 3:</b> COVID-19 does not exist.</p></div>
+          <div class="title_container"><p><b>Claim 3:</b> ${claimCon}</p></div>
           <p>Q3.1. Is Claim 3 verifiable? </p>
           <select name="Q31" id="dropdown31" onChange= "invisible(id, 33, 34)"  required>
             <option value="">Please choose from the options below. </option>
