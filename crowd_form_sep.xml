@@ -204,10 +204,11 @@
             <h2>Which applies to you?</h2>
              <li> If this is your first time working on our HIT task in this project, please read the rest tabs in order. You can submit your answer only if you have agreed on our consent, read the instruction and take the tutorial. Please make sure that you click the checkbox at the bottom of each page, otherwise you will not be able to submit your work.</li>
 
-             <li>Alternatively, <b>if you have done the above previously</b>, then please click the checkbox below and you can directly go to the tab '4. HIT Task Entry'.</li>
+             <li>Alternatively, <b>if you have done the above previously and still agree with our consent</b>, then please click the checkbox below and you can directly go to the tab '4. HIT Task Entry'.</li>
              <div class="checkbox-container" style="margin-left: 45%;">
-                     <input type="checkbox" name="check_all" id="checkbox_all" onclick = "get_ready()"> I've done it previously. </input>
+                     <input type="checkbox" name="check_all" id="checkbox_all" onclick = "get_ready(id)"> I've done it &ensp; &nbsp; &emsp; previously. </input>
              </div>
+              <p id = 'checkbox_all_next' style="text-align: center;"></p>
          </crowd-tab>
         <crowd-tab header="1. Consent">
             <div class = "claim-container">
@@ -297,8 +298,9 @@
                 General information.
                 For general information about how we use your data, go to: edin.ac/privacy-research </p>
                 <div class="checkbox-container" style="margin-left: 45%; ">
-                <input type="checkbox" style="margin-left: 12%; margin-top: 12%; margin-bottom:5px;"  name="checkbox_ch" id="checkbox_ch"  required="true">  I Agree</input>
+                <input type="checkbox" style="margin-left: 12%; margin-top: 12%; margin-bottom:5px;"  name="checkbox_con" id="checkbox_con" onclick="next(id)" required="true">  I Agree</input>
                 </div>
+                <p id = 'checkbox_con_next' style="text-align: center;"></p>
             </div>
         </crowd-tab>
 
@@ -386,9 +388,9 @@
             </ul>
           </div>
           <div class="checkbox-container" style="margin-left: 45%; ">
-                <input type="checkbox" style="margin-left: 12%; margin-top: 12%; margin-bottom:5px;"  name="checkbox_ins" id="checkbox_ins" required="true">Complete</input>
+                <input type="checkbox" style="margin-left: 12%; margin-top: 12%; margin-bottom:5px;"  name="checkbox_ins" id="checkbox_ins"  onclick="next(id)" required="true">Complete</input>
           </div>
-
+            <p id = 'checkbox_ins_next' style="text-align: center;"></p>
         </crowd-tab>
 
      <crowd-tab header="3. Tutorial">
@@ -537,8 +539,9 @@
               &nbsp;
             </div>
             <div class="checkbox-container" style="margin-left: 45%;">
-                <input type="checkbox" style="margin-left: 12%; margin-top: 12%; margin-bottom:5px;"  name="checkbox_tut" id="checkbox_tut"  onclick="check_tutorial()" required="true">Complete</input>
+                <input type="checkbox" style="margin-left: 12%; margin-top: 12%; margin-bottom:5px;"  name="checkbox_tut" id="checkbox_tut"  onclick="check_tutorial(id)" required="true">Complete</input>
             </div>
+            <p id = 'checkbox_tut_next' style="text-align: center;"></p>
             <button id="tutorialButton" hidden></button>
         </crowd-tab>
 
@@ -664,15 +667,54 @@
       </crowd-form>
 
     <script>
-    function get_ready(){
-        const checkBox_ids = document.querySelectorAll('[id^="checkbox_"]');
+    function get_ready(id){
+        const checkBox_ids = ["checkbox_con", "checkbox_ins", "checkbox_tut"];
         const all_in_tutorial = document.querySelectorAll('[id^="dropdownT"]');
-        checkBox_ids.forEach(element => {element.checked = true; element.disabled=true;});
-        all_in_tutorial.forEach(element => {element.required = false});
+
+        if (document.getElementById(id).checked){
+             all_in_tutorial.forEach(element => {element.required = false});
+            checkBox_ids.forEach(e_id => {
+              var element = document.getElementById(e_id);
+              element.checked = true;
+              element.disabled=true;
+              var pop_element = document.getElementById(e_id.concat("_next"));
+              pop_element.innerHTML = "";});
+
+        }
+        else{
+            checkBox_ids.forEach(e_id => {
+              var element = document.getElementById(e_id);
+              element.checked = false;
+              element.disabled=false;
+              var pop_element = document.getElementById(e_id.concat("_next"));
+              pop_element.innerHTML = "";});
+            all_in_tutorial.forEach(element => {element.required = true});
+        }
+        next(id);
     }
 
-
-    function check_tutorial(){
+    function next(id){
+        var pop_element = document.getElementById(id.concat("_next"));
+        if (document.getElementById(id).checked){
+            switch(id) {
+            case "checkbox_all":
+                pop_element.innerHTML = 'Great, you can go to the last tab directly.';
+                break;
+            case "checkbox_con":
+                pop_element.innerHTML = 'Thanks, please go to the next tab to read the instruction.';
+                break;
+            case "checkbox_ins":
+                pop_element.innerHTML = 'Please go to the next tab to take the tutorial.';
+                break;
+            case "checkbox_tut":
+                pop_element.innerHTML = 'Please go to the next tab for HIT.';
+            }
+        }
+        else{
+            pop_element.innerHTML = "";
+        }
+    }
+    function check_tutorial(id){
         var check_tutorial = document.getElementById("checkbox_tut");
         if(check_tutorial.checked){
             document.getElementById("tutorialButton").click();
@@ -687,6 +729,7 @@
 
         if (not_null){
             check_tutorial.checked = true;
+            next(id);
         }
         else{
             check_tutorial.checked = false;
@@ -729,12 +772,21 @@
     function showAlert() {
        // Get the checkbox
       var checkBox = document.getElementById("checkbox_all");
-      const checkBox_ids = ["checkbox_ch", "checkbox_ins", "checkbox_tut"];
-         if (!(checkBox.checked === true || checkBox_ids.forEach(e => {document.getElementById(e).checked === true}))){
-         var myText = "Sorry, your submission is failed because you have not checked all requried checked boxes. Please go to 'ReadMe' page and follow the guidance then resubmit.";
-        alert (myText);
-       }
-      }
+      const checkBox_ids = ["checkbox_con", "checkbox_ins", "checkbox_tut"];
+         if (!checkBox.checked){
+            flag = true;
+            for(let i=0; i<checkBox_ids.length; i++){
+                if (checkBox_ids[i].checked === false ){
+                  flag = false;
+                }
+            }
+            if (flag === false){
+                var myText = "Sorry, your submission is failed because you have not checked all requried checked boxes. Please go to 'ReadMe' page and follow the guidance then resubmit.";
+                alert (myText);
+            }
+        }
+     }
+
 
 
     </script>
