@@ -832,7 +832,7 @@
                 }
             }
             if (flag === false){
-                var myText = "Sorry, your submission is failed because you have not checked all required checked boxes. Please go to 'ReadMe' page and follow the guidance in the section 'Which applies to you', thanks.";
+                var myText = "Sorry, your submission has failed because you have not checked all required checked boxes. Please go to the 'ReadMe' page and follow the guidance in the section 'Which applies to you', thanks.";
                 alert (myText);
             }
         }
