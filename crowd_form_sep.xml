@@ -602,12 +602,13 @@
                 <option value="3">Low. </option>
                 <option value="4">Very Low. </option>
               </select>
-          <p id = "qt24_r" hidden>Q2.5 Why it is unknown about Claim 2?</p>
+          <p id = "qt24_r" hidden>Q2.5 Why don't you know whether Claim 2 is true or false?</p>
               <select name="Q26_ant_unknown_reason" id="dropdown24_r" hidden>
-            <option value="">Please choose from the options below. </option>
-            <option value="0">It lacks of context， e.g., caused by an unclear pronoun. </option>
-            <option value="1">It requires domain knowledge so only experts can tell. </option>
-            <option value="2">Others. </option>
+                <option value="">Please choose from the options below. </option>
+                <option value="0">It lacks of context， e.g., caused by an undefined pronoun, such as 'it'. </option>
+                <option value="1">It is badly written so not understandable. </option>
+                <option value="2">It requires domain knowledge so only experts can tell. </option>
+                <option value="3">Others. </option>
           </select>
           </div>
           <div class="grid-container">
@@ -644,12 +645,13 @@
                 <option value="3">Low. </option>
                 <option value="4">Very Low. </option>
               </select>
-            <p id = "qt33_r" hidden>Q3.4 Why it is unknown about Claim 3?</p>
+            <p id = "qt33_r" hidden>Q3.4  Why don't you know whether Claim 3 is true or false?</p>
                   <select name="Q35_con_unknown_reason" id="dropdown33_r" hidden>
                 <option value="">Please choose from the options below. </option>
-                <option value="0">It lacks of context， e.g., caused by an unclear pronoun. </option>
-                <option value="1">It requires domain knowledge so only experts can tell. </option>
-                <option value="2">Others. </option>
+                <option value="0">It lacks of context， e.g., caused by an undefined pronoun, such as 'it'. </option>
+                <option value="1">It is badly written so not understandable. </option>
+                <option value="2">It requires domain knowledge so only experts can tell. </option>
+                <option value="3">Others. </option>
               </select>
               <p id="demo"></p>
                </div>
@@ -773,12 +775,14 @@
     function invisible (id, ids) {
         if (document.getElementById(id).value === "1") {
             ids.forEach(x => { document.getElementById("dropdown".concat(x)).hidden = true;
+                                document.getElementById("dropdown".concat(x)).value = "";
                                 document.getElementById("dropdown".concat(x)).required = false;
                                 document.getElementById("qt".concat(x)).hidden = true;});
           }
         else{
             let new_ids = ids.slice(0,2);
             new_ids.forEach(x => { document.getElementById("dropdown".concat(x)).hidden = false;
+                                document.getElementById("dropdown".concat(x)).value = "";
                                 document.getElementById("dropdown".concat(x)).required = true;
                                 document.getElementById("qt".concat(x)).hidden = false;});
         }
@@ -796,9 +800,11 @@
         if (document.getElementById(id).value ==="2"){
             question_title.hidden = false;
             question_option.hidden = false;
+            question_option.value = "";
             question_option.required = true;
             confidence_title.hidden = true;
             confidence_option.hidden = true;
+            confidence_option.value = "";
             confidence_option.required = false;
         }
         else if (array1.includes(document.getElementById(id).value)){
@@ -807,6 +813,8 @@
             question_option.required = false;
             confidence_title.hidden = false;
             confidence_option.hidden = false;
+            confidence_option.value = "";
+            question_option.value = "";
             confidence_option.required = true;
         }
     }
