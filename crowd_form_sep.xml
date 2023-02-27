@@ -551,7 +551,7 @@
           <div class="grid-container">
             <div class="title_container">
               <!-- <div class="wrapper"> -->
-              <p><b>Claim 1:</b> ${ant},    ${con}</p> </div>
+              <p><b>Claim 1:</b> ${ant} &nbsp; ${con}</p> </div>
                   <!-- Option from a Dropdown -->
                  <p>Q1. Which of the following describe Claim1 the best?</p>
                 <select name="Q1_conditional_claim" id="dropdown1" onChange= "invisible(id, [41, 42])" required>
