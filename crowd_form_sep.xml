@@ -552,7 +552,7 @@
               <p><b>Claim 1:</b> ${ant},    ${con}</p> </div>
                   <!-- Option from a Dropdown -->
                  <p>Q1. Which of the following describe Claim1 the best?</p>
-                <select name="Q1_conditional_claim" id="dropdown1" onChange= "invisible(id, 41, 42)" required>
+                <select name="Q1_conditional_claim" id="dropdown1" onChange= "invisible(id, [41, 42])" required>
                 <!--<option value="" selected>Q1. Which of the following describe Claim1 the best?</option>-->
                 <option value="">Please choose from the options below. </option>
                 <option value="0">It is a conditional claim </option>
@@ -570,7 +570,7 @@
                 <option value="2">Claim 1 does not imply its speaker thinks Claim2 is not true. </option>
               </select>
               <p> Q2.2 Is Claim 2 verifiable? </p>
-                  <select name="Q22_ant_verifiable" id="dropdown22" onChange= "invisible(id, 24, 25)" required>
+                  <select name="Q22_ant_verifiable" id="dropdown22" onChange= "invisible(id, ['24', '25', '24_r'])" required>
                 <!--<option value="" selected>Q3. Which of the following describe Claim2 the best?</option>-->
                 <option value="">Please choose from the options below. </option>
                 <option value="0">Yes, it is. </option>
@@ -587,14 +587,14 @@
                 <option value="4">Very Low. </option>
               </select>
               <p id="qt24"> Q2.4 Is Claim 2 true? </p>
-              <select name="Q24_ant_truthValue" id="dropdown24" required>
+              <select name="Q24_ant_truthValue" id="dropdown24" onchange="follow_up(id)" required>
                 <option value="">Please choose from the options below. </option>
                 <option value="0">Yes, it is. </option>
                 <option value="1">No, it is not. </option>
-                <option value="3">Alhtough it is verifiable, I do not know if it is true or false. </option>
+                <option value="2">Alhtough it is verifiable, I do not know if it is true or false. </option>
               </select>
-            <p id = "qt25">Q2.5. How sure are you about your answer to the above question?</p>
-              <select name="Q25_confidence_Q24" id="dropdown25" required>
+            <p id = "qt25" hidden>Q2.5. How sure are you about your answer to the above question?</p>
+              <select name="Q25_confidence_Q24" id="dropdown25" hidden>
                 <option value="">Please choose from the options below. </option>
                 <option value="0">Very High. </option>
                 <option value="1">High. </option>
@@ -602,11 +602,18 @@
                 <option value="3">Low. </option>
                 <option value="4">Very Low. </option>
               </select>
+          <p id = "qt24_r" hidden>Q2.5 Why it is unknown about Claim 2?</p>
+              <select name="Q26_ant_unknown_reason" id="dropdown24_r" hidden>
+            <option value="">Please choose from the options below. </option>
+            <option value="0">It lacks of context， e.g., caused by an unclear pronoun. </option>
+            <option value="1">It requires domain knowledge so only experts can tell. </option>
+            <option value="2">Others. </option>
+          </select>
           </div>
           <div class="grid-container">
               <div class="title_container"><p><b>Claim 3:</b> ${claimCon}</p></div>
               <p>Q3.1. Is Claim 3 verifiable? </p>
-              <select name="Q31_con_verifiable" id="dropdown31" onChange= "invisible(id, 33, 34)"  required>
+              <select name="Q31_con_verifiable" id="dropdown31" onChange= "invisible(id, ['33', '34', '33_r'])"  required>
                 <option value="">Please choose from the options below. </option>
                 <option value="0">Yes, it is. </option>
                 <option value="1">No, it is not. </option>
@@ -622,14 +629,14 @@
                 <option value="4">Very Low. </option>
               </select>
               <p id="qt33"> Q3.3 Is Claim 3 true? </p>
-                  <select name="Q33_con_truthValue" id="dropdown33" required>
+                  <select name="Q33_con_truthValue" id="dropdown33" onchange = "follow_up(id)" required>
                 <option value="">Please choose from the options below. </option>
                 <option value="0">Yes, it is. </option>
                 <option value="1">No, it is not. </option>
-                <option value="3">Alhtough it is verifiable, I do not know if it is true or false. </option>
+                <option value="2">Alhtough it is verifiable, I do not know if it is true or false. </option>
               </select>
-            <p id = "qt34">Q3.4 How sure are you about your answer to the above question?</p>
-                  <select name="Q34_confidence_Q33" id="dropdown34" required>
+            <p id = "qt34" hidden>Q3.4 How sure are you about your answer to the above question?</p>
+                  <select name="Q34_confidence_Q33" id="dropdown34" hidden>
                 <option value="">Please choose from the options below. </option>
                 <option value="0">Very High. </option>
                 <option value="1">High. </option>
@@ -637,6 +644,14 @@
                 <option value="3">Low. </option>
                 <option value="4">Very Low. </option>
               </select>
+            <p id = "qt33_r" hidden>Q3.4 Why it is unknown about Claim 3?</p>
+                  <select name="Q35_con_unknown_reason" id="dropdown33_r" hidden>
+                <option value="">Please choose from the options below. </option>
+                <option value="0">It lacks of context， e.g., caused by an unclear pronoun. </option>
+                <option value="1">It requires domain knowledge so only experts can tell. </option>
+                <option value="2">Others. </option>
+              </select>
+              <p id="demo"></p>
                </div>
           <div class="grid-container">
                   <p id="qt41">Q4.1 If Claim 2 was true, would Claim 3 also become true as a result?</p>
@@ -714,6 +729,7 @@
             pop_element.innerHTML = "";
         }
     }
+
     function check_tutorial(id){
         var check_tutorial = document.getElementById("checkbox_tut");
         if(check_tutorial.checked){
@@ -753,19 +769,45 @@
     }
 
 
-    function invisible (id, id1, id2) {
-         var q1 =document.getElementById("dropdown".concat(id1));
-         var q2 =document.getElementById("dropdown".concat(id2));
-         var p1 =document.getElementById("qt".concat(id1));
-         var p2 =document.getElementById("qt".concat(id2));
-         const a_ids = [q1, q2, p1, p2]
+    // make every id in array ids invisible or visible based on the answer of id.
+    function invisible (id, ids) {
         if (document.getElementById(id).value === "1") {
-            a_ids.forEach(element => {element.hidden = true});
-            a_ids.forEach(element => {element.required = false});
+            ids.forEach(x => { document.getElementById("dropdown".concat(x)).hidden = true;
+                                document.getElementById("dropdown".concat(x)).required = false;
+                                document.getElementById("qt".concat(x)).hidden = true;});
           }
         else{
-            a_ids.forEach(element => {element.hidden = false});
-            a_ids.forEach(element => {element.required = true});
+            let new_ids = ids.slice(0,2);
+            new_ids.forEach(x => { document.getElementById("dropdown".concat(x)).hidden = false;
+                                document.getElementById("dropdown".concat(x)).required = true;
+                                document.getElementById("qt".concat(x)).hidden = false;});
+        }
+    }
+
+    function follow_up(id){
+        const ques_num = id.split('dropdown')[1];
+        const conf_num = String(parseInt(ques_num)+1);
+        const array1 = ["0", "1"];
+        var question_title =document.getElementById("qt".concat(ques_num).concat("_r"));
+        var question_option =document.getElementById("dropdown".concat(ques_num).concat("_r"));
+        var confidence_title =document.getElementById("qt".concat(conf_num));
+        var confidence_option =document.getElementById("dropdown".concat(conf_num));
+
+        if (document.getElementById(id).value ==="2"){
+            question_title.hidden = false;
+            question_option.hidden = false;
+            question_option.required = true;
+            confidence_title.hidden = true;
+            confidence_option.hidden = true;
+            confidence_option.required = false;
+        }
+        else if (array1.includes(document.getElementById(id).value)){
+            question_title.hidden = true;
+            question_option.hidden = true;
+            question_option.required = false;
+            confidence_title.hidden = false;
+            confidence_option.hidden = false;
+            confidence_option.required = true;
         }
     }
 
