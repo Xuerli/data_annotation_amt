@@ -1020,7 +1020,7 @@
                 <option value="1">No, it is not. </option>
                 <option value="3">I am not sure. </option>
               </select>
-            <p> How sure are you about your answer to the above question?</p>
+            <p id="4_qt32"> How sure are you about your answer to the above question?</p>
             <select name="Q4.32_confidence_Q31" id="4_dropdown32" required>
                 <option value="">Please choose from the options below. </option>
                 <option value="0">Very High. </option>
@@ -1195,11 +1195,13 @@
             ids.push(ids2[1]);
             ids.forEach(x => { hide_selection(section_id.concat("_dropdown", x));
                                document.getElementById(section_id.concat("_qt", x)).hidden = true;});
+            document.getElementById(section_id.concat("_qt", ids2[0])).hidden = false;
+            unhide_selection(section_id.concat("_dropdown", ids2[0]));
           }
         else if(document.getElementById(id).value === "3"){
             ids.push(ids2[0]);
             ids.forEach(x=> {hide_selection(section_id.concat("_dropdown", x));
-                                           document.getElementById(section_id.concat("_qt", x)).hidden = true;});
+                             document.getElementById(section_id.concat("_qt", x)).hidden = true;});
             unhide_selection(section_id.concat("_dropdown", ids2[1]));
             document.getElementById(section_id.concat("_qt", ids2[1])).hidden = false;
         }
@@ -1208,10 +1210,14 @@
             new_ids.push(ids2[0]);
             new_ids.forEach(x => { unhide_selection(section_id.concat("_dropdown", x));
                                 document.getElementById(section_id.concat("_qt", x)).hidden = false;});
+            hide_selection(section_id.concat("_dropdown", ids2[1]));
+            document.getElementById(section_id.concat("_qt", ids2[1])).hidden = true;
+
         }
     }
 
-    function invisible_opt(id, ids):{
+    function invisible_opt(id, ids){
+        const section_id = id.split('_')[0];
         if (document.getElementById(id).value === "1") {
             ids.forEach(x => { hide_selection(section_id.concat("_dropdown", x));
                                 document.getElementById(section_id.concat("_qt", x)).hidden = true;});
