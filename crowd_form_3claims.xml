@@ -543,31 +543,31 @@
             <div class="title_container">
               <!-- <div class="wrapper"> -->
              <h2 style = "color: black">Section 1</h2>
-                <p><b>Claim 1.1:</b> ${ant} &nbsp; ${con}</p> </div>
+                <p><b>Claim 1.1:</b> ${ant1} &nbsp; ${con1}</p> </div>
                   <!-- Option from a Dropdown -->
-                 <p>Q1. Which of the following describe Claim 1.1 the best?</p>
-                <select name="Q1.1_conditional_claim" id="1_dropdown1" onChange= "invisible(id, [41, 42])" required>
+                 <p> Which of the following describe Claim 1.1 the best?</p>
+                <select name="Q1.1_conditional_claim" id="1_dropdown1" onChange= "invisible_opt(id,  [41, 42])" required>
                 <option value="">Please choose from the options below. </option>
                 <option value="0">It is a conditional claim </option>
                 <option value="1">It is not a conditional claim. </option>
               </select>
 
-              <div class="title_container"><p><b>Claim 1.2:</b> ${claimAnt}</p></div>
+              <div class="title_container"><p><b>Claim 1.2:</b> ${claimAnt1}</p></div>
               <!-- Option from a Dropdown -->
-              <p>Q2. Which do you agree about the speaker's belief?</p>
+              <p> Which do you agree about the speaker's belief?</p>
                 <select name="Q1.21_ant_implicature" id="1_dropdown21" required>
                 <option value="">Please choose from the options below. </option>
                 <option value="1">Claim 1.1 implies its speaker thinks Claim 1.2 is not true.</option>
                 <option value="2">Claim 1.1 does not imply its speaker thinks Claim 1.2 is not true. </option>
               </select>
-              <p>Q3. Is Claim 1.2 verifiable? </p>
-                  <select name="Q1.22_ant_verifiable" id="1_dropdown22" onChange= "invisible(id, ['24', '241', '242'])" required>
+              <p> Is Claim 1.2 verifiable? </p>
+                  <select name="Q1.22_ant_verifiable" id="1_dropdown22" onChange= "invisible(id, [24, 241, 242], [23, 240])" required>
                 <option value="">Please choose from the options below. </option>
                 <option value="0">Yes, it is. </option>
                 <option value="1">No, it is not. </option>
                 <option value="3">I am not sure. </option>
               </select>
-               <p>Q4. How sure are you about your answer to the above question? </p>
+               <p id="1_qt23"> How sure are you about your answer to the above question? </p>
                   <select name="Q1.23_confidence_Q22" id="1_dropdown23" required>
                 <option value="">Please choose from the options below. </option>
                 <option value="0">Very High. </option>
@@ -576,14 +576,20 @@
                 <option value="3">Low. </option>
                 <option value="4">Very Low. </option>
               </select>
-              <p id="1_qt24">Q5. Is Claim 1.2 true? </p>
+              <p id="1_qt240" hidden> Do you think Claim 1.2 is more likely to be true than false? </p>
+              <select name="Q1.240_ant_truthValue" id="1_dropdown240" hidden>
+                <option value="">Please choose from the options below. </option>
+                <option value="0">Yes, it is. </option>
+                <option value="1">No, it is not. </option>
+              </select>
+              <p id="1_qt24"> Is Claim 1.2 true? </p>
               <select name="Q1.24_ant_truthValue" id="1_dropdown24" onchange="follow_up(id)" required>
                 <option value="">Please choose from the options below. </option>
                 <option value="0">Yes, it is. </option>
                 <option value="1">No, it is not. </option>
                 <option value="2">Alhtough it is verifiable, I do not know if it is true or false. </option>
               </select>
-            <p id="1_qt241" >Q6. How sure are you about your answer to the above question?</p>
+            <p id="1_qt241" > How sure are you about your answer to the above question?</p>
               <select name="Q1.241_confidence" id="1_dropdown241" >
                 <option value="">Please choose from the options below. </option>
                 <option value="0">Very High. </option>
@@ -592,7 +598,7 @@
                 <option value="3">Low. </option>
                 <option value="4">Very Low. </option>
               </select>
-          <p id="1_qt242" hidden>Q6. Why don't you know whether Claim 1.2 is true or false?</p>
+          <p id="1_qt242" hidden> Why don't you know whether Claim 1.2 is true or false?</p>
               <select name="Q1.242_ant_unknown_reason" id="1_dropdown242" hidden>
                 <option value="">Please choose from the options below. </option>
                 <option value="0">It lacks of context， e.g., caused by an undefined pronoun, such as 'it'. </option>
@@ -600,15 +606,15 @@
                 <option value="2">It requires domain knowledge so only experts can tell. </option>
                 <option value="3">Others. </option>
           </select>
-              <div class="title_container"><p><b>Claim 1.3:</b> ${claimCon}</p></div>
-              <p>Q7. Is Claim 1.3 verifiable? </p>
-              <select name="Q1.31_con_verifiable" id="1_dropdown31" onChange= "invisible(id, ['33', '331', '332'])"  required>
+              <div class="title_container"><p><b>Claim 1.3:</b> ${claimCon1}</p></div>
+              <p> Is Claim 1.3 verifiable? </p>
+              <select name="Q1.31_con_verifiable" id="1_dropdown31" onChange= "invisible(id, [33, 331, 332], [32, 330])"  required>
                 <option value="">Please choose from the options below. </option>
                 <option value="0">Yes, it is. </option>
                 <option value="1">No, it is not. </option>
                 <option value="3">I am not sure. </option>
               </select>
-            <p>Q8. How sure are you about your answer to the above question?</p>
+            <p id="1_qt32"> How sure are you about your answer to the above question?</p>
             <select name="Q1.32_confidence_Q31" id="1_dropdown32" required>
                 <option value="">Please choose from the options below. </option>
                 <option value="0">Very High. </option>
@@ -617,14 +623,20 @@
                 <option value="3">Low. </option>
                 <option value="4">Very Low. </option>
               </select>
-              <p id="1_qt33">Q9. Is Claim 1.3 true? </p>
+              <p id="1_qt330" hidden> Do you think Claim 1.3 is more likely to be true than false? </p>
+              <select name="Q1.330_ant_truthValue" id="1_dropdown330" hidden>
+                <option value="">Please choose from the options below. </option>
+                <option value="0">Yes, it is. </option>
+                <option value="1">No, it is not. </option>
+              </select>
+              <p id="1_qt33"> Is Claim 1.3 true? </p>
                   <select name="Q1.33_con_truthValue" id="1_dropdown33" onchange = "follow_up(id)" required>
                 <option value="">Please choose from the options below. </option>
                 <option value="0">Yes, it is. </option>
                 <option value="1">No, it is not. </option>
                 <option value="2">Alhtough it is verifiable, I do not know if it is true or false. </option>
               </select>
-            <p id="1_qt331" >Q10. How sure are you about your answer to the above question?</p>
+            <p id="1_qt331" > How sure are you about your answer to the above question?</p>
                   <select name="Q1.331_confidence_Q33" id="1_dropdown331" >
                 <option value="">Please choose from the options below. </option>
                 <option value="0">Very High. </option>
@@ -633,7 +645,7 @@
                 <option value="3">Low. </option>
                 <option value="4">Very Low. </option>
               </select>
-            <p id="1_qt332" hidden>Q10.  Why don't you know whether Claim 1.3 is true or false?</p>
+            <p id="1_qt332" hidden> Why don't you know whether Claim 1.3 is true or false?</p>
                   <select name="Q1.332_con_unknown_reason" id="1_dropdown332" hidden>
                 <option value="">Please choose from the options below. </option>
                 <option value="0">It lacks of context， e.g., caused by an undefined pronoun, such as 'it'. </option>
@@ -642,7 +654,7 @@
                 <option value="3">Others. </option>
               </select>
 
-               <p id="1_qt41">Q11. If Claim 1.2 was true, would Claim 1.3 also become true as a result?</p>
+               <p id="1_qt41"> If Claim 1.2 was true, would Claim 1.3 also become true as a result?</p>
                   <!-- Option from a Dropdown -->
                   <select name="Q1.41_entailment" id="1_dropdown41" required>
                 <option value="">Please choose from the options below. </option>
@@ -652,7 +664,7 @@
                 <option value="3">Less likely (if Claim 1.2 happened, it would minorly increase the chance of Claim 1.3 becoming a fact). </option>
                  <option value="4">Not at all (they are irrelevant.)</option>
               </select>
-                  <p id="1_qt42">Q12. How sure are you about your answer to the above question?</p>
+                  <p id="1_qt42"> How sure are you about your answer to the above question?</p>
                   <select name="Q1.42_confidence_ent" id="1_dropdown42" required>
                 <!--<option value="" selected>>Select an option below.</option>-->
                 <option value="">Please choose from the options below. </option>
@@ -666,30 +678,30 @@
             <div class="grid-container">
             <div class="title_container">
              <h2 style = "color: black">Section 2</h2>
-                <p><b>Claim 2.1:</b> ${ant} &nbsp; ${con}</p> </div>
+                <p><b>Claim 2.1:</b> ${ant2} &nbsp; ${con2}</p> </div>
                   <!-- Option from a Dropdown -->
-                 <p>Q13. Which of the following describe Claim 2.1 the best?</p>
-                <select name="Q2.1_conditional_claim" id="2_dropdown1" onChange= "invisible(id, [41, 42])" required>
+                 <p> Which of the following describe Claim 2.1 the best?</p>
+                <select name="Q2.1_conditional_claim" id="2_dropdown1" onChange= "invisible_opt(id,  [41, 42])" required>
                 <option value="">Please choose from the options below. </option>
                 <option value="0">It is a conditional claim </option>
                 <option value="1">It is not a conditional claim. </option>
               </select>
 
-              <div class="title_container"><p><b>Claim 2.2:</b> ${claimAnt}</p></div>
-              <p>Q14. Which do you agree about the speaker's belief?</p>
+              <div class="title_container"><p><b>Claim 2.2:</b> ${claimAnt2}</p></div>
+              <p> Which do you agree about the speaker's belief?</p>
                 <select name="Q2.21_ant_implicature" id="2_dropdown21" required>
                 <option value="">Please choose from the options below. </option>
                 <option value="1">Claim 2.1 implies its speaker thinks Claim 2.2 is not true.</option>
                 <option value="2">Claim 2.1 does not imply its speaker thinks Claim 2.2 is not true. </option>
               </select>
-              <p>Q15. Is Claim 2.2 verifiable? </p>
-                  <select name="Q2.22_ant_verifiable" id="2_dropdown22" onChange= "invisible(id, ['24', '241', '242'])" required>
+              <p> Is Claim 2.2 verifiable? </p>
+                  <select name="Q2.22_ant_verifiable" id="2_dropdown22" onChange= "invisible(id, [24, 241, 242], [23, 240])" required>
                 <option value="">Please choose from the options below. </option>
                 <option value="0">Yes, it is. </option>
                 <option value="1">No, it is not. </option>
                 <option value="3">I am not sure. </option>
               </select>
-                   <p>Q16. How sure are you about your answer to the above question? </p>
+                 <p id="2_qt23"> How sure are you about your answer to the above question? </p>
                   <select name="Q2.23_confidence_Q22" id="2_dropdown23" required>
                 <option value="">Please choose from the options below. </option>
                 <option value="0">Very High. </option>
@@ -698,14 +710,20 @@
                 <option value="3">Low. </option>
                 <option value="4">Very Low. </option>
               </select>
-              <p id="2_qt24">Q17. Is Claim 2.2 true? </p>
+              <p id="2_qt240" hidden> Do you think Claim 2.2 is more likely to be true than false? </p>
+              <select name="Q2.240_ant_truthValue" id="2_dropdown240" hidden>
+                <option value="">Please choose from the options below. </option>
+                <option value="0">Yes, it is. </option>
+                <option value="1">No, it is not. </option>
+              </select>
+              <p id="2_qt24"> Is Claim 2.2 true? </p>
               <select name="Q2.24_ant_truthValue" id="2_dropdown24" onchange="follow_up(id)" required>
                 <option value="">Please choose from the options below. </option>
                 <option value="0">Yes, it is. </option>
                 <option value="1">No, it is not. </option>
                 <option value="2">Alhtough it is verifiable, I do not know if it is true or false. </option>
               </select>
-            <p id="2_qt241" >Q18. How sure are you about your answer to the above question?</p>
+            <p id="2_qt241" > How sure are you about your answer to the above question?</p>
               <select name="Q2.241_confidence" id="2_dropdown241" >
                 <option value="">Please choose from the options below. </option>
                 <option value="0">Very High. </option>
@@ -714,7 +732,7 @@
                 <option value="3">Low. </option>
                 <option value="4">Very Low. </option>
               </select>
-          <p id="2_qt242" hidden>Q18. Why don't you know whether Claim 2.2 is true or false?</p>
+          <p id="2_qt242" hidden> Why don't you know whether Claim 2.2 is true or false?</p>
               <select name="Q2.242_ant_unknown_reason" id="2_dropdown242" hidden>
                 <option value="">Please choose from the options below. </option>
                 <option value="0">It lacks of context， e.g., caused by an undefined pronoun, such as 'it'. </option>
@@ -722,15 +740,15 @@
                 <option value="2">It requires domain knowledge so only experts can tell. </option>
                 <option value="3">Others. </option>
           </select>
-              <div class="title_container"><p><b>Claim 2.3:</b> ${claimCon}</p></div>
-              <p>Q19. Is Claim 2.3 verifiable? </p>
-              <select name="Q2.31_con_verifiable" id="2_dropdown31" onChange= "invisible(id, ['33', '331', '332'])"  required>
+              <div class="title_container"><p><b>Claim 2.3:</b> ${claimCon2}</p></div>
+              <p> Is Claim 2.3 verifiable? </p>
+              <select name="Q2.31_con_verifiable" id="2_dropdown31" onChange= "invisible(id, [33, 331, 332], [32, 330])"  required>
                 <option value="">Please choose from the options below. </option>
                 <option value="0">Yes, it is. </option>
                 <option value="1">No, it is not. </option>
                 <option value="3">I am not sure. </option>
               </select>
-            <p>Q20. How sure are you about your answer to the above question?</p>
+            <p id="2_qt32"> How sure are you about your answer to the above question?</p>
             <select name="Q2.32_confidence_Q31" id="2_dropdown32" required>
                 <option value="">Please choose from the options below. </option>
                 <option value="0">Very High. </option>
@@ -739,14 +757,20 @@
                 <option value="3">Low. </option>
                 <option value="4">Very Low. </option>
               </select>
-              <p id="2_qt33">Q21. Is Claim 2.3 true? </p>
+              <p id="2_qt330" hidden> Do you think Claim 2.3 is more likely to be true than false? </p>
+              <select name="Q2.330_ant_truthValue" id="2_dropdown330" hidden>
+                <option value="">Please choose from the options below. </option>
+                <option value="0">Yes, it is. </option>
+                <option value="1">No, it is not. </option>
+              </select>
+              <p id="2_qt33"> Is Claim 2.3 true? </p>
                   <select name="Q2.33_con_truthValue" id="2_dropdown33" onchange = "follow_up(id)" required>
                 <option value="">Please choose from the options below. </option>
                 <option value="0">Yes, it is. </option>
                 <option value="1">No, it is not. </option>
                 <option value="2">Alhtough it is verifiable, I do not know if it is true or false. </option>
               </select>
-            <p id="2_qt331" >Q22. How sure are you about your answer to the above question?</p>
+            <p id="2_qt331" > How sure are you about your answer to the above question?</p>
                   <select name="Q2.331_confidence_Q33" id="2_dropdown331" >
                 <option value="">Please choose from the options below. </option>
                 <option value="0">Very High. </option>
@@ -755,7 +779,7 @@
                 <option value="3">Low. </option>
                 <option value="4">Very Low. </option>
               </select>
-            <p id="2_qt332" hidden>Q22.  Why don't you know whether Claim 2.3 is true or false?</p>
+            <p id="2_qt332" hidden> Why don't you know whether Claim 2.3 is true or false?</p>
                   <select name="Q2.332_con_unknown_reason" id="2_dropdown332" hidden>
                 <option value="">Please choose from the options below. </option>
                 <option value="0">It lacks of context， e.g., caused by an undefined pronoun, such as 'it'. </option>
@@ -764,7 +788,7 @@
                 <option value="3">Others. </option>
               </select>
 
-               <p id="2_qt41">Q23. If Claim 2.2 was true, would Claim 2.3 also become true as a result?</p>
+               <p id="2_qt41"> If Claim 2.2 was true, would Claim 2.3 also become true as a result?</p>
                   <!-- Option from a Dropdown -->
                   <select name="Q2.41_entailment" id="2_dropdown41" required>
                 <!--<option value="" selected>Q5. If Claim 2 was true, would Claim 3 also become true as a result?</option>-->
@@ -775,7 +799,7 @@
                 <option value="3">Less likely (if Claim 2.2 happened, it would minorly increase the chance of Claim 2.3 becoming a fact). </option>
                  <option value="4">Not at all (they are irrelevant.)</option>
               </select>
-                  <p id="2_qt42">Q24. How sure are you about your answer to the above question?</p>
+                  <p id="2_qt42"> How sure are you about your answer to the above question?</p>
                   <select name="Q2.42_confidence_ent" id="2_dropdown42" required>
                 <!--<option value="" selected>>Select an option below.</option>-->
                 <option value="">Please choose from the options below. </option>
@@ -789,32 +813,32 @@
             <div class="grid-container">
             <div class="title_container">
              <h2 style = "color: black">Section 3</h2>
-                <p><b>Claim 3.1:</b> ${ant} &nbsp; ${con}</p> </div>
+                <p><b>Claim 3.1:</b> ${ant3} &nbsp; ${con3}</p> </div>
                   <!-- Option from a Dropdown -->
-                 <p>Q25. Which of the following describe Claim 3.1 the best?</p>
-                <select name="Q3.1_conditional_claim" id="3_dropdown1" onChange= "invisible(id, [41, 42])" required>
+                 <p> Which of the following describe Claim 3.1 the best?</p>
+                <select name="Q3.1_conditional_claim" id="3_dropdown1" onChange= "invisible_opt(id,  [41, 42])" required>
                 <option value="">Please choose from the options below. </option>
                 <option value="0">It is a conditional claim </option>
                 <option value="1">It is not a conditional claim. </option>
               </select>
 
-              <div class="title_container"><p><b>Claim 3.2:</b> ${claimAnt}</p></div>
+              <div class="title_container"><p><b>Claim 3.2:</b> ${claimAnt3}</p></div>
               <!-- Option from a Dropdown -->
-              <p>Q26. Which do you agree about the speaker's belief?</p>
+              <p> Which do you agree about the speaker's belief?</p>
                 <select name="Q3.21_ant_implicature" id="3_dropdown21" required>
                 <option value="">Please choose from the options below. </option>
                 <option value="1">Claim 3.1 implies its speaker thinks Claim 3.2 is not true.</option>
                 <option value="2">Claim 3.1 does not imply its speaker thinks Claim 3.2 is not true. </option>
               </select>
-              <p>Q27. Is Claim 3.2 verifiable? </p>
-                  <select name="Q3.22_ant_verifiable" id="3_dropdown22" onChange= "invisible(id, ['24', '241', '242'])" required>
+              <p> Is Claim 3.2 verifiable? </p>
+                  <select name="Q3.22_ant_verifiable" id="3_dropdown22" onChange= "invisible(id, [24, 241, 242], [23, 240])" required>
                 <option value="">Please choose from the options below. </option>
                 <option value="0">Yes, it is. </option>
                 <option value="1">No, it is not. </option>
                 <option value="3">I am not sure. </option>
               </select>
-               <p>Q28. How sure are you about your answer to the above question? </p>
-                  <select name="Q3.23_confidence_Q22" id="3_dropdown23" required>
+               <p id="3_qt23"> How sure are you about your answer to the above question? </p>
+                  <select name="Q3.23_confidence_Q23" id="3_dropdown23" required>
                 <option value="">Please choose from the options below. </option>
                 <option value="0">Very High. </option>
                 <option value="1">High. </option>
@@ -822,14 +846,20 @@
                 <option value="3">Low. </option>
                 <option value="4">Very Low. </option>
               </select>
-              <p id="3_qt24">Q29. Is Claim 3.2 true? </p>
+              <p id="3_qt240" hidden> Do you think Claim 2.3 is more likely to be true than false? </p>
+              <select name="Q3.240_ant_truthValue" id="3_dropdown240" hidden>
+                <option value="">Please choose from the options below. </option>
+                <option value="0">Yes, it is. </option>
+                <option value="1">No, it is not. </option>
+              </select>
+              <p id="3_qt24"> Is Claim 3.2 true? </p>
               <select name="Q3.24_ant_truthValue" id="3_dropdown24" onchange="follow_up(id)" required>
                 <option value="">Please choose from the options below. </option>
                 <option value="0">Yes, it is. </option>
                 <option value="1">No, it is not. </option>
                 <option value="2">Alhtough it is verifiable, I do not know if it is true or false. </option>
               </select>
-            <p id="3_qt241" >Q30. How sure are you about your answer to the above question?</p>
+            <p id="3_qt241" > How sure are you about your answer to the above question?</p>
               <select name="Q3.241_confidence" id="3_dropdown241" >
                 <option value="">Please choose from the options below. </option>
                 <option value="0">Very High. </option>
@@ -838,7 +868,7 @@
                 <option value="3">Low. </option>
                 <option value="4">Very Low. </option>
               </select>
-          <p id="3_qt242" hidden>Q30. Why don't you know whether Claim 3.2 is true or false?</p>
+          <p id="3_qt242" hidden> Why don't you know whether Claim 3.2 is true or false?</p>
               <select name="Q3.242_ant_unknown_reason" id="3_dropdown242" hidden>
                 <option value="">Please choose from the options below. </option>
                 <option value="0">It lacks of context， e.g., caused by an undefined pronoun, such as 'it'. </option>
@@ -846,15 +876,15 @@
                 <option value="2">It requires domain knowledge so only experts can tell. </option>
                 <option value="3">Others. </option>
           </select>
-              <div class="title_container"><p><b>Claim 3.3:</b> ${claimCon}</p></div>
-              <p>Q31. Is Claim 3.3 verifiable? </p>
-              <select name="Q3.31_con_verifiable" id="3_dropdown31" onChange= "invisible(id, ['33', '331', '332'])"  required>
+              <div class="title_container"><p><b>Claim 3.3:</b> ${claimCon3}</p></div>
+              <p> Is Claim 3.3 verifiable? </p>
+              <select name="Q3.31_con_verifiable" id="3_dropdown31" onChange= "invisible(id, [33, 331, 332], [32, 330])"  required>
                 <option value="">Please choose from the options below. </option>
                 <option value="0">Yes, it is. </option>
                 <option value="1">No, it is not. </option>
                 <option value="3">I am not sure. </option>
               </select>
-            <p>Q32. How sure are you about your answer to the above question?</p>
+            <p id="3_qt32"> How sure are you about your answer to the above question?</p>
             <select name="Q3.32_confidence_Q31" id="3_dropdown32" required>
                 <option value="">Please choose from the options below. </option>
                 <option value="0">Very High. </option>
@@ -863,14 +893,20 @@
                 <option value="3">Low. </option>
                 <option value="4">Very Low. </option>
               </select>
-              <p id="3_qt33">Q33. Is Claim 3.3 true? </p>
+              <p id="3_qt330" hidden> Do you think Claim 3.3 is more likely to be true than false? </p>
+              <select name="Q3.330_ant_truthValue" id="3_dropdown330" hidden>
+                <option value="">Please choose from the options below. </option>
+                <option value="0">Yes, it is. </option>
+                <option value="1">No, it is not. </option>
+              </select>
+              <p id="3_qt33"> Is Claim 3.3 true? </p>
                   <select name="Q3.33_con_truthValue" id="3_dropdown33" onchange = "follow_up(id)" required>
                 <option value="">Please choose from the options below. </option>
                 <option value="0">Yes, it is. </option>
                 <option value="1">No, it is not. </option>
                 <option value="2">Alhtough it is verifiable, I do not know if it is true or false. </option>
               </select>
-            <p id="3_qt331" >Q34. How sure are you about your answer to the above question?</p>
+            <p id="3_qt331" > How sure are you about your answer to the above question?</p>
                   <select name="Q3.331_confidence_Q33" id="3_dropdown331" >
                 <option value="">Please choose from the options below. </option>
                 <option value="0">Very High. </option>
@@ -879,7 +915,7 @@
                 <option value="3">Low. </option>
                 <option value="4">Very Low. </option>
               </select>
-            <p id="3_qt332" hidden>Q34.  Why don't you know whether Claim 3.3 is true or false?</p>
+            <p id="3_qt332" hidden> Why don't you know whether Claim 3.3 is true or false?</p>
                   <select name="Q3.332_con_unknown_reason" id="3_dropdown332" hidden>
                 <option value="">Please choose from the options below. </option>
                 <option value="0">It lacks of context， e.g., caused by an undefined pronoun, such as 'it'. </option>
@@ -888,7 +924,7 @@
                 <option value="3">Others. </option>
               </select>
 
-               <p id="3_qt41">Q35. If Claim 3.2 was true, would Claim 3.3 also become true as a result?</p>
+               <p id="3_qt41"> If Claim 3.2 was true, would Claim 3.3 also become true as a result?</p>
                   <!-- Option from a Dropdown -->
                   <select name="Q3.41_entailment" id="3_dropdown41" required>
                 <!--<option value="" selected>Q5. If Claim 2 was true, would Claim 3 also become true as a result?</option>-->
@@ -899,8 +935,144 @@
                 <option value="3">Less likely (if Claim 3.2 happened, it would minorly increase the chance of Claim 3.3 becoming a fact). </option>
                  <option value="4">Not at all (they are irrelevant.)</option>
               </select>
-                  <p id="3_qt42">Q36. How sure are you about your answer to the above question?</p>
+                  <p id="3_qt42"> How sure are you about your answer to the above question?</p>
                   <select name="Q3.42_confidence_ent" id="3_dropdown42" required>
+                <!--<option value="" selected>>Select an option below.</option>-->
+                <option value="">Please choose from the options below. </option>
+                <option value="0">Very High. </option>
+                <option value="1">High. </option>
+                <option value="2">Medium. </option>
+                <option value="3">Low. </option>
+                <option value="4">Very Low. </option>
+              </select>
+            </div>
+            <div class="grid-container">
+            <div class="title_container">
+             <h2 style = "color: black">Section 4</h2>
+                <p><b>Claim 4.1:</b> ${ant4} &nbsp; ${con4}</p> </div>
+                  <!-- Option from a Dropdown -->
+                 <p> Which of the following describe Claim 4.1 the best?</p>
+                <select name="Q4.1_conditional_claim" id="4_dropdown1" onChange= "invisible_opt(id, [41, 42])" required>
+                <option value="">Please choose from the options below. </option>
+                <option value="0">It is a conditional claim </option>
+                <option value="1">It is not a conditional claim. </option>
+              </select>
+
+              <div class="title_container"><p><b>Claim 4.2:</b> ${claimAnt4}</p></div>
+              <!-- Option from a Dropdown -->
+              <p> Which do you agree about the speaker's belief?</p>
+                <select name="Q4.21_ant_implicature" id="4_dropdown21" required>
+                <option value="">Please choose from the options below. </option>
+                <option value="1">Claim 4.1 implies its speaker thinks Claim 4.2 is not true.</option>
+                <option value="2">Claim 4.1 does not imply its speaker thinks Claim 4.2 is not true. </option>
+              </select>
+              <p> Is Claim 4.2 verifiable? </p>
+                  <select name="Q4.22_ant_verifiable" id="4_dropdown22" onChange= "invisible(id, [24, 241, 242], [23, 240])" required>
+                <option value="">Please choose from the options below. </option>
+                <option value="0">Yes, it is. </option>
+                <option value="1">No, it is not. </option>
+                <option value="3">I am not sure. </option>
+              </select>
+               <p id="4_qt23"> How sure are you about your answer to the above question? </p>
+                  <select name="Q4.23_confidence_Q23" id="4_dropdown23" required>
+                <option value="">Please choose from the options below. </option>
+                <option value="0">Very High. </option>
+                <option value="1">High. </option>
+                <option value="2">Medium. </option>
+                <option value="3">Low. </option>
+                <option value="4">Very Low. </option>
+              </select>
+              <p id="4_qt240" hidden> Do you think Claim 4.2 is more likely to be true than false? </p>
+              <select name="Q4.240_ant_truthValue" id="4_dropdown240" hidden>
+                <option value="">Please choose from the options below. </option>
+                <option value="0">Yes, it is. </option>
+                <option value="1">No, it is not. </option>
+              </select>
+              <p id="4_qt24"> Is Claim 4.2 true? </p>
+              <select name="Q4.24_ant_truthValue" id="4_dropdown24" onchange="follow_up(id)" required>
+                <option value="">Please choose from the options below. </option>
+                <option value="0">Yes, it is. </option>
+                <option value="1">No, it is not. </option>
+                <option value="2">Alhtough it is verifiable, I do not know if it is true or false. </option>
+              </select>
+            <p id="4_qt241" > How sure are you about your answer to the above question?</p>
+              <select name="Q4.241_confidence" id="4_dropdown241" >
+                <option value="">Please choose from the options below. </option>
+                <option value="0">Very High. </option>
+                <option value="1">High. </option>
+                <option value="2">Medium. </option>
+                <option value="3">Low. </option>
+                <option value="4">Very Low. </option>
+              </select>
+          <p id="4_qt242" hidden> Why don't you know whether Claim 4.2 is true or false?</p>
+              <select name="Q4.242_ant_unknown_reason" id="4_dropdown242" hidden>
+                <option value="">Please choose from the options below. </option>
+                <option value="0">It lacks of context， e.g., caused by an undefined pronoun, such as 'it'. </option>
+                <option value="1">It is badly written so not understandable. </option>
+                <option value="2">It requires domain knowledge so only experts can tell. </option>
+                <option value="3">Others. </option>
+          </select>
+              <div class="title_container"><p><b>Claim 4.3:</b> ${claimCon4}</p></div>
+              <p> Is Claim 4.3 verifiable? </p>
+              <select name="Q4.31_con_verifiable" id="4_dropdown31" onChange= "invisible(id, [33, 331, 332], [32, 330])"  required>
+                <option value="">Please choose from the options below. </option>
+                <option value="0">Yes, it is. </option>
+                <option value="1">No, it is not. </option>
+                <option value="3">I am not sure. </option>
+              </select>
+            <p> How sure are you about your answer to the above question?</p>
+            <select name="Q4.32_confidence_Q31" id="4_dropdown32" required>
+                <option value="">Please choose from the options below. </option>
+                <option value="0">Very High. </option>
+                <option value="1">High. </option>
+                <option value="2">Medium. </option>
+                <option value="3">Low. </option>
+                <option value="4">Very Low. </option>
+              </select>
+              <p id="4_qt330" hidden> Do you think Claim 4.3 is more likely to be true than false? </p>
+              <select name="Q4.330_ant_truthValue" id="4_dropdown330" hidden>
+                <option value="">Please choose from the options below. </option>
+                <option value="0">Yes, it is. </option>
+                <option value="1">No, it is not. </option>
+              </select>
+              <p id="4_qt33"> Is Claim 4.3 true? </p>
+                  <select name="Q4.33_con_truthValue" id="4_dropdown33" onchange = "follow_up(id)" required>
+                <option value="">Please choose from the options below. </option>
+                <option value="0">Yes, it is. </option>
+                <option value="1">No, it is not. </option>
+                <option value="2">Alhtough it is verifiable, I do not know if it is true or false. </option>
+              </select>
+            <p id="4_qt331" > How sure are you about your answer to the above question?</p>
+                  <select name="Q4.331_confidence_Q33" id="4_dropdown331" >
+                <option value="">Please choose from the options below. </option>
+                <option value="0">Very High. </option>
+                <option value="1">High. </option>
+                <option value="2">Medium. </option>
+                <option value="3">Low. </option>
+                <option value="4">Very Low. </option>
+              </select>
+            <p id="4_qt332" hidden>  Why don't you know whether Claim 4.3 is true or false?</p>
+                  <select name="Q4.332_con_unknown_reason" id="4_dropdown332" hidden>
+                <option value="">Please choose from the options below. </option>
+                <option value="0">It lacks of context， e.g., caused by an undefined pronoun, such as 'it'. </option>
+                <option value="1">It is badly written so not understandable. </option>
+                <option value="2">It requires domain knowledge so only experts can tell. </option>
+                <option value="3">Others. </option>
+              </select>
+
+               <p id="4_qt41">  If Claim 4.2 was true, would Claim 4.3 also become true as a result?</p>
+                  <!-- Option from a Dropdown -->
+                  <select name="Q4.41_entailment" id="4_dropdown41" required>
+                <!--<option value="" selected>Q5. If Claim 2 was true, would Claim 3 also become true as a result?</option>-->
+                <option value="">Please choose from the options below. </option>
+                <option value="0">Absolutely (if the Claim 4.2 happened, then the conclusion would happen for sure). </option>
+                <option value="1">Probably (if Claim 4.2 happened, it would reasonably increase the chance of Claim 4.3 becoming a fact). </option>
+                <option value="2">Maybe (if Claim 4.2 happened, it would mediumly increase the chance of Claim 4.3 becoming a fact). </option>
+                <option value="3">Less likely (if Claim 4.2 happened, it would minorly increase the chance of Claim 4.3 becoming a fact). </option>
+                 <option value="4">Not at all (they are irrelevant.)</option>
+              </select>
+                  <p id="4_qt42"> How sure are you about your answer to the above question?</p>
+                  <select name="Q4.42_confidence_ent" id="4_dropdown42" required>
                 <!--<option value="" selected>>Select an option below.</option>-->
                 <option value="">Please choose from the options below. </option>
                 <option value="0">Very High. </option>
@@ -1002,22 +1174,52 @@
             document.getElementById(pop_id).classList.toggle("show");
     }
 
+    function hide_selection(id){
+        document.getElementById(id).value = "";
+        document.getElementById(id).hidden = true;
+        document.getElementById(id).required = false;
+        }
+
+    function unhide_selection(id){
+        document.getElementById(id).value = "";
+        document.getElementById(id).hidden = false;
+        document.getElementById(id).required = true;
+        }
 
     // make every id in array ids invisible or visible based on the answer of id.
-    function invisible (id, ids) {
+
+    function invisible (id, ids, ids2) {
         const section_id = id.split('_')[0];
+        // hide all element in ids except the last one and make them not required.
         if (document.getElementById(id).value === "1") {
-            ids.forEach(x => { document.getElementById(section_id.concat("_dropdown", x)).hidden = true;
-                                document.getElementById(section_id.concat("_dropdown", x)).value = "";
-                                document.getElementById(section_id.concat("_dropdown", x)).required = false;
+            ids.push(ids2[1]);
+            ids.forEach(x => { hide_selection(section_id.concat("_dropdown", x));
+                               document.getElementById(section_id.concat("_qt", x)).hidden = true;});
+          }
+        else if(document.getElementById(id).value === "3"){
+            ids.push(ids2[0]);
+            ids.forEach(x=> {hide_selection(section_id.concat("_dropdown", x));
+                                           document.getElementById(section_id.concat("_qt", x)).hidden = true;});
+            unhide_selection(section_id.concat("_dropdown", ids2[1]));
+            document.getElementById(section_id.concat("_qt", ids2[1])).hidden = false;
+        }
+        else{
+            let new_ids = ids.slice(0,2);
+            new_ids.push(ids2[0]);
+            new_ids.forEach(x => { unhide_selection(section_id.concat("_dropdown", x));
+                                document.getElementById(section_id.concat("_qt", x)).hidden = false;});
+        }
+    }
+
+    function invisible_opt(id, ids):{
+        if (document.getElementById(id).value === "1") {
+            ids.forEach(x => { hide_selection(section_id.concat("_dropdown", x));
                                 document.getElementById(section_id.concat("_qt", x)).hidden = true;});
           }
         else{
             let new_ids = ids.slice(0,2);
-            new_ids.forEach(x => { document.getElementById(section_id.concat("_dropdown", x)).hidden = false;
-                                document.getElementById(section_id.concat("_dropdown", x)).value = "";
-                                document.getElementById(section_id.concat("_dropdown", x)).required = true;
-                                document.getElementById(section_id.concat("_qt", x)).hidden = false;});
+            new_ids.forEach(x => {  unhide_selection(section_id.concat("_dropdown", x));
+                                    document.getElementById(section_id.concat("_qt", x)).hidden = false;});
         }
     }
 
@@ -1026,30 +1228,22 @@
         const ques_num = id.split('dropdown')[1];
         const array1 = ["0", "1"];
         var confidence_title =document.getElementById(section_id.concat("_qt", ques_num, "1"));
-        var confidence_option =document.getElementById(id.concat("1"));
+        var confidence_option_id = id.concat("1");
 
         var question_title =document.getElementById(section_id.concat("_qt", ques_num, "2"));
-        var question_option =document.getElementById(id.concat("2"));
+        var question_option_id =id.concat("2");
 
         if (document.getElementById(id).value ==="2"){
             question_title.hidden = false;
-            question_option.hidden = false;
-            question_option.value = "";
-            question_option.required = true;
+            unhide_selection(question_option_id);
             confidence_title.hidden = true;
-            confidence_option.hidden = true;
-            confidence_option.value = "";
-            confidence_option.required = false;
+            hide_selection(confidence_option_id);
         }
         else if (array1.includes(document.getElementById(id).value)){
             question_title.hidden = true;
-            question_option.hidden = true;
-            question_option.required = false;
             confidence_title.hidden = false;
-            confidence_option.hidden = false;
-            confidence_option.value = "";
-            question_option.value = "";
-            confidence_option.required = true;
+            hide_selection(question_option_id);
+            unhide_selection(confidence_option_id);
         }
     }
 
