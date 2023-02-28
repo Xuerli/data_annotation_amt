@@ -1,0 +1,1088 @@
+<!-- You must include this JavaScript file -->
+<html>
+
+<head>
+    <style>
+        :root {
+                --main-color: rgb(187, 184, 117);
+            }
+
+            body {
+                background: var(--main-color);
+            }
+
+            h1#title, p#description {
+                text-align: center;
+            }
+            table.table1, table.table1 th, table.table1 td {
+              border:1px solid black;
+            }
+             table.table2 th, table.table2 td {
+                border-spacing: 5px 1rem;
+                border-bottom:1px ridge black;
+            }
+         crowd-form {
+                margin-left: auto;
+                margin-right: auto;
+                background: rgba(245, 245, 245);
+                border-radius: 25px;
+                padding: 3%;
+                max-width: 80%;
+                display: grid;
+                <!-- grid-template-columns: 1fr 2fr; -->
+                grid-gap: 20px 10px;
+                align-items: start;
+            }
+
+
+        input, select {
+                padding: 8px;
+                border-radius: 5px;
+                border-style: inset;
+                border-width: 1px;
+                outline-style: none;
+            }
+            h2 {
+                letter-spacing: 2px;
+            }
+
+            h2, p, table, th, tb {
+                text-align: left;
+            }
+
+          crowd-input {
+                padding: 8px;
+                border-radius: 5px;
+                border-style: inset;
+                border-width: 1px;
+                outline-style: none;
+            }
+           .checkbox-container, button {
+                justify-self: center;
+                grid-column: 1 / -1;
+                outline: none;
+                border: 0;
+                border-radius: 10px;
+                height: 40px;
+                width: 120px;
+                background-color: var(--main-color);
+                color: white;
+                font-size: 1em;
+            }
+          .shadow {
+              -moz-box-shadow:    2px 2px 3px 3px #ccc;
+              -webkit-box-shadow: 2px 2px 3px 3px #ccc;
+              box-shadow:         2px 2px 3px 3px #ccc;
+            }
+
+          .grid-container{
+              margin-top: 5pt;
+              margin-left: auto;
+              margin-right: auto;
+              background: rgba(245, 245, 245);
+              border-radius: 25px;
+              padding: 3%;
+              max-width: 900px;
+              display: grid;
+              grid-template-columns: 50% 50%;
+              grid-gap: 20px 10px;
+              align-items: baseline;
+            }
+        .tutorial_container{
+              margin-top: 5pt;
+              margin-left: auto;
+              margin-right: auto;
+              background: rgba(245, 245, 245);
+              border-radius: 25px;
+              padding: 3%;
+              max-width: 900px;
+              display: grid;
+              grid-template-columns: 30% 30% 40%;
+              grid-gap: 20px 10px 10px;
+              align-items: baseline;
+            }
+
+          .grid-container, .tutorial_container > div {
+              background-color: rgba(245, 245, 245);
+              text-align: left;
+              padding: 3%;
+            }
+        .title_container {
+          align-self: left;
+          grid-column: 1 / 3;
+            color:blue;
+        }
+        .title_t_container {
+          align-self: center;
+          grid-row: 1;
+          grid-column: 1 / 4;
+          color:blue;
+        }
+        claim {
+                justify-self: center;
+                grid-column: 1 / -1;
+                outline: none;
+                border: 0;
+                border-radius: 10px;
+                height: 40px;
+                width: 90%;
+                background-color: var(--main-color);
+                color: white;
+                font-size: 1em;
+            }
+            .center {
+              display: block;
+              margin-left: auto;
+              margin-right: auto;
+            }
+       /* Popup container - can be anything you want */
+            .popup {
+              position: relative;
+              display: inline-block;
+              cursor: pointer;
+              bottom: -12pt;
+              -webkit-user-select: none;
+              -moz-user-select: none;
+              -ms-user-select: none;
+              user-select: none;
+            }
+
+            /* The actual popup */
+            .popup .popuptext {
+              visibility: hidden;
+              width: 90%;
+              background-color: #555;
+              color: #fff;
+              text-align: center;
+              border-radius: 6px;
+              padding: 8px 0;
+              position: absolute;
+              z-index: 1;
+              bottom: 25%;
+              margin-left: 5%;
+            }
+
+            /* Popup arrow */
+            .popup .popuptext::after {
+              content: "";
+              position: absolute;
+              bottom: 25%;
+              left: -10px;
+              transform: rotate(90deg);
+              border-width: 5px;
+              border-style: solid;
+              border-color: #555 transparent transparent transparent;
+            }
+
+            /* Toggle this class - hide and show the popup */
+            .popup .show {
+                visibility: visible;
+              -webkit-animation: fadeIn 1s;
+              animation: fadeIn 1s;
+            }
+            </style>
+</head>
+<!-- For the full list of available Crowd HTML Elements and their input/output documentation,
+      please refer to https://docs.aws.amazon.com/sagemaker/latest/dg/sms-ui-template-reference.html -->
+<script src="https://assets.crowd.aws/crowd-html-elements.js"></script>
+<body>
+    <!-- You must include crowd-form so that your task submits answers to MTurk -->
+    <crowd-form>
+
+      <crowd-tabs>
+         <crowd-tab header="Read Me">
+             <h2>Welcome to our HIT tasks!</h2>
+
+             <p>In this job, you will answer questions about given claims, particularly about whether a claim is true or false.
+             Although these claims are about climate change,
+             our study does not test your personal opinions about climate change but looks for objective answers to analyse these claims.
+             Thus, please answer to your best knowledge.
+                 <li>Please read the rest tabs in order. You can submit your answer only if you have agreed on our consent, read the instruction and take the tutorial. Please make sure that you click the checkbox at the bottom of each page, otherwise you will not be able to submit your work.</li>
+
+             <li>You will not lose your answers if you switch tabs, so please feel free to go back instructions or tutorial when needed.</li>
+             <li>The idea is not to have you stuck on any question for hours, so if you feel you got a tough question (the task is hard and the options are not perfect) fell free to <b>use <a href=https://discord.gg/aeTYrwWHSB>this discord server</a> to ask for support</b>.Please avoid using your real name or sharing other personal information on the server.</li>
+             <li>Completing a HIT should take you on average 30~45 min. </li>
+             <li>You will be paid a <b>reward of $4.00</b> ($4.00 reward + $0.10 HIT compensation) for every time you successfully complete the HIT.</li>
+         </crowd-tab>
+        <crowd-tab header="1. Consent">
+            <div class = "claim-container">
+
+             <h2>   Participant Information Sheet </h2>
+            <table class="table1">
+              <tr>
+                <th>Project title</th>
+                <td>Causal Knowledge Graphs for Counterfactual Claims Reasoning in Climate Change</td>
+              </tr>
+              <tr>
+                <th>Principal investigator</th>
+                <td>Björn Ross, Vaishak Belle</td>
+              </tr>
+              <tr>
+                <th>Researcher collecting data</th>
+                <td>Xue Li</td>
+              </tr>
+              <tr>
+                <th>Funder</th>
+                <td>UKRI</td>
+              </tr>
+            </table>
+
+                <p>This study was certified according to the Informatics Research Ethics Process,
+                RT number 217233. Please take time to read the following information carefully. </p>
+
+                 <h3>Who are the researchers? </h3>
+                <p>Björn Ross, Lecturer in the ILCC/ELIAI institutes, the University of Edinburgh; </p>
+                <p>Vaishak Belle, Reader in the AIAI/ELIAI institutes, the University of Edinburgh; </p>
+                <p>Xue Li, Postdoc in the ILCC/AIAI/ELIAI institutes, the University of Edinburgh. </p>
+
+                 <h3>What is the purpose of the study? </h3>
+                <p>We are working on developing a system to automatically detect misinformation from counterfactual claims in the domain of climate change.
+                In this study, human participants will be needed to annotate selected Reddit claims with their truth values, to generate training data for the misinformation detection system.
+                This annotation will be done via public platforms, i.e., Amazon Mechanical Turk, which protects participants' personal information.
+                During the annotation, participants will give truth values using a web App that we wrote, which does not collect any personal information.</p>
+
+                 <h3>Why have I been asked to take part? </h3>
+                <p>You have been asked to take part because you choose to annoate our data via Amazon Mechanical Turk.</p>
+
+                 <h3>Do I have to take part? </h3>
+                <p>No – participation in this study is entirely up to you. You can stop and at any time, without giving a reason.
+                In our study, no personal data will be asked or touched in any way.
+                We will only use the truth values that you labelled for the purpose of this study.
+                Your rights will not be affected. If you wish to withdraw, contact the PI.
+                We will keep copies of your original consent, and of your withdrawal request.</p>
+
+                <h3>What will happen if I decide to take part? </h3>
+                <p>That means you have read this consent and are happy with it. Then you will be given the data as pairs of an antecedent and a consequence via this web App, of which you will assign the truth values and choose whether an antecedent entails its consequence.  You can stop at any time and the labels you’ve given will be recorded and saved by the web App, which are the only data that we will collect.
+                Compensation.
+                You will be paid for your participation in this study via Amazon Mechanical Turk. </p>
+
+                <h3>Are there any risks associated with taking part?</h3>
+                <p>There are no significant risks associated with participation.</p>
+
+                <h3>Are there any benefits associated with taking part? </h3>
+                <p>Yes, you will be paid for your participation.</p>
+
+                <h3>What will happen to the results of this study? </h3>
+                <p>As there will be no personal information involved in the data annotation,
+                the results of this study may be summarised in published articles, reports and presentations. </p>
+
+                <h3>Data protection and confidentiality.</h3>
+                <p>Your data will be processed in accordance with Data Protection Law.
+                There will be no personal information about you in this study.
+                All electronic data will be stored on a password-protected encrypted computer,
+                on the School of Informatics’ secure file servers,
+                or on the University’s secure encrypted cloud storage services (DataShare, ownCloud, or Sharepoint) and all paper records will be stored in a locked filing cabinet in the PI’s office.
+                Your consent information will be kept separately from your responses in order to minimise risk. </p>
+
+                <h3>What are my data protection rights?</h3>
+                <p>The University of Edinburgh is a Data Controller for the information you provide. You have the right to access information held about you.
+                Your right of access can be exercised in accordance Data Protection Law.
+                You also have other rights including rights of correction, erasure and objection.
+                For more details, including the right to lodge a complaint with the Information Commissioner’s Office, please visit www.ico.org.uk.
+                Questions, comments and requests about your personal data can also be sent to the University Data Protection Officer at dpo@ed.ac.uk. </p>
+
+                <h3>Who can I contact?</h3>
+                <p>If you have any further questions about the study, please contact the lead researcher, Xue Li, whose email address is xue.shirley.li@ed.ac.uk.
+                If you wish to make a complaint about the study, please contact
+                inf-ethics@inf.ed.ac.uk. When you contact us, please provide the study title and detail the nature of your complaint.
+                Updated information.
+                If the research project changes in any way, an updated Participant Information Sheet will be made available on http://web.inf.ed.ac.uk/infweb/research/study-updates.
+                Alternative formats.
+                To request this document in an alternative format, such as large print or on coloured paper, please contact Xue Li, whose email address is xue.shirley.li@ed.ac.uk.
+                General information.
+                For general information about how we use your data, go to: edin.ac/privacy-research </p>
+                <div class="checkbox-container" style="margin-left: 45%; ">
+                <input type="checkbox" style="margin-left: 12%; margin-top: 12%; margin-bottom:5px;"  name="checkbox_con" id="checkbox_con" onclick="next(id)" required="true">  I Agree</input>
+                </div>
+                <p id = 'checkbox_con_next' style="text-align: center;"></p>
+            </div>
+        </crowd-tab>
+
+        <crowd-tab header="2. Instructions">
+          <div class = "claim-container">
+          <h2>What are conditional claims?</h2>
+          <p>
+            A conditional claim consists of a condition and a conclusion. It often takes the form of '<span style = "color: blue">If P, </span> <span style="color: purple">then Q</span> ' with P as the condition, and Q as the conclusion. Some examples are given below, where condition is written in blue and conclusion in purple.
+              The condition is a set of circumstances that, if true, result in the conclusion.
+              The example below is a conditional.
+              <ul>
+                  <li><span style = "color: blue">If it rains,</span> <span style="color: purple">the ground will be wet. </span> </li>
+                  <li><span style = "color: blue">Unless I get a job offer tomorrow, </span> <span style="color: purple">I will take a vacation as a break.</span></li>
+                  <li><span style = "color: blue">If there were no greenhouse gases in the atmosphere, </span> <span style="color: purple"> then the Earth's temperature would be much colder.</span> </li>
+
+              </ul>
+                  </p>
+                  <h2> Speaker's belief</h2>
+                      <p>In some conditional claims, the speaker indicates whether or not they think the condition is true, i.e. it is not satisfied in reality. For instance, in the last example above, of which the condition is 'there are <span style = "font-weight:bold">no</span> greenhouse gases in the atmosphere', the speaker indicates that 'there are greenhouse gases in the atmosphere'.
+                    <p>However, this is not the case for every conditional claim.</p>
+                    In the first claim above, the speaker does not say anything about whether or not the condition is likely to be true (that is, whether
+                        it will rain). It is implied that they believe it is possible that .</p>
+                    <p>The same applies to the conclusion. The speaker may believe the conclusion is not true,
+                      or they may believe that the conclusion might be true. </p>
+
+                  <h2>Is a claim verifiable?</h2>
+                    <ul>
+                      <li>Verifiable claims describe statements that can be proven true or false using facts, e.g.,
+                      the following claim is verifiable, and it is true: "Washington, DC, is the capital of the US." The following claim
+                          is verifiable and false: "New York City is the capital of the US."</li>
+                      <li>Non-verifiable claims are neither true nor false. They express a belief, attitude, value, judgment, or feeling,
+                        e.g., "dogs are the best animals in the world" or "chocolate is my favourite flavour of ice cream".</li>
+                        <li>Sometimes the line between verifiable claims and non-verifiable claims can be a hard to draw. For
+                            the purpose of this annotation task, please consider all claims to be non-verifiable that express beliefs,
+                            attitudes or value judgments - even if most people would agree with the claim. For example, "World War II was a
+                            terrible war." This claim strikes many of us as factual, but it is considered a non-verifiable claim here
+                            because of the word "terrible" which expresses a value. In contrast, "many people died in World War II"
+                        is verifiable.</li>
+                    </ul>
+                  <h2>Is it true? </h2>
+                  A verifiable claim can be true or false. As everyone has a limit to their knowledge, it's possible that we know a claim is verifiable,
+                  e.g., a capital city of a country, but we do not know the answer. If you do not know the answer, please choose 'I don't know.'
+
+            <p><img src="https://drive.google.com/uc?export=view&id=171KHKNnaIGNG9ECzCbpxiFBE9v6ZMdNT" width="300" height="180"> </img></p>
+
+          <h2> Does the conclusion follow the condition? </h2>
+            <p>A conclusion Q follows its condition P, if P causes Q. Thus, when P happens, Q will happen as a result. There are different levels of how much a conclusion follows/caused by a condition. We categorise them into five categories listed below. </p>
+              <ul>
+                  <li> Absolutely (if the condition P happened, then the conclusion Q would happen for sure). </li>
+                <li>Probably (if P happened, it would reasonably increase the chance of Q becoming a fact). </li>
+                <li>Maybe (if P happened, it would mediumly increase the chance of Q becoming a fact). </li>
+                <li>Less likely (if P happened, it would minorly increase the chance of Q becoming a fact). </li>
+                 <li>Not at all (P has nothing to do with the happening  of Q.)</li>
+              </ul>
+              <p>Please find examples of these categorise below.</p>
+              <p><span style = "font-weight:bold">Absolutely.</span> In some conditional claims, the conclusion follows the condition.</p>
+           <ul>
+              <li>If Elon Musk buys Twitter, he will own one of the biggest social media sites in the world.</li>
+           </ul>
+
+          <p>In the above example, the condition happens to be true. However, it is also possible for the conclusion to follow the condition
+          in cases where the condition is false or we don't know if the condition is true.</p>
+
+          <ul>
+              <li>If Barack Obama lived in the 19th century, he would have never been elected President of the US.</li>
+              <li>If Bill Gates had bought Twitter, he would own one of the biggest social media sites in the world.</li>
+          </ul>
+
+          <span style = "font-weight:bold">Probably or Maybe.</span> Sometimes we don't know if the conclusion follows the condition, but we can make a guess. The following claims are probably true,
+          although we don't know anything about Natalia and her mum:
+
+          <ul>
+          <li>If Natalia cleans up her room, her mum will be happy.</li>
+          </ul>
+
+          <span style = "font-weight:bold">Less likely.</span> The following claims are probably not true:
+          <ul>
+          <li>If we stop climate change, the price of ice cream will drop.</li>
+          </ul>
+
+           <span style = "font-weight:bold">Not at all.</span> Sometimes we know for sure that the conclusion does not follow the condition. This is the case, for example, when the condition and the conclusion have nothing to do with one another, but also when the conclusion is too exaggerated.
+           <ul>
+              <li>If Elon Musk buys Twitter, then the COVID-19 pandemic will be over.</li>
+               <li>If the sea levels rise by 1 mm, life on this planet as we know it will be over.</li>
+            </ul>
+          </div>
+          <div class="checkbox-container" style="margin-left: 45%; ">
+                <input type="checkbox" style="margin-left: 12%; margin-top: 12%; margin-bottom:5px;"  name="checkbox_ins" id="checkbox_ins"  onclick="next(id)" required="true">Complete</input>
+          </div>
+            <p id = 'checkbox_ins_next' style="text-align: center;"></p>
+        </crowd-tab>
+
+        <crowd-tab header="3. Tutorial">
+          <div class="tutorial_container">
+            <div class="title_t_container">
+              <!-- <div class="wrapper"> -->
+              <p style = "color: black"> Correct answers will be shown after you select an answer, together with explanations on the right side.</p>
+              <p><b>Claim 1:</b> If glaciers were not melting, COVID-19 would not exist. </p> </div>
+              <p>Q1. Which of the following describe Claim1 the best?</p>
+                <select name="QT1" id="dropdownT1" onChange= "tutorial_b(id,0)" required>
+                <!--<option value="" selected>Q1. Which of the following describe Claim1 the best?</option>-->
+                <option value="">Please choose from the options below. </option>
+                <option value="0">It is a conditional claim </option>
+                <option value="1">It is not a conditional claim. </option>
+              </select>
+              <div class="popup">
+                  <span class="popuptext" id="pp10">Well done. Claim 1 is a conditional claim.</span>
+                  <span class="popuptext" id="pp11">Your answer was incorrect. Claim 1 is a conditional claim where the condition is that 'If glaciers were not melting' and the conclusion is that 'COVID-19 would not exist'. </span></div>
+          </div>
+          <div class="tutorial_container">
+              <div class="title_t_container"><p><b>Claim 2:</b> Glaciers are not melting.</p></div>
+              <p>Q2. Which do you agree about the speaker's belief?</p>
+                <select name="QT21" id="dropdownT21" onChange= "tutorial_b(id, 0)"  required>
+                <option value="">Please choose from the options below. </option>
+                <option value="0">Claim 1 implies its speaker thinks Claim2 is not true.</option>
+                <option value="1">Claim 1 does not imply its speaker thinks Claim2 is not true. </option>
+              </select>
+               <div class="popup" >
+                  <span class="popuptext" id="pp210">Correct. The speaker thinks that glaciers <b>are</b> melting.</span>
+                  <span class="popuptext" id="pp211">Your answer was incorrect. The speaker of Claim 1 thinks Claim 2 is not true, i.e., they believe glaciers are melting</span></div>
+              <p>Q3. Is Claim 2 verifiable?</p>
+                  <select name="QT22" id="dropdownT22" onChange= "tutorial_b(id, 0)" required>
+                <option value="">Please choose from the options below. </option>
+                <option value="0">Yes, it is. </option>
+                <option value="1">No, it is not. </option>
+                <option value="2">I am not sure. </option>
+              </select>
+              <div class="popup" >
+                  <span class="popuptext" id="pp220">Well done, Claim 2 is verifiable.</span>
+                  <span class="popuptext" id="pp221">Your answer was incorrect. Claim 2 is verifiable as we can compare the size of glaciers.</span>
+                  <span class="popuptext" id="pp222">Your answer was not ideal. Claim 2 is verifiable as we can compare the size of glaciers.</span></div>
+              <p>Q4. How sure are you about your answer to the above question?</p>
+                  <select name="QT23" id="dropdownT23" onChange= "tutorial_a(id)"  required>
+                <option value="">Please choose from the options below. </option>
+                <option value="0">Very High. </option>
+                <option value="1">High. </option>
+                <option value="2">Medium. </option>
+                <option value="3">Low. </option>
+                <option value="4">Very Low. </option>
+              </select>
+              <div class="popup" >
+                  <span class="popuptext" id="pp23">Please consider how likely your answer is correct.</span></div>
+              <p>Q5. Is Claim 2 true?</p>
+              <select name="QT24" id="dropdownT24" onChange= "tutorial_b(id, 1)" required>
+                <option value="">Please choose from the options below. </option>
+                <option value="0">Yes, it is. </option>
+                <option value="1">No, it is not. </option>
+                <option value="2">Alhtough it is verifiable, I do not know if it is true or false. </option>
+              </select>
+              <div class="popup" id="p24">
+                  <span class="popuptext" id="pp240">Your answer was incorrect. Claim 2 is false because glaciers are melting.</span>
+                  <span class="popuptext" id="pp241">Well done. Claim 2 is false because glaciers are melting.</span>
+                  <span class="popuptext" id="pp242">Your answer was not ideal because it is a fact that glaciers are melting.</span></div>
+            <p id = "p25">Q6. How sure are you about your answer to the above question?</p>
+              <select name="QT25" id="dropdownT25" required>
+                <option value="">Please choose from the options below. </option>
+                <option value="0">Very High. </option>
+                <option value="1">High. </option>
+                <option value="2">Medium. </option>
+                <option value="3">Low. </option>
+                <option value="4">Very Low. </option>
+              </select>
+              <div class="popup" >
+                  <span class="popuptext" id="pp23">Same to Q2.3.</span></div>
+          </div>
+          <div class="tutorial_container">
+              <div class="title_t_container"><p><b>Claim 3:</b> COVID-19 does not exist.</p></div>
+              <p>Q7. Is Claim 3 verifiable?</p>
+              <select name="QT31" id="dropdownT31" onChange= "tutorial_b(id, 0)"  required>
+                <option value="">Please choose from the options below. </option>
+                <option value="0">Yes, it is. </option>
+                <option value="1">No, it is not. </option>
+                <option value="2">I am not sure. </option>
+              </select>
+              <div class="popup" >
+                   <span class="popuptext" id="pp310">Well done, that is the correct answer.</span>
+                  <span class="popuptext" id="pp311">Your answer was incorrect. Whether COVID-19 exists is a fact rather than opinions. Thus, Claim 3 is verifiable</span>
+                  <span class="popuptext" id="pp312">Your answer was not ideal. Whether COVID-19 exists is a fact rather than opinions. </span></div>
+            <p>Q8. How sure are you about your answer to the above question?</p>
+            <select name="QT32" id="dropdownT32" required>
+                <option value="">Please choose from the options below. </option>
+                <option value="0">Very High. </option>
+                <option value="1">High. </option>
+                <option value="2">Medium. </option>
+                <option value="3">Low. </option>
+                <option value="4">Very Low. </option>
+              </select>
+              &nbsp;
+              <p>Q9. Is Claim 3 true?</p>
+
+                  <select name="QT33" id="dropdownT33" onChange= "tutorial_b(id, 1)"  required>
+                <option value="">Please choose from the options below. </option>
+                <option value="0">Yes, it is. </option>
+                <option value="1">No, it is not. </option>
+                <option value="2">Alhtough it is verifiable, I do not know if it is true or false. </option>
+              </select>
+              <div class="popup" id="p33">
+                   <span class="popuptext" id="pp330">Your answer was incorrect. COVID-19 exists.</span>
+                  <span class="popuptext" id="pp331">Well done, that is the correct answer because COVID-19 does exist.</span>
+                  <span class="popuptext" id="pp332">Your answer was not ideal because COVID-19 does exist as a fact.</span></div>
+            <p id = "p34">Q10. How sure are you about your answer to the above question?</p>
+                  <select name="QT34" id="dropdownT34" required>
+                <option value="">Please choose from the options below. </option>
+                <option value="0">Very High. </option>
+                <option value="1">High. </option>
+                <option value="2">Medium. </option>
+                <option value="3">Low. </option>
+                <option value="4">Very Low. </option>
+              </select>
+              &nbsp;
+               </div>
+          <div class="tutorial_container">
+              <p>Q11. If Claim 2 was true, would Claim 3 also become true as a result?</p>
+                  <select name="QT41" id="dropdownT41" onChange= "tutorial_a(id)"  required>
+                <!--<option value="" selected>Q5. If Claim 2 was true, would Claim 3 also become true as a result?</option>-->
+                <option value="">Please choose from the options below. </option>
+                <option value="0">Absolutely (if the Claim2 happened, then the conclusion would happen for sure). </option>
+                <option value="1">Probably (if Claim2 happened, it would reasonably increase the chance of Claim3 becoming a fact). </option>
+                <option value="2">Maybe (if Claim2 happened, it would mediumly increase the chance of Claim3 becoming a fact). </option>
+                <option value="3">Less likely (if Claim2 happened, it would minorly increase the chance of Claim3 becoming a fact). </option>
+                 <option value="4">Not at all (they are irrelevant.)</option>
+              </select>
+              <div class="popup">
+                      <span class="popuptext"  id="pp41">This is a hard question. However, if there is no evidence that COVID-19 is caused by glaciers' melting to the best of your knowledge,
+                      then you should choose the option of 'Not at all'.</span> </div>
+            <p id="p42"> Q12. How sure are you about your answer to the above question?</p>
+                  <select name="QT42" id="dropdownT42" required>
+                <!--<option value="" selected>>Select an option below.</option>-->
+                <option value="">Please choose from the options below. </option>
+                <option value="0">Very High. </option>
+                <option value="1">High. </option>
+                <option value="2">Medium. </option>
+                <option value="3">Low. </option>
+                <option value="4">Very Low. </option>
+              </select>
+              &nbsp;
+            </div>
+            <div class="checkbox-container" style="margin-left: 45%;">
+                <input type="checkbox" style="margin-left: 12%; margin-top: 12%; margin-bottom:5px;"  name="checkbox_tut" id="checkbox_tut"  onclick="check_tutorial(id)" required="true">Complete</input>
+            </div>
+            <p id = 'checkbox_tut_next' style="text-align: center;"></p>
+            <button id="tutorialButton" hidden></button>
+        </crowd-tab>
+        <crowd-tab  header="4. HIT Task Entry">
+            <div class="grid-container">
+            <div class="title_container">
+              <!-- <div class="wrapper"> -->
+             <h2 style = "color: black">Section 1</h2>
+                <p><b>Claim 1.1:</b> ${ant} &nbsp; ${con}</p> </div>
+                  <!-- Option from a Dropdown -->
+                 <p>Q1. Which of the following describe Claim 1.1 the best?</p>
+                <select name="Q1.1_conditional_claim" id="1_dropdown1" onChange= "invisible(id, [41, 42])" required>
+                <option value="">Please choose from the options below. </option>
+                <option value="0">It is a conditional claim </option>
+                <option value="1">It is not a conditional claim. </option>
+              </select>
+
+              <div class="title_container"><p><b>Claim 1.2:</b> ${claimAnt}</p></div>
+              <!-- Option from a Dropdown -->
+              <p>Q2. Which do you agree about the speaker's belief?</p>
+                <select name="Q1.21_ant_implicature" id="1_dropdown21" required>
+                <option value="">Please choose from the options below. </option>
+                <option value="1">Claim 1.1 implies its speaker thinks Claim 1.2 is not true.</option>
+                <option value="2">Claim 1.1 does not imply its speaker thinks Claim 1.2 is not true. </option>
+              </select>
+              <p>Q3. Is Claim 1.2 verifiable? </p>
+                  <select name="Q1.22_ant_verifiable" id="1_dropdown22" onChange= "invisible(id, ['24', '241', '242'])" required>
+                <option value="">Please choose from the options below. </option>
+                <option value="0">Yes, it is. </option>
+                <option value="1">No, it is not. </option>
+                <option value="3">I am not sure. </option>
+              </select>
+               <p>Q4. How sure are you about your answer to the above question? </p>
+                  <select name="Q1.23_confidence_Q22" id="1_dropdown23" required>
+                <option value="">Please choose from the options below. </option>
+                <option value="0">Very High. </option>
+                <option value="1">High. </option>
+                <option value="2">Medium. </option>
+                <option value="3">Low. </option>
+                <option value="4">Very Low. </option>
+              </select>
+              <p id="1_qt24">Q5. Is Claim 1.2 true? </p>
+              <select name="Q1.24_ant_truthValue" id="1_dropdown24" onchange="follow_up(id)" required>
+                <option value="">Please choose from the options below. </option>
+                <option value="0">Yes, it is. </option>
+                <option value="1">No, it is not. </option>
+                <option value="2">Alhtough it is verifiable, I do not know if it is true or false. </option>
+              </select>
+            <p id="1_qt241" >Q6. How sure are you about your answer to the above question?</p>
+              <select name="Q1.241_confidence" id="1_dropdown241" >
+                <option value="">Please choose from the options below. </option>
+                <option value="0">Very High. </option>
+                <option value="1">High. </option>
+                <option value="2">Medium. </option>
+                <option value="3">Low. </option>
+                <option value="4">Very Low. </option>
+              </select>
+          <p id="1_qt242" hidden>Q6. Why don't you know whether Claim 1.2 is true or false?</p>
+              <select name="Q1.242_ant_unknown_reason" id="1_dropdown242" hidden>
+                <option value="">Please choose from the options below. </option>
+                <option value="0">It lacks of context， e.g., caused by an undefined pronoun, such as 'it'. </option>
+                <option value="1">It is badly written so not understandable. </option>
+                <option value="2">It requires domain knowledge so only experts can tell. </option>
+                <option value="3">Others. </option>
+          </select>
+              <div class="title_container"><p><b>Claim 1.3:</b> ${claimCon}</p></div>
+              <p>Q7. Is Claim 1.3 verifiable? </p>
+              <select name="Q1.31_con_verifiable" id="1_dropdown31" onChange= "invisible(id, ['33', '331', '332'])"  required>
+                <option value="">Please choose from the options below. </option>
+                <option value="0">Yes, it is. </option>
+                <option value="1">No, it is not. </option>
+                <option value="3">I am not sure. </option>
+              </select>
+            <p>Q8. How sure are you about your answer to the above question?</p>
+            <select name="Q1.32_confidence_Q31" id="1_dropdown32" required>
+                <option value="">Please choose from the options below. </option>
+                <option value="0">Very High. </option>
+                <option value="1">High. </option>
+                <option value="2">Medium. </option>
+                <option value="3">Low. </option>
+                <option value="4">Very Low. </option>
+              </select>
+              <p id="1_qt33">Q9. Is Claim 1.3 true? </p>
+                  <select name="Q1.33_con_truthValue" id="1_dropdown33" onchange = "follow_up(id)" required>
+                <option value="">Please choose from the options below. </option>
+                <option value="0">Yes, it is. </option>
+                <option value="1">No, it is not. </option>
+                <option value="2">Alhtough it is verifiable, I do not know if it is true or false. </option>
+              </select>
+            <p id="1_qt331" >Q10. How sure are you about your answer to the above question?</p>
+                  <select name="Q1.331_confidence_Q33" id="1_dropdown331" >
+                <option value="">Please choose from the options below. </option>
+                <option value="0">Very High. </option>
+                <option value="1">High. </option>
+                <option value="2">Medium. </option>
+                <option value="3">Low. </option>
+                <option value="4">Very Low. </option>
+              </select>
+            <p id="1_qt332" hidden>Q10.  Why don't you know whether Claim 1.3 is true or false?</p>
+                  <select name="Q1.332_con_unknown_reason" id="1_dropdown332" hidden>
+                <option value="">Please choose from the options below. </option>
+                <option value="0">It lacks of context， e.g., caused by an undefined pronoun, such as 'it'. </option>
+                <option value="1">It is badly written so not understandable. </option>
+                <option value="2">It requires domain knowledge so only experts can tell. </option>
+                <option value="3">Others. </option>
+              </select>
+
+               <p id="1_qt41">Q11. If Claim 1.2 was true, would Claim 1.3 also become true as a result?</p>
+                  <!-- Option from a Dropdown -->
+                  <select name="Q1.41_entailment" id="1_dropdown41" required>
+                <option value="">Please choose from the options below. </option>
+                <option value="0">Absolutely (if the Claim 1.2 happened, then the conclusion would happen for sure). </option>
+                <option value="1">Probably (if Claim 1.2 happened, it would reasonably increase the chance of Claim 1.3 becoming a fact). </option>
+                <option value="2">Maybe (if Claim 1.2 happened, it would mediumly increase the chance of Claim 1.3 becoming a fact). </option>
+                <option value="3">Less likely (if Claim 1.2 happened, it would minorly increase the chance of Claim 1.3 becoming a fact). </option>
+                 <option value="4">Not at all (they are irrelevant.)</option>
+              </select>
+                  <p id="1_qt42">Q12. How sure are you about your answer to the above question?</p>
+                  <select name="Q1.42_confidence_ent" id="1_dropdown42" required>
+                <!--<option value="" selected>>Select an option below.</option>-->
+                <option value="">Please choose from the options below. </option>
+                <option value="0">Very High. </option>
+                <option value="1">High. </option>
+                <option value="2">Medium. </option>
+                <option value="3">Low. </option>
+                <option value="4">Very Low. </option>
+              </select>
+            </div>
+            <div class="grid-container">
+            <div class="title_container">
+             <h2 style = "color: black">Section 2</h2>
+                <p><b>Claim 2.1:</b> ${ant} &nbsp; ${con}</p> </div>
+                  <!-- Option from a Dropdown -->
+                 <p>Q13. Which of the following describe Claim 2.1 the best?</p>
+                <select name="Q2.1_conditional_claim" id="2_dropdown1" onChange= "invisible(id, [41, 42])" required>
+                <option value="">Please choose from the options below. </option>
+                <option value="0">It is a conditional claim </option>
+                <option value="1">It is not a conditional claim. </option>
+              </select>
+
+              <div class="title_container"><p><b>Claim 2.2:</b> ${claimAnt}</p></div>
+              <p>Q14. Which do you agree about the speaker's belief?</p>
+                <select name="Q2.21_ant_implicature" id="2_dropdown21" required>
+                <option value="">Please choose from the options below. </option>
+                <option value="1">Claim 2.1 implies its speaker thinks Claim 2.2 is not true.</option>
+                <option value="2">Claim 2.1 does not imply its speaker thinks Claim 2.2 is not true. </option>
+              </select>
+              <p>Q15. Is Claim 2.2 verifiable? </p>
+                  <select name="Q2.22_ant_verifiable" id="2_dropdown22" onChange= "invisible(id, ['24', '241', '242'])" required>
+                <option value="">Please choose from the options below. </option>
+                <option value="0">Yes, it is. </option>
+                <option value="1">No, it is not. </option>
+                <option value="3">I am not sure. </option>
+              </select>
+                   <p>Q16. How sure are you about your answer to the above question? </p>
+                  <select name="Q2.23_confidence_Q22" id="2_dropdown23" required>
+                <option value="">Please choose from the options below. </option>
+                <option value="0">Very High. </option>
+                <option value="1">High. </option>
+                <option value="2">Medium. </option>
+                <option value="3">Low. </option>
+                <option value="4">Very Low. </option>
+              </select>
+              <p id="2_qt24">Q17. Is Claim 2.2 true? </p>
+              <select name="Q2.24_ant_truthValue" id="2_dropdown24" onchange="follow_up(id)" required>
+                <option value="">Please choose from the options below. </option>
+                <option value="0">Yes, it is. </option>
+                <option value="1">No, it is not. </option>
+                <option value="2">Alhtough it is verifiable, I do not know if it is true or false. </option>
+              </select>
+            <p id="2_qt241" >Q18. How sure are you about your answer to the above question?</p>
+              <select name="Q2.241_confidence" id="2_dropdown241" >
+                <option value="">Please choose from the options below. </option>
+                <option value="0">Very High. </option>
+                <option value="1">High. </option>
+                <option value="2">Medium. </option>
+                <option value="3">Low. </option>
+                <option value="4">Very Low. </option>
+              </select>
+          <p id="2_qt242" hidden>Q18. Why don't you know whether Claim 2.2 is true or false?</p>
+              <select name="Q2.242_ant_unknown_reason" id="2_dropdown242" hidden>
+                <option value="">Please choose from the options below. </option>
+                <option value="0">It lacks of context， e.g., caused by an undefined pronoun, such as 'it'. </option>
+                <option value="1">It is badly written so not understandable. </option>
+                <option value="2">It requires domain knowledge so only experts can tell. </option>
+                <option value="3">Others. </option>
+          </select>
+              <div class="title_container"><p><b>Claim 2.3:</b> ${claimCon}</p></div>
+              <p>Q19. Is Claim 2.3 verifiable? </p>
+              <select name="Q2.31_con_verifiable" id="2_dropdown31" onChange= "invisible(id, ['33', '331', '332'])"  required>
+                <option value="">Please choose from the options below. </option>
+                <option value="0">Yes, it is. </option>
+                <option value="1">No, it is not. </option>
+                <option value="3">I am not sure. </option>
+              </select>
+            <p>Q20. How sure are you about your answer to the above question?</p>
+            <select name="Q2.32_confidence_Q31" id="2_dropdown32" required>
+                <option value="">Please choose from the options below. </option>
+                <option value="0">Very High. </option>
+                <option value="1">High. </option>
+                <option value="2">Medium. </option>
+                <option value="3">Low. </option>
+                <option value="4">Very Low. </option>
+              </select>
+              <p id="2_qt33">Q21. Is Claim 2.3 true? </p>
+                  <select name="Q2.33_con_truthValue" id="2_dropdown33" onchange = "follow_up(id)" required>
+                <option value="">Please choose from the options below. </option>
+                <option value="0">Yes, it is. </option>
+                <option value="1">No, it is not. </option>
+                <option value="2">Alhtough it is verifiable, I do not know if it is true or false. </option>
+              </select>
+            <p id="2_qt331" >Q22. How sure are you about your answer to the above question?</p>
+                  <select name="Q2.331_confidence_Q33" id="2_dropdown331" >
+                <option value="">Please choose from the options below. </option>
+                <option value="0">Very High. </option>
+                <option value="1">High. </option>
+                <option value="2">Medium. </option>
+                <option value="3">Low. </option>
+                <option value="4">Very Low. </option>
+              </select>
+            <p id="2_qt332" hidden>Q22.  Why don't you know whether Claim 2.3 is true or false?</p>
+                  <select name="Q2.332_con_unknown_reason" id="2_dropdown332" hidden>
+                <option value="">Please choose from the options below. </option>
+                <option value="0">It lacks of context， e.g., caused by an undefined pronoun, such as 'it'. </option>
+                <option value="1">It is badly written so not understandable. </option>
+                <option value="2">It requires domain knowledge so only experts can tell. </option>
+                <option value="3">Others. </option>
+              </select>
+
+               <p id="2_qt41">Q23. If Claim 2.2 was true, would Claim 2.3 also become true as a result?</p>
+                  <!-- Option from a Dropdown -->
+                  <select name="Q2.41_entailment" id="2_dropdown41" required>
+                <!--<option value="" selected>Q5. If Claim 2 was true, would Claim 3 also become true as a result?</option>-->
+                <option value="">Please choose from the options below. </option>
+                <option value="0">Absolutely (if the Claim 2.2 happened, then the conclusion would happen for sure). </option>
+                <option value="1">Probably (if Claim 2.2 happened, it would reasonably increase the chance of Claim 2.3 becoming a fact). </option>
+                <option value="2">Maybe (if Claim 2.2 happened, it would mediumly increase the chance of Claim 2.3 becoming a fact). </option>
+                <option value="3">Less likely (if Claim 2.2 happened, it would minorly increase the chance of Claim 2.3 becoming a fact). </option>
+                 <option value="4">Not at all (they are irrelevant.)</option>
+              </select>
+                  <p id="2_qt42">Q24. How sure are you about your answer to the above question?</p>
+                  <select name="Q2.42_confidence_ent" id="2_dropdown42" required>
+                <!--<option value="" selected>>Select an option below.</option>-->
+                <option value="">Please choose from the options below. </option>
+                <option value="0">Very High. </option>
+                <option value="1">High. </option>
+                <option value="2">Medium. </option>
+                <option value="3">Low. </option>
+                <option value="4">Very Low. </option>
+              </select>
+            </div>
+            <div class="grid-container">
+            <div class="title_container">
+             <h2 style = "color: black">Section 3</h2>
+                <p><b>Claim 3.1:</b> ${ant} &nbsp; ${con}</p> </div>
+                  <!-- Option from a Dropdown -->
+                 <p>Q25. Which of the following describe Claim 3.1 the best?</p>
+                <select name="Q3.1_conditional_claim" id="3_dropdown1" onChange= "invisible(id, [41, 42])" required>
+                <option value="">Please choose from the options below. </option>
+                <option value="0">It is a conditional claim </option>
+                <option value="1">It is not a conditional claim. </option>
+              </select>
+
+              <div class="title_container"><p><b>Claim 3.2:</b> ${claimAnt}</p></div>
+              <!-- Option from a Dropdown -->
+              <p>Q26. Which do you agree about the speaker's belief?</p>
+                <select name="Q3.21_ant_implicature" id="3_dropdown21" required>
+                <option value="">Please choose from the options below. </option>
+                <option value="1">Claim 3.1 implies its speaker thinks Claim 3.2 is not true.</option>
+                <option value="2">Claim 3.1 does not imply its speaker thinks Claim 3.2 is not true. </option>
+              </select>
+              <p>Q27. Is Claim 3.2 verifiable? </p>
+                  <select name="Q3.22_ant_verifiable" id="3_dropdown22" onChange= "invisible(id, ['24', '241', '242'])" required>
+                <option value="">Please choose from the options below. </option>
+                <option value="0">Yes, it is. </option>
+                <option value="1">No, it is not. </option>
+                <option value="3">I am not sure. </option>
+              </select>
+               <p>Q28. How sure are you about your answer to the above question? </p>
+                  <select name="Q3.23_confidence_Q22" id="3_dropdown23" required>
+                <option value="">Please choose from the options below. </option>
+                <option value="0">Very High. </option>
+                <option value="1">High. </option>
+                <option value="2">Medium. </option>
+                <option value="3">Low. </option>
+                <option value="4">Very Low. </option>
+              </select>
+              <p id="3_qt24">Q29. Is Claim 3.2 true? </p>
+              <select name="Q3.24_ant_truthValue" id="3_dropdown24" onchange="follow_up(id)" required>
+                <option value="">Please choose from the options below. </option>
+                <option value="0">Yes, it is. </option>
+                <option value="1">No, it is not. </option>
+                <option value="2">Alhtough it is verifiable, I do not know if it is true or false. </option>
+              </select>
+            <p id="3_qt241" >Q30. How sure are you about your answer to the above question?</p>
+              <select name="Q3.241_confidence" id="3_dropdown241" >
+                <option value="">Please choose from the options below. </option>
+                <option value="0">Very High. </option>
+                <option value="1">High. </option>
+                <option value="2">Medium. </option>
+                <option value="3">Low. </option>
+                <option value="4">Very Low. </option>
+              </select>
+          <p id="3_qt242" hidden>Q30. Why don't you know whether Claim 3.2 is true or false?</p>
+              <select name="Q3.242_ant_unknown_reason" id="3_dropdown242" hidden>
+                <option value="">Please choose from the options below. </option>
+                <option value="0">It lacks of context， e.g., caused by an undefined pronoun, such as 'it'. </option>
+                <option value="1">It is badly written so not understandable. </option>
+                <option value="2">It requires domain knowledge so only experts can tell. </option>
+                <option value="3">Others. </option>
+          </select>
+              <div class="title_container"><p><b>Claim 3.3:</b> ${claimCon}</p></div>
+              <p>Q31. Is Claim 3.3 verifiable? </p>
+              <select name="Q3.31_con_verifiable" id="3_dropdown31" onChange= "invisible(id, ['33', '331', '332'])"  required>
+                <option value="">Please choose from the options below. </option>
+                <option value="0">Yes, it is. </option>
+                <option value="1">No, it is not. </option>
+                <option value="3">I am not sure. </option>
+              </select>
+            <p>Q32. How sure are you about your answer to the above question?</p>
+            <select name="Q3.32_confidence_Q31" id="3_dropdown32" required>
+                <option value="">Please choose from the options below. </option>
+                <option value="0">Very High. </option>
+                <option value="1">High. </option>
+                <option value="2">Medium. </option>
+                <option value="3">Low. </option>
+                <option value="4">Very Low. </option>
+              </select>
+              <p id="3_qt33">Q33. Is Claim 3.3 true? </p>
+                  <select name="Q3.33_con_truthValue" id="3_dropdown33" onchange = "follow_up(id)" required>
+                <option value="">Please choose from the options below. </option>
+                <option value="0">Yes, it is. </option>
+                <option value="1">No, it is not. </option>
+                <option value="2">Alhtough it is verifiable, I do not know if it is true or false. </option>
+              </select>
+            <p id="3_qt331" >Q34. How sure are you about your answer to the above question?</p>
+                  <select name="Q3.331_confidence_Q33" id="3_dropdown331" >
+                <option value="">Please choose from the options below. </option>
+                <option value="0">Very High. </option>
+                <option value="1">High. </option>
+                <option value="2">Medium. </option>
+                <option value="3">Low. </option>
+                <option value="4">Very Low. </option>
+              </select>
+            <p id="3_qt332" hidden>Q34.  Why don't you know whether Claim 3.3 is true or false?</p>
+                  <select name="Q3.332_con_unknown_reason" id="3_dropdown332" hidden>
+                <option value="">Please choose from the options below. </option>
+                <option value="0">It lacks of context， e.g., caused by an undefined pronoun, such as 'it'. </option>
+                <option value="1">It is badly written so not understandable. </option>
+                <option value="2">It requires domain knowledge so only experts can tell. </option>
+                <option value="3">Others. </option>
+              </select>
+
+               <p id="3_qt41">Q35. If Claim 3.2 was true, would Claim 3.3 also become true as a result?</p>
+                  <!-- Option from a Dropdown -->
+                  <select name="Q3.41_entailment" id="3_dropdown41" required>
+                <!--<option value="" selected>Q5. If Claim 2 was true, would Claim 3 also become true as a result?</option>-->
+                <option value="">Please choose from the options below. </option>
+                <option value="0">Absolutely (if the Claim 3.2 happened, then the conclusion would happen for sure). </option>
+                <option value="1">Probably (if Claim 3.2 happened, it would reasonably increase the chance of Claim 3.3 becoming a fact). </option>
+                <option value="2">Maybe (if Claim 3.2 happened, it would mediumly increase the chance of Claim 3.3 becoming a fact). </option>
+                <option value="3">Less likely (if Claim 3.2 happened, it would minorly increase the chance of Claim 3.3 becoming a fact). </option>
+                 <option value="4">Not at all (they are irrelevant.)</option>
+              </select>
+                  <p id="3_qt42">Q36. How sure are you about your answer to the above question?</p>
+                  <select name="Q3.42_confidence_ent" id="3_dropdown42" required>
+                <!--<option value="" selected>>Select an option below.</option>-->
+                <option value="">Please choose from the options below. </option>
+                <option value="0">Very High. </option>
+                <option value="1">High. </option>
+                <option value="2">Medium. </option>
+                <option value="3">Low. </option>
+                <option value="4">Very Low. </option>
+              </select>
+            </div>
+            <button type="submit" id="submitButton"  class="shadow" value="Submit" onclick="showAlert()"  style="margin-left: 45%; margin-top: 10pt"> Submit</button>
+            </crowd-tab>
+      </crowd-tabs>
+      </crowd-form>
+
+    <script>
+    function get_ready(id){
+        const checkBox_ids = ["checkbox_con", "checkbox_ins", "checkbox_tut"];
+        const all_in_tutorial = document.querySelectorAll('[id^="dropdownT"]');
+
+        if (document.getElementById(id).checked){
+             all_in_tutorial.forEach(element => {element.required = false});
+            checkBox_ids.forEach(e_id => {
+              var element = document.getElementById(e_id);
+              element.checked = true;
+              element.disabled=true;
+              var pop_element = document.getElementById(e_id.concat("_next"));
+              pop_element.innerHTML = "";});
+
+        }
+        else{
+            checkBox_ids.forEach(e_id => {
+              var element = document.getElementById(e_id);
+              element.checked = false;
+              element.disabled=false;
+              var pop_element = document.getElementById(e_id.concat("_next"));
+              pop_element.innerHTML = "";});
+            all_in_tutorial.forEach(element => {element.required = true});
+        }
+        next(id);
+    }
+
+    function next(id){
+        var pop_element = document.getElementById(id.concat("_next"));
+        if (document.getElementById(id).checked){
+            switch(id) {
+            case "checkbox_all":
+                pop_element.innerHTML = 'Great, you can go to the last tab directly.';
+                break;
+            case "checkbox_con":
+                pop_element.innerHTML = 'Thanks, please go to the next tab to read the instruction.';
+                break;
+            case "checkbox_ins":
+                pop_element.innerHTML = 'Please go to the next tab to take the tutorial.';
+                break;
+            case "checkbox_tut":
+                pop_element.innerHTML = 'Please go to the next tab for HIT.';
+            }
+        }
+        else{
+            pop_element.innerHTML = "";
+        }
+    }
+
+    function check_tutorial(id){
+        var check_tutorial = document.getElementById("checkbox_tut");
+        if(check_tutorial.checked){
+            document.getElementById("tutorialButton").click();
+          }
+        const all_questions = document.querySelectorAll('[id^="dropdownT"]');
+        var not_null = true;
+        for(let i=0; i<all_questions.length; i++){
+            if (all_questions[i].value === '' ){
+              not_null = false;
+            }
+        }
+
+        if (not_null){
+            check_tutorial.checked = true;
+            next(id);
+        }
+        else{
+            check_tutorial.checked = false;
+        }
+    }
+
+
+    function tutorial_b (ques_id, ans_correct) {
+            const ques_num = ques_id.split('dropdownT')[1];
+            var question = document.getElementById(ques_id);
+            var pop_id = "pp".concat(ques_num).concat(question.value);
+            document.getElementById(pop_id).classList.toggle("show");
+            question.value = ans_correct;
+            question.disabled = true;
+    }
+
+    function tutorial_a (ques_id,ans) {
+            const ques_num = ques_id.split('dropdownT')[1];
+            var pop_id = "pp".concat(ques_num);
+            document.getElementById(pop_id).classList.toggle("show");
+    }
+
+
+    // make every id in array ids invisible or visible based on the answer of id.
+    function invisible (id, ids) {
+        const section_id = id.split('_')[0];
+        if (document.getElementById(id).value === "1") {
+            ids.forEach(x => { document.getElementById(section_id.concat("_dropdown", x)).hidden = true;
+                                document.getElementById(section_id.concat("_dropdown", x)).value = "";
+                                document.getElementById(section_id.concat("_dropdown", x)).required = false;
+                                document.getElementById(section_id.concat("_qt", x)).hidden = true;});
+          }
+        else{
+            let new_ids = ids.slice(0,2);
+            new_ids.forEach(x => { document.getElementById(section_id.concat("_dropdown", x)).hidden = false;
+                                document.getElementById(section_id.concat("_dropdown", x)).value = "";
+                                document.getElementById(section_id.concat("_dropdown", x)).required = true;
+                                document.getElementById(section_id.concat("_qt", x)).hidden = false;});
+        }
+    }
+
+    function follow_up(id){
+        const section_id = id.split('_')[0];
+        const ques_num = id.split('dropdown')[1];
+        const array1 = ["0", "1"];
+        var confidence_title =document.getElementById(section_id.concat("_qt", ques_num, "1"));
+        var confidence_option =document.getElementById(id.concat("1"));
+
+        var question_title =document.getElementById(section_id.concat("_qt", ques_num, "2"));
+        var question_option =document.getElementById(id.concat("2"));
+
+        if (document.getElementById(id).value ==="2"){
+            question_title.hidden = false;
+            question_option.hidden = false;
+            question_option.value = "";
+            question_option.required = true;
+            confidence_title.hidden = true;
+            confidence_option.hidden = true;
+            confidence_option.value = "";
+            confidence_option.required = false;
+        }
+        else if (array1.includes(document.getElementById(id).value)){
+            question_title.hidden = true;
+            question_option.hidden = true;
+            question_option.required = false;
+            confidence_title.hidden = false;
+            confidence_option.hidden = false;
+            confidence_option.value = "";
+            question_option.value = "";
+            confidence_option.required = true;
+        }
+    }
+
+    function showAlert() {
+        const checkBox_ids = ["checkbox_con", "checkbox_ins", "checkbox_tut"];
+        const page_names = ["1.Consent", "2.Instructions", "3.Tutorial"];
+        var flag = true;
+        var page = ""
+        for(let i=0; i<checkBox_ids.length; i++){
+            if (document.getElementById(checkBox_ids[i]).checked === false ){
+                flag = false;
+                if (page === ""){
+                    page = page.concat("\"", page_names[i], "\"");
+                }
+                else{
+                    page = page.concat(" and ", "\"", page_names[i],  "\"");
+                }
+            }
+        }
+        var prefix = "the page of ";
+        if (page.includes("and")){
+            prefix = "pages include ";
+        }
+        if (flag === false){
+            var myText = "Sorry, your submission has failed because you have not checked the required checkbox at the bottom of ".concat(prefix, page, ".");
+            alert (myText);
+        }
+
+     }
+
+
+
+    </script>
+
+</body>
+</html>
