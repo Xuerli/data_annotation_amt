@@ -196,13 +196,15 @@
              <p>In this job, you will answer questions about given claims, particularly about whether a claim is true or false.
              Although these claims are about climate change,
              our study does not test your personal opinions about climate change but looks for objective answers to analyse these claims.
-             Thus, please answer to your best knowledge.
-                 <li>Please read the rest tabs in order. You can submit your answer only if you have agreed on our consent, read the instruction and take the tutorial. Please make sure that you click the checkbox at the bottom of each page, otherwise you will not be able to submit your work.</li>
+             Thus, please answer to the best of your knowledge.
+                 <li>Please read the rest of the tabs in order. You can submit your answer only if you have agreed to our consent, read the instruction and take the tutorial. Please make sure that you click the checkbox at the bottom of each page, otherwise you will not be able to submit your work.</li>
 
-             <li>You will not lose your answers if you switch tabs, so please feel free to go back instructions or tutorial when needed.</li>
-             <li>The idea is not to have you stuck on any question for hours, so if you feel you got a tough question (the task is hard and the options are not perfect) fell free to <b>use <a href=https://discord.gg/aeTYrwWHSB>this discord server</a> to ask for support</b>.Please avoid using your real name or sharing other personal information on the server.</li>
-             <li>Completing a HIT should take you on average 30~45 min. </li>
-             <li>You will be paid a <b>reward of $4.00</b> ($4.00 reward + $0.10 HIT compensation) for every time you successfully complete the HIT.</li>
+             <li>You will not lose your answers if you switch tabs, so please feel free to go back to the instructions or tutorial when needed.</li>
+             <li>The idea is not to have you stuck on any question for hours, so if you feel you have got a tough question (the task is hard and sometimes the options don’t seem to fit) feel free to
+                 <b>use <a href=https://discord.gg/aeTYrwWHSB>this discord server</a> to ask for support</b>.
+                 Please avoid using your real name or sharing other personal information on the server.</li>
+             <li>Completing a HIT should take you on average 20 min. </li>
+             <li>You will be paid a <b>reward of $3.00</b> ($3.00 reward + $0.10 HIT compensation) for every time you successfully complete the HIT.</li>
          </crowd-tab>
         <crowd-tab header="1. Consent">
             <div class = "claim-container">
@@ -316,7 +318,7 @@
                       <p>In some conditional claims, the speaker indicates whether or not they think the condition is true, i.e. it is not satisfied in reality. For instance, in the last example above, of which the condition is 'there are <span style = "font-weight:bold">no</span> greenhouse gases in the atmosphere', the speaker indicates that 'there are greenhouse gases in the atmosphere'.
                     <p>However, this is not the case for every conditional claim.</p>
                     In the first claim above, the speaker does not say anything about whether or not the condition is likely to be true (that is, whether
-                        it will rain). It is implied that they believe it is possible that .</p>
+                        it will rain). It is implied that they believe it is possible that it will rain.</p>
                     <p>The same applies to the conclusion. The speaker may believe the conclusion is not true,
                       or they may believe that the conclusion might be true. </p>
 
@@ -1082,6 +1084,142 @@
                 <option value="4">Very Low. </option>
               </select>
             </div>
+            <div class="grid-container">
+            <div class="title_container">
+             <h2 style = "color: black">Section 5</h2>
+                <p><b>Claim 5.1:</b> ${ant5} &nbsp; ${con5}</p> </div>
+                  <!-- Option from a Dropdown -->
+                 <p> Which of the following describe Claim 5.1 the best?</p>
+                <select name="Q5.1_conditional_claim" id="5_dropdown1" onChange= "invisible_opt(id, [41, 42])" required>
+                <option value="">Please choose from the options below. </option>
+                <option value="0">It is a conditional claim </option>
+                <option value="1">It is not a conditional claim. </option>
+              </select>
+
+              <div class="title_container"><p><b>Claim 5.2:</b> ${claimAnt5}</p></div>
+              <!-- Option from a Dropdown -->
+              <p> Which do you agree about the speaker's belief?</p>
+                <select name="Q5.21_ant_implicature" id="5_dropdown21" required>
+                <option value="">Please choose from the options below. </option>
+                <option value="1">Claim 5.1 implies its speaker thinks Claim 5.2 is not true.</option>
+                <option value="2">Claim 5.1 does not imply its speaker thinks Claim 5.2 is not true. </option>
+              </select>
+              <p> Is Claim 5.2 verifiable? </p>
+                  <select name="Q5.22_ant_verifiable" id="5_dropdown22" onChange= "invisible(id, [24, 241, 242], [23, 240])" required>
+                <option value="">Please choose from the options below. </option>
+                <option value="0">Yes, it is. </option>
+                <option value="1">No, it is not. </option>
+                <option value="3">I am not sure. </option>
+              </select>
+               <p id="5_qt23"> How sure are you about your answer to the above question? </p>
+                  <select name="Q5.23_confidence_Q23" id="5_dropdown23" required>
+                <option value="">Please choose from the options below. </option>
+                <option value="0">Very High. </option>
+                <option value="1">High. </option>
+                <option value="2">Medium. </option>
+                <option value="3">Low. </option>
+                <option value="4">Very Low. </option>
+              </select>
+              <p id="5_qt240" hidden> Do you think Claim 5.2 is more likely to be true than false? </p>
+              <select name="Q5.240_ant_truthValue" id="5_dropdown240" hidden>
+                <option value="">Please choose from the options below. </option>
+                <option value="0">Yes, it is. </option>
+                <option value="1">No, it is not. </option>
+              </select>
+              <p id="5_qt24"> Is Claim 5.2 true? </p>
+              <select name="Q5.24_ant_truthValue" id="5_dropdown24" onchange="follow_up(id)" required>
+                <option value="">Please choose from the options below. </option>
+                <option value="0">Yes, it is. </option>
+                <option value="1">No, it is not. </option>
+                <option value="2">Alhtough it is verifiable, I do not know if it is true or false. </option>
+              </select>
+            <p id="5_qt241" > How sure are you about your answer to the above question?</p>
+              <select name="Q5.241_confidence" id="5_dropdown241" >
+                <option value="">Please choose from the options below. </option>
+                <option value="0">Very High. </option>
+                <option value="1">High. </option>
+                <option value="2">Medium. </option>
+                <option value="3">Low. </option>
+                <option value="4">Very Low. </option>
+              </select>
+          <p id="5_qt242" hidden> Why don't you know whether Claim 5.2 is true or false?</p>
+              <select name="Q5.242_ant_unknown_reason" id="5_dropdown242" hidden>
+                <option value="">Please choose from the options below. </option>
+                <option value="0">It lacks of context， e.g., caused by an undefined pronoun, such as 'it'. </option>
+                <option value="1">It is badly written so not understandable. </option>
+                <option value="2">It requires domain knowledge so only experts can tell. </option>
+                <option value="3">Others. </option>
+          </select>
+              <div class="title_container"><p><b>Claim 5.3:</b> ${claimCon5}</p></div>
+              <p> Is Claim 5.3 verifiable? </p>
+              <select name="Q5.31_con_verifiable" id="5_dropdown31" onChange= "invisible(id, [33, 331, 332], [32, 330])"  required>
+                <option value="">Please choose from the options below. </option>
+                <option value="0">Yes, it is. </option>
+                <option value="1">No, it is not. </option>
+                <option value="3">I am not sure. </option>
+              </select>
+            <p id="5_qt32"> How sure are you about your answer to the above question?</p>
+            <select name="Q5.32_confidence_Q31" id="5_dropdown32" required>
+                <option value="">Please choose from the options below. </option>
+                <option value="0">Very High. </option>
+                <option value="1">High. </option>
+                <option value="2">Medium. </option>
+                <option value="3">Low. </option>
+                <option value="4">Very Low. </option>
+              </select>
+              <p id="5_qt330" hidden> Do you think Claim 5.3 is more likely to be true than false? </p>
+              <select name="Q5.330_ant_truthValue" id="5_dropdown330" hidden>
+                <option value="">Please choose from the options below. </option>
+                <option value="0">Yes, it is. </option>
+                <option value="1">No, it is not. </option>
+              </select>
+              <p id="5_qt33"> Is Claim 5.3 true? </p>
+                  <select name="Q5.33_con_truthValue" id="5_dropdown33" onchange = "follow_up(id)" required>
+                <option value="">Please choose from the options below. </option>
+                <option value="0">Yes, it is. </option>
+                <option value="1">No, it is not. </option>
+                <option value="2">Alhtough it is verifiable, I do not know if it is true or false. </option>
+              </select>
+            <p id="5_qt331" > How sure are you about your answer to the above question?</p>
+                  <select name="Q5.331_confidence_Q33" id="5_dropdown331" >
+                <option value="">Please choose from the options below. </option>
+                <option value="0">Very High. </option>
+                <option value="1">High. </option>
+                <option value="2">Medium. </option>
+                <option value="3">Low. </option>
+                <option value="4">Very Low. </option>
+              </select>
+            <p id="5_qt332" hidden>  Why don't you know whether Claim 5.3 is true or false?</p>
+                  <select name="Q5.332_con_unknown_reason" id="5_dropdown332" hidden>
+                <option value="">Please choose from the options below. </option>
+                <option value="0">It lacks of context， e.g., caused by an undefined pronoun, such as 'it'. </option>
+                <option value="1">It is badly written so not understandable. </option>
+                <option value="2">It requires domain knowledge so only experts can tell. </option>
+                <option value="3">Others. </option>
+              </select>
+
+               <p id="5_qt41">  If Claim 5.2 was true, would Claim 5.3 also become true as a result?</p>
+                  <!-- Option from a Dropdown -->
+                  <select name="Q5.41_entailment" id="5_dropdown41" required>
+                <!--<option value="" selected>Q5. If Claim 2 was true, would Claim 3 also become true as a result?</option>-->
+                <option value="">Please choose from the options below. </option>
+                <option value="0">Absolutely (if the Claim 5.2 happened, then the conclusion would happen for sure). </option>
+                <option value="1">Probably (if Claim 5.2 happened, it would reasonably increase the chance of Claim 5.3 becoming a fact). </option>
+                <option value="2">Maybe (if Claim 5.2 happened, it would mediumly increase the chance of Claim 5.3 becoming a fact). </option>
+                <option value="3">Less likely (if Claim 5.2 happened, it would minorly increase the chance of Claim 5.3 becoming a fact). </option>
+                 <option value="4">Not at all (they are irrelevant.)</option>
+              </select>
+                  <p id="5_qt42"> How sure are you about your answer to the above question?</p>
+                  <select name="Q5.42_confidence_ent" id="5_dropdown42" required>
+                <!--<option value="" selected>>Select an option below.</option>-->
+                <option value="">Please choose from the options below. </option>
+                <option value="0">Very High. </option>
+                <option value="1">High. </option>
+                <option value="2">Medium. </option>
+                <option value="3">Low. </option>
+                <option value="4">Very Low. </option>
+              </select>
+            </div>
             <button type="submit" id="submitButton"  class="shadow" value="Submit" onclick="showAlert()"  style="margin-left: 45%; margin-top: 10pt"> Submit</button>
             </crowd-tab>
       </crowd-tabs>
@@ -1269,12 +1407,12 @@
                 }
             }
         }
-        var prefix = "the page of ";
+        var prefix = "checkbox at the bottom of the page of ";
         if (page.includes("and")){
-            prefix = "pages include ";
+            prefix = "checkboxes at the bottom of the pages: ";
         }
         if (flag === false){
-            var myText = "Sorry, your submission has failed because you have not checked the required checkbox at the bottom of ".concat(prefix, page, ".");
+            var myText = "Sorry, your submission has failed because you have not checked the required ".concat(prefix, page, ".");
             alert (myText);
         }
 
