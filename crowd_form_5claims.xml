@@ -1220,12 +1220,22 @@
                 <option value="4">Very Low. </option>
               </select>
             </div>
-            <button type="submit" id="submitButton"  class="shadow" value="Submit" onclick="showAlert()"  style="margin-left: 45%; margin-top: 10pt"> Submit</button>
+            <script src="https://www.google.com/recaptcha/api.js"></script>
+            <div class="g-recaptcha" data-error-callback = "recaptchaCallback" data-callback="recaptchaCallback" data-expired-callback="recaptchaExpire" style="margin-left: 36%;margin-top: 10pt;" data-sitekey="6LdO89gkAAAAAPPjNDimG5-h1wPA0QFnze24B0Ip"></div>
+           </div>
+          <p id="demo"></p>
+            <button type="submit" id="submitButton"  class="shadow" value="Submit" onclick="showAlert()"  style="margin-left: 45%; margin-top: 10pt;" disabled> Submit</button>
             </crowd-tab>
       </crowd-tabs>
       </crowd-form>
 
     <script>
+    function recaptchaExpire(){
+        document.getElementById('submitButton').disabled = true;
+        }
+    function recaptchaCallback(){
+        document.getElementById('submitButton').disabled = false;
+        }
     function get_ready(id){
         const checkBox_ids = ["checkbox_con", "checkbox_ins", "checkbox_tut"];
         const all_in_tutorial = document.querySelectorAll('[id^="dropdownT"]');
