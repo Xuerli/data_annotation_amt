@@ -1240,7 +1240,7 @@
         const all_in_tutorial = document.querySelectorAll('[id^="dropdownT"]');
 
         if (document.getElementById(id).checked){
-              all_in_tutorial.forEach(element => {element.required= false;});
+              all_in_tutorial.forEach(element => {element.required = false;});
               checkBox_ids.forEach(e_id => {
               var element = document.getElementById(e_id);
               element.checked = true;
@@ -1256,7 +1256,7 @@
               element.disabled=false;
               var pop_element = document.getElementById(e_id.concat("_next"));
               pop_element.innerHTML = "";});
-            all_in_tutorial.forEach(element => {element.required= true});
+            all_in_tutorial.forEach(element => {element.required = true});
         }
         next(id);
     }
@@ -1325,7 +1325,7 @@
     function hide_selection(id){
         document.getElementById(id).value = "";
         document.getElementById(id).hidden = true;
-        document.getElementById(id).required= false;
+        document.getElementById(id).required = false;
         }
 
     function unhide_selection(id){
@@ -1338,7 +1338,7 @@
 
     function invisible (id, ids, ids2) {
         const section_id = id.split('_')[0];
-        // hide all element in ids except the last one and make them not required="true".
+        // hide all element in ids except the last one and make them not required.
         if (document.getElementById(id).value === "1") {
             ids.push(ids2[1]);
             ids.forEach(x => { hide_selection(section_id.concat("_dropdown", x));
